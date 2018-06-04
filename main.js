@@ -222,7 +222,7 @@ var AppModule = /** @class */ (function () {
                 _life_detail_life_detail_component__WEBPACK_IMPORTED_MODULE_5__["LifeDetailComponent"],
                 _messages_messages_component__WEBPACK_IMPORTED_MODULE_6__["MessagesComponent"],
                 _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_8__["DashboardComponent"],
-                _life_search_life_search_component__WEBPACK_IMPORTED_MODULE_12__["LifeSearchComponent"]
+                _life_search_life_search_component__WEBPACK_IMPORTED_MODULE_12__["LifeSearchComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -279,6 +279,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _life_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../life.service */ "./src/app/life.service.ts");
+/* harmony import */ var _iniciativa_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../iniciativa.service */ "./src/app/iniciativa.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -290,20 +291,46 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 
+
 var DashboardComponent = /** @class */ (function () {
-    function DashboardComponent(lifeService) {
+    function DashboardComponent(lifeService, iniciativaService) {
         this.lifeService = lifeService;
+        this.iniciativaService = iniciativaService;
         this.lifes = [];
         this.inics = [];
         this.ordenedinics = new Array();
     }
     DashboardComponent.prototype.ngOnInit = function () {
         this.getLifes();
+        this.getInics();
+    };
+    DashboardComponent.prototype.start = function (inics) {
+        for (var l = 0; l < inics.length; l++) {
+            this.ordenedinics[inics[l].value] = inics[l].names;
+        }
+        this.sort();
+    };
+    DashboardComponent.prototype.sort = function () {
+        this.inics = [];
+        for (var i = this.ordenedinics.length - 1; i >= 0; i--) {
+            if (this.ordenedinics[i] != undefined) {
+                var names = this.ordenedinics[i];
+                var value = i;
+                var id = i;
+                var newinic = { id: id, value: value, names: names };
+                this.inics.push(newinic);
+            }
+        }
     };
     DashboardComponent.prototype.getLifes = function () {
         var _this = this;
         this.lifeService.getLifes()
             .subscribe(function (lifes) { return _this.lifes = lifes; }); //.slice(0, 2)
+    };
+    DashboardComponent.prototype.getInics = function () {
+        var _this = this;
+        this.iniciativaService.getInics()
+            .subscribe(function (iniciativas) { return _this.start(iniciativas); });
     };
     DashboardComponent.prototype.saveTextAsFile = function () {
         var namefile = document.getElementById("namefile");
@@ -373,13 +400,20 @@ var DashboardComponent = /** @class */ (function () {
             this.ordenedinics[+pos.value] = new Array();
         }
         this.ordenedinics[+pos.value].push(name.value);
-        this.inics = [];
-        for (var i = this.ordenedinics.length - 1; i >= 0; i--) {
-            if (this.ordenedinics[i] != undefined) {
-                var names = this.ordenedinics[i];
-                var value = i;
-                this.inics.push({ value: value, names: names });
-            }
+        this.sort();
+        //não pode ficar dentro do for
+        var names = this.ordenedinics[+pos.value];
+        var value = +pos.value;
+        var id = +pos.value;
+        var newinic = { id: id, value: value, names: names };
+        if (names.length > 1) {
+            this.iniciativaService.updateInic(newinic)
+                .subscribe();
+        }
+        else {
+            this.iniciativaService.addInic(newinic).subscribe(function (inic) {
+                newinic = inic;
+            });
         }
         /* let pos=  <HTMLInputElement>  document.getElementById("inicvalue");
          let name=  <HTMLInputElement>  document.getElementById("inicname");
@@ -399,6 +433,9 @@ var DashboardComponent = /** @class */ (function () {
          }*/
     };
     DashboardComponent.prototype.clearInic = function () {
+        for (var l = 0; l < this.inics.length; l++) {
+            this.iniciativaService.deleteInic(this.inics[l].id).subscribe();
+        }
         this.inics = [];
         this.ordenedinics = [];
     };
@@ -408,7 +445,7 @@ var DashboardComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./dashboard.component.html */ "./src/app/dashboard/dashboard.component.html"),
             styles: [__webpack_require__(/*! ./dashboard.component.css */ "./src/app/dashboard/dashboard.component.css")]
         }),
-        __metadata("design:paramtypes", [_life_service__WEBPACK_IMPORTED_MODULE_1__["LifeService"]])
+        __metadata("design:paramtypes", [_life_service__WEBPACK_IMPORTED_MODULE_1__["LifeService"], _iniciativa_service__WEBPACK_IMPORTED_MODULE_2__["IniciativaService"]])
     ], DashboardComponent);
     return DashboardComponent;
 }());
@@ -443,11 +480,98 @@ var InMemoryDataService = /** @class */ (function () {
                 magics: [
                     { name: 'swarm', cost: '2', alc: 'cjr', ade: 2, pod: 0, man: false, off: false, note: 'inimigos -2 atk' }
                 ]
-            },
+            }
         ];
-        return { lifes: lifes };
+        var iniciativas = [];
+        return { lifes: lifes, iniciativas: iniciativas };
     };
     return InMemoryDataService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/iniciativa.service.ts":
+/*!***************************************!*\
+  !*** ./src/app/iniciativa.service.ts ***!
+  \***************************************/
+/*! exports provided: IniciativaService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IniciativaService", function() { return IniciativaService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _message_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./message.service */ "./src/app/message.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var IniciativaService = /** @class */ (function () {
+    function IniciativaService(http, messageService) {
+        this.http = http;
+        this.messageService = messageService;
+        this.inicUrl = 'api/iniciativas'; //return do in memory
+        this.httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({ 'Content-Type': 'application/json' })
+        };
+    }
+    IniciativaService.prototype.getInics = function () {
+        var _this = this;
+        this.messageService.add('IniciativaService: fetched inics');
+        return this.http.get(this.inicUrl)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (iniciativas) { return _this.log('fetched inics'); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('getInics', [])));
+        //return of(LIFES);
+    };
+    IniciativaService.prototype.addInic = function (inic) {
+        var _this = this;
+        return this.http.post(this.inicUrl, inic, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (inic) { return _this.log("added inic w/ value=" + inic.value + " and names=" + inic.names); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('addInic')));
+    };
+    IniciativaService.prototype.updateInic = function (inic) {
+        var _this = this;
+        return this.http.put(this.inicUrl, inic, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("updated inic value=" + inic.value); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('updateInic')));
+    };
+    IniciativaService.prototype.deleteInic = function (id) {
+        var _this = this;
+        var url = this.inicUrl + "/" + id;
+        return this.http.delete(url, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("deleted inic cursed id=" + id); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('deleteInic')));
+    };
+    IniciativaService.prototype.log = function (message) {
+        this.messageService.add('IniciativaService: ' + message);
+    };
+    IniciativaService.prototype.handleError = function (operation, result) {
+        var _this = this;
+        if (operation === void 0) { operation = 'operation'; }
+        return function (error) {
+            // TODO: send the error to remote logging infrastructure
+            console.log(error); // log to console instead
+            // TODO: better job of transforming error for user consumption
+            _this.log(operation + " failed: " + error.message);
+            // Let the app keep running by returning an empty result.
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])(result);
+        };
+    };
+    IniciativaService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"], _message_service__WEBPACK_IMPORTED_MODULE_2__["MessageService"]])
+    ], IniciativaService);
+    return IniciativaService;
 }());
 
 
