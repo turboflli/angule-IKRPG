@@ -78,6 +78,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _life_life_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./life/life.component */ "./src/app/life/life.component.ts");
 /* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
 /* harmony import */ var _life_detail_life_detail_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./life-detail/life-detail.component */ "./src/app/life-detail/life-detail.component.ts");
+/* harmony import */ var _tutorial_tutorial_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./tutorial/tutorial.component */ "./src/app/tutorial/tutorial.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -89,11 +90,25 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var routes = [
-    { path: 'life', component: _life_life_component__WEBPACK_IMPORTED_MODULE_2__["LifeComponent"] },
-    { path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_3__["DashboardComponent"] },
-    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-    { path: 'detail/:id', component: _life_detail_life_detail_component__WEBPACK_IMPORTED_MODULE_4__["LifeDetailComponent"] }
+    { path: 'life', component: _life_life_component__WEBPACK_IMPORTED_MODULE_2__["LifeComponent"], outlet: 'primary',
+        children: [
+            { path: 'detail/:id', redirectTo: '/detail/:id(tutorial:detail)', pathMatch: 'full' },
+        ] },
+    { path: 'dashboard', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_3__["DashboardComponent"], outlet: 'primary' },
+    { path: 'life', component: _tutorial_tutorial_component__WEBPACK_IMPORTED_MODULE_5__["TutorialComponent"], outlet: 'tutorial'
+    },
+    { path: 'menu', component: _tutorial_tutorial_component__WEBPACK_IMPORTED_MODULE_5__["TutorialComponent"], outlet: 'tutorial' },
+    { path: '', redirectTo: '/dashboard(tutorial:menu)', pathMatch: 'full' },
+    { path: 'detail/:id', component: _life_detail_life_detail_component__WEBPACK_IMPORTED_MODULE_4__["LifeDetailComponent"], outlet: 'primary' },
+    { path: 'detail', component: _tutorial_tutorial_component__WEBPACK_IMPORTED_MODULE_5__["TutorialComponent"], outlet: 'tutorial' }
+    /*,children:[
+    {
+      path: '',
+      component: TutorialComponent,
+      outlet:'tutorial'
+    }]*/
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -118,7 +133,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* AppComponent's private CSS styles */\r\nh1 {\r\n  font-size: 1.2em;\r\n  color: #333;\r\n  margin-bottom: 0;\r\n}\r\nh2 {\r\n  font-size: 2em;\r\n  margin-top: 0;\r\n  padding-top: 0;\r\n}\r\nnav a {\r\n  padding: 5px 10px;\r\n  text-decoration: none;\r\n  margin-top: 10px;\r\n  display: inline-block;\r\n  background-color: #eee;\r\n  border-radius: 4px;\r\n}\r\nnav a:visited, a:link {\r\n  color: #607D8B;\r\n}\r\nnav a:hover {\r\n  color: #039be5;\r\n  background-color: #CFD8DC;\r\n}\r\nnav a.active {\r\n  color: #039be5;\r\n}\r\ndiv {\r\n background-color: #f0f8ff96;\r\n height: -webkit-fill-available;\r\n}"
+module.exports = "/* AppComponent's private CSS styles */\r\nh1 {\r\n  font-size: 1.2em;\r\n  color: #333;\r\n  margin-bottom: 0;\r\n}\r\nh2 {\r\n  font-size: 2em;\r\n  margin-top: 0;\r\n  padding-top: 0;\r\n}\r\nnav a {\r\n  padding: 5px 10px;\r\n  text-decoration: none;\r\n  margin-top: 10px;\r\n  display: inline-block;\r\n  background-color: #eee;\r\n  border-radius: 4px;\r\n}\r\nnav a:visited, a:link {\r\n  color: #607D8B;\r\n}\r\nnav a:hover {\r\n  color: #039be5;\r\n  background-color: #CFD8DC;\r\n}\r\nnav a.active {\r\n  color: #039be5;\r\n}\r\ndiv {\r\n background-color: #f0f8ffd6;\r\n     height: auto;\r\n    min-height: -webkit-fill-available;\r\n}"
 
 /***/ }),
 
@@ -129,7 +144,7 @@ module.exports = "/* AppComponent's private CSS styles */\r\nh1 {\r\n  font-size
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n\r\n<div style=\"text-align:center\">\r\n\r\n  <h1>\r\n    Welcome to {{ title }}!\r\n  </h1>\r\n  <nav>\r\n\t  <a routerLink=\"/dashboard\">Menu</a>\r\n\t  <a routerLink=\"/life\">Lifes</a>\r\n\t   <a routerLink=\"/detail/0\">Novo</a>\r\n\t</nav>\r\n\r\n  <router-outlet></router-outlet>\r\n\r\n  <app-messages></app-messages>\r\n\r\n</div>\r\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div style=\"text-align:center\">\r\n\r\n  <h1>\r\n    Welcome to {{ title }}!\r\n  </h1>\r\n  <nav>\r\n <!--<a routerLink=\"/dashboard\">Menu</a>\r\n\t  <a routerLink=\"/life\">Lifes</a>\r\n\t   <a routerLink=\"detail/0\">Novo</a>-->\r\n\t  <a [routerLink]=\"[{outlets:{tutorial:'menu',primary:'dashboard'}}]\">Menu</a>\r\n\t  <a [routerLink]=\"[{outlets:{tutorial:'life',primary:'life'}}]\">Lifes</a>\r\n\t   <a [routerLink]=\"[{outlets:{tutorial:'detail',primary:'detail/0'}}]\">Novo</a>\r\n\t</nav>\r\n\r\n  <router-outlet name=\"primary\"></router-outlet>\r\n  <app-messages></app-messages>\r\n  <router-outlet name=\"tutorial\"></router-outlet>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -216,6 +231,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var angular_in_memory_web_api__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! angular-in-memory-web-api */ "./node_modules/angular-in-memory-web-api/index.js");
 /* harmony import */ var _in_memory_data_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./in-memory-data.service */ "./src/app/in-memory-data.service.ts");
 /* harmony import */ var _life_search_life_search_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./life-search/life-search.component */ "./src/app/life-search/life-search.component.ts");
+/* harmony import */ var _tutorial_tutorial_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./tutorial/tutorial.component */ "./src/app/tutorial/tutorial.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -225,6 +241,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
  // <-- NgModel lives here
+
 
 
 
@@ -247,6 +264,7 @@ var AppModule = /** @class */ (function () {
                 _messages_messages_component__WEBPACK_IMPORTED_MODULE_6__["MessagesComponent"],
                 _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_8__["DashboardComponent"],
                 _life_search_life_search_component__WEBPACK_IMPORTED_MODULE_12__["LifeSearchComponent"],
+                _tutorial_tutorial_component__WEBPACK_IMPORTED_MODULE_13__["TutorialComponent"],
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -256,7 +274,7 @@ var AppModule = /** @class */ (function () {
                 // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
                 // and returns simulated server responses.
                 // Remove it when a real server is ready to receive requests.
-                angular_in_memory_web_api__WEBPACK_IMPORTED_MODULE_10__["HttpClientInMemoryWebApiModule"].forRoot(_in_memory_data_service__WEBPACK_IMPORTED_MODULE_11__["InMemoryDataService"], { dataEncapsulation: false })
+                angular_in_memory_web_api__WEBPACK_IMPORTED_MODULE_10__["HttpClientInMemoryWebApiModule"].forRoot(_in_memory_data_service__WEBPACK_IMPORTED_MODULE_11__["InMemoryDataService"], { dataEncapsulation: false }),
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
@@ -276,7 +294,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* DashboardComponent's private CSS styles */\r\n[class*='col-'] {\r\n  float: left;\r\n  padding-right: 20px;\r\n  padding-bottom: 20px;\r\n}\r\n[class*='col-']:last-of-type {\r\n  padding-right: 0;\r\n}\r\na {\r\n  text-decoration: none;\r\n}\r\n*, *:after, *:before {\r\n  box-sizing: border-box;\r\n}\r\nh3 {\r\n  text-align: center; margin-bottom: 0;\r\n}\r\nh4 {\r\n  position: relative;\r\n}\r\n.grid {\r\n  margin: 0;\r\n\r\n}\r\n.col-1-4 {\r\n  width: 50%;\r\n\r\n}\r\n.module {\r\n  padding: 10px;\r\n  text-align: center;\r\n  color: #eee;\r\n  max-height: 80px;\r\n  min-width: 120px;\r\n  background-color: #607D8B;\r\n  border-radius: 2px;\r\n}\r\n.module:hover {\r\n  background-color: #EEE;\r\n  cursor: pointer;\r\n  color: #607d8b;\r\n}\r\n.grid-pad {\r\n  padding: 10px 0;\r\n}\r\n.grid-pad > [class*='col-']:last-of-type {\r\n  padding-right: 20px;\r\n}\r\n@media (max-width: 600px) {\r\n  .module {\r\n    font-size: 10px;\r\n    max-height: 75px; }\r\n}\r\n@media (max-width: 1024px) {\r\n  .grid {\r\n    margin: 0;\r\n  }\r\n  .module {\r\n    min-width: 120px;\r\n  }\r\n}\r\n.hidden{\r\n\tdisplay:none;\r\n}\r\nlabel {\r\n  /*display: inline-block;*/\r\n  width: 3em;\r\n  margin: .5em 0;\r\n  color: #607D8B;\r\n  font-weight: bold;\r\n\r\n  \r\n}\r\ninput {\r\n  height: 2em;\r\n  font-size: 1em;\r\n  padding-left: .4em;\r\n}\r\ninput[type=\"number\"]{\r\n\twidth:50px;\r\n}\r\nbutton {\r\n  padding: 5px 10px;\r\n  text-decoration: none;\r\n  margin-top: 10px;\r\n  display: inline-block;\r\n  background-color: #eee;\r\n  border-radius: 4px;\r\n}\r\nbutton:hover {\r\n  color: #039be5;\r\n  background-color: #CFD8DC;\r\n}"
+module.exports = "/* DashboardComponent's private CSS styles */\r\n[class*='col-'] {\r\n  float: left;\r\n  padding-right: 20px;\r\n  padding-bottom: 20px;\r\n}\r\n[class*='col-']:last-of-type {\r\n  padding-right: 0;\r\n}\r\na {\r\n  text-decoration: none;\r\n}\r\n*, *:after, *:before {\r\n  box-sizing: border-box;\r\n}\r\nh3 {\r\n  text-align: center; margin-bottom: 0;\r\n}\r\nh4 {\r\n  position: relative;\r\n}\r\n.grid {\r\n  margin: 0;\r\n\r\n}\r\n.col-1-4 {\r\n  width: 50%;\r\n\r\n}\r\n.module {\r\n  padding: 10px;\r\n  text-align: center;\r\n  color: #eee;\r\n  max-height: 80px;\r\n  min-width: 120px;\r\n  background-color: #607D8B;\r\n  border-radius: 2px;\r\n}\r\n.module:hover {\r\n  background-color: #EEE;\r\n  cursor: pointer;\r\n  color: #607d8b;\r\n}\r\n.grid-pad {\r\n  padding: 10px 0;\r\n}\r\n.grid-pad > [class*='col-']:last-of-type {\r\n  padding-right: 20px;\r\n}\r\n@media (max-width: 600px) {\r\n  .module {\r\n    font-size: 10px;\r\n    max-height: 75px; }\r\n}\r\n@media (max-width: 1024px) {\r\n  .grid {\r\n    margin: 0;\r\n  }\r\n  .module {\r\n    min-width: 120px;\r\n  }\r\n}\r\n.hidden{\r\n\tdisplay:none;\r\n}\r\nlabel {\r\n  /*display: inline-block;*/\r\n  width: 3em;\r\n  margin: .5em 0;\r\n  color: #607D8B;\r\n  font-weight: bold;\r\n\r\n  \r\n}\r\ninput {\r\n  height: 2em;\r\n  font-size: 1em;\r\n  padding-left: .4em;\r\n}\r\ninput[type=\"number\"]{\r\n\twidth:50px;\r\n}\r\nbutton {\r\n  padding: 5px 10px;\r\n  text-decoration: none;\r\n  margin-top: 10px;\r\n  display: inline-block;\r\n  background-color: #eee;\r\n  border-radius: 4px;\r\n}\r\nbutton:hover {\r\n  color: #039be5;\r\n  background-color: #CFD8DC;\r\n}\r\n*:focus {\r\n\t-webkit-animation: blink 0.85s step-end infinite alternate; \r\n}\r\n@-webkit-keyframes blink { 50% { border-color: aqua;background-color: aqua; }  }"
 
 /***/ }),
 
@@ -287,7 +305,7 @@ module.exports = "/* DashboardComponent's private CSS styles */\r\n[class*='col-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n<div class=\"grid grid-pad\">\r\n  <!--a *ngFor=\"let life of lifes\" class=\"col-1-4\"\r\n   routerLink=\"/detail/{{life.id}}\">\r\n    <div class=\"module life\">\r\n      <h4>{{life.name}}</h4>\r\n    </div>\r\n  </a-->\r\n  <div>\r\n  <input type=\"text\" id=\"namefile\" value=\"lifes\" placeholder=\"Name of file\">\r\n  <button (click)=\"saveTextAsFile()\">Export lifes</button>\r\n  <input type=\"file\" id=\"importedfile\">\r\n  <button (click)=\"readtext()\">Read file</button> <!--problema de sincronia-->\r\n  <!-- não funciona <button (click)=\"deleteAll()\">Limpar</button> -->\r\n  <textarea class=\"hidden\" id=\"arearesp\"></textarea>\r\n  <div id=\"divready\" class=\"hidden\">\r\n  <label>Ready to load!</label>\r\n  <button (click)=\"importLifes()\">Import lifes</button> <!--problema de sincronia-->\r\n  </div>\r\n  <div>\r\n  <br>\r\n  <div>\r\n  <input type=\"number\" id=\"inicvalue\" placeholder=\"init value\">\r\n  :\r\n  <input type=\"text\" id=\"inicname\" placeholder=\"Name\">\r\n  <button (click)=\"addInic()\">add</button>\r\n  <button (click)=\"clearInic()\">clean</button>\r\n  </div>\r\n  <br>\r\n  <table border=\"1px\" align=\"left\">\r\n  <tr>\r\n\t<th>init</th>\r\n\t<th>name</th>\r\n  </tr>\r\n  <tr *ngFor=\"let inic of this.inics\">\r\n\t<td >{{inic.value}}</td>\r\n\t<td *ngFor=\"let name of this.inic.names\">{{name}}</td>\r\n  </tr>\r\n  \r\n  </table>\r\n</div>\r\n<app-life-search></app-life-search>"
+module.exports = "\r\n\r\n<div class=\"grid grid-pad\">\r\n  <!--a *ngFor=\"let life of lifes\" class=\"col-1-4\"\r\n   routerLink=\"/detail/{{life.id}}\">\r\n    <div class=\"module life\">\r\n      <h4>{{life.name}}</h4>\r\n    </div>\r\n  </a-->\r\n  <div>\r\n  <input type=\"text\" id=\"namefile\" value=\"lifes\" placeholder=\"Name of file\">\r\n  <button id=\"savebutton\" (click)=\"saveTextAsFile()\">Export lifes</button>\r\n  <input type=\"file\" id=\"importedfile\">\r\n  <button id=\"readbutton\" (click)=\"readtext()\">Read file</button> <!--problema de sincronia-->\r\n  <!-- não funciona <button (click)=\"deleteAll()\">Limpar</button> -->\r\n  <textarea class=\"hidden\" id=\"arearesp\"></textarea>\r\n  <div id=\"divready\" class=\"hidden\">\r\n  <label>Ready to load!</label>\r\n  <button id=\"loadbutton\" (click)=\"importLifes()\">Import lifes</button> <!--problema de sincronia-->\r\n  </div>\r\n  <div>\r\n  <br>\r\n  <div>\r\n  <input type=\"number\" id=\"inicvalue\" placeholder=\"init value\">\r\n  :\r\n  <input type=\"text\" id=\"inicname\" placeholder=\"Name\">\r\n  <button id=\"inicbutton\" (click)=\"addInic()\">add</button>\r\n  <button id=\"inicclearbutton\" (click)=\"clearInic()\">clean</button>\r\n  </div>\r\n  <br>\r\n  <table border=\"1px\" align=\"left\">\r\n  <tr>\r\n\t<th>init</th>\r\n\t<th>name</th>\r\n  </tr>\r\n  <tr *ngFor=\"let inic of this.inics\">\r\n\t<td >{{inic.id}}</td>\r\n\t<td *ngFor=\"let name of inic.names\">{{name}}</td>\r\n  </tr>\r\n  \r\n  </table>\r\n</div>\r\n<app-life-search></app-life-search>"
 
 /***/ }),
 
@@ -330,7 +348,7 @@ var DashboardComponent = /** @class */ (function () {
     };
     DashboardComponent.prototype.start = function (inics) {
         for (var l = 0; l < inics.length; l++) {
-            this.ordenedinics[inics[l].value] = inics[l].names;
+            this.ordenedinics[inics[l].id] = inics[l].names;
         }
         this.sort();
     };
@@ -339,9 +357,8 @@ var DashboardComponent = /** @class */ (function () {
         for (var i = this.ordenedinics.length - 1; i >= 0; i--) {
             if (this.ordenedinics[i] != undefined) {
                 var names = this.ordenedinics[i];
-                var value = i;
                 var id = i;
-                var newinic = { id: id, value: value, names: names };
+                var newinic = { id: id, names: names };
                 this.inics.push(newinic);
             }
         }
@@ -427,9 +444,8 @@ var DashboardComponent = /** @class */ (function () {
         this.sort();
         //não pode ficar dentro do for
         var names = this.ordenedinics[+pos.value];
-        var value = +pos.value;
         var id = +pos.value;
-        var newinic = { id: id, value: value, names: names };
+        var newinic = { id: id, names: names };
         if (names.length > 1) {
             this.iniciativaService.updateInic(newinic)
                 .subscribe();
@@ -507,9 +523,128 @@ var InMemoryDataService = /** @class */ (function () {
             }
         ];
         var iniciativas = [];
-        return { lifes: lifes, iniciativas: iniciativas };
+        var infos = [
+            { id: 'menuoi', text: [
+                    'Bem vindo a página de menu', 'Welcome to menu page '
+                ], for: '', pos: 0 },
+            { id: 'lifeoi', text: [
+                    'Bem vindo a página de planilhas', 'Welcome to sheet page '
+                ], for: '', pos: 0 },
+            { id: 'detailoi', text: [
+                    'Bem vindo a página de detalhe', 'Welcome to detail page '
+                ], for: '', pos: 0 },
+            { id: 'menuintro', text: [
+                    'Nesta página você pode salvar e carregar suas fichas, e também adicionar iniciativas',
+                    'In this page you can save and load your sheets, and add initiatives as well'
+                ], for: '', pos: 1 },
+            { id: 'menuinic', text: [
+                    'para adicionar uma iniciativa preencha os campos (primeiro com valor',
+                    'to add an initiative fulfil the blanks (the first with value'
+                ], for: 'inicvalue', pos: 2 },
+            { id: 'menuinic', text: [
+                    'e segundo com nome)',
+                    'and the second with name)'
+                ], for: 'inicname', pos: 2 },
+            { id: 'menuinic', text: [
+                    'e clique no botão ao lado',
+                    'click on the button at side'
+                ], for: 'inicbutton', pos: 2 },
+            { id: 'menuinicclear', text: [
+                    'para remover todas as iniciativas clique no botão clean',
+                    'to remove all initiatives just click on the clean button'
+                ], for: 'inicclearbutton', pos: 2 },
+            { id: 'menuname', text: [
+                    'para salvar suas planilhas escolha o nome do arquivo',
+                    'to save your sheets tip a name for the file'
+                ], for: 'namefile', pos: 3 },
+            { id: 'menusave', text: [
+                    'e clique no botão ao lado',
+                    'and click on the button at side'
+                ], for: 'savebutton', pos: 3 },
+            { id: 'menuread', text: [
+                    'para carregar suas planilhas escolha um arquivo(json)',
+                    'to load your sheets choose a file(json)'
+                ], for: 'importedfile', pos: 4 },
+            { id: 'menuread', text: [
+                    ' e clique no botão ao lado',
+                    ' and click on the button at side'
+                ], for: 'readbutton', pos: 4 },
+            { id: 'menuload', text: [
+                    'após aparecer amensagem de pronto clique no botão ao lado',
+                    'after showing the message of ready click on the button at side'
+                ], for: 'loadbutton', pos: 4 },
+            { id: 'lifeintro', text: [
+                    'Nesta página você pode ver o nome de suas planilhas e deletar alguma',
+                    'In this page you can see the name of your sheets and delete someone'
+                ], for: '', pos: 1 },
+            { id: 'lifeid', text: [
+                    'você vê o id de sua planilha aqui',
+                    'you see the id of your sheet here'
+                ], for: 'lifeid0', pos: 2 },
+            { id: 'lifelist', text: [
+                    'para ver mais detalhado clique sobre um nome',
+                    'to see more details click on the name'
+                ], for: 'lifelink0', pos: 2 },
+            { id: 'lifedelete', text: [
+                    'para deletar clique no botão de x',
+                    'to delete click on the x button'
+                ], for: 'lifebutton0', pos: 2 }
+        ];
+        return { lifes: lifes, iniciativas: iniciativas, infos: infos };
     };
     return InMemoryDataService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/info.service.ts":
+/*!*********************************!*\
+  !*** ./src/app/info.service.ts ***!
+  \*********************************/
+/*! exports provided: InfoService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InfoService", function() { return InfoService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var InfoService = /** @class */ (function () {
+    function InfoService(http) {
+        this.http = http;
+        this.infoUrl = 'api/infos'; //return do in memory
+        this.httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]({ 'Content-Type': 'application/json' })
+        };
+    }
+    InfoService.prototype.getInfo = function (id) {
+        var url = this.infoUrl + "/" + id;
+        return this.http.get(url).pipe();
+    };
+    InfoService.prototype.getInfos = function (aba) {
+        return this.http.get(this.infoUrl + "/?id=" + aba)
+            .pipe();
+    };
+    InfoService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], InfoService);
+    return InfoService;
 }());
 
 
@@ -563,11 +698,11 @@ var IniciativaService = /** @class */ (function () {
     };
     IniciativaService.prototype.addInic = function (inic) {
         var _this = this;
-        return this.http.post(this.inicUrl, inic, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (inic) { return _this.log("added inic w/ value=" + inic.value + " and names=" + inic.names); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('addInic')));
+        return this.http.post(this.inicUrl, inic, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (inic) { return _this.log("added inic w/ id=" + inic.id + " and names=" + inic.names); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('addInic')));
     };
     IniciativaService.prototype.updateInic = function (inic) {
         var _this = this;
-        return this.http.put(this.inicUrl, inic, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("updated inic value=" + inic.value); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('updateInic')));
+        return this.http.put(this.inicUrl, inic, this.httpOptions).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (_) { return _this.log("updated inic id=" + inic.id); }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["catchError"])(this.handleError('updateInic')));
     };
     IniciativaService.prototype.deleteInic = function (id) {
         var _this = this;
@@ -620,7 +755,7 @@ module.exports = "/* HeroDetailComponent's private CSS styles */\r\nlabel {\r\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"life\">\r\n\t<!--div><span>{{life.name | uppercase }} </span></div>\r\n\t<div><span>Tipo: </span>{{life.type }}</div>\r\n\t<div><span>Total: </span>{{life.value}}</div-->\r\n    <label>New Name:\r\n      <input [(ngModel)]=\"life.name\" placeholder=\"name\" />\r\n    </label>\r\n\t<br>\r\n\t<label>\r\n\t\tNew Base:\r\n\t\t<select  [(ngModel)]=\"life.base\"  >\r\n\t  <option value=\"small\">Small</option>\r\n\t  <option value=\"medium\">Medium</option>\r\n\t  <option value=\"large\">Large</option>\r\n\t  </select>\r\n\t</label>\r\n\t<br>\r\n\t<label>\r\n\t\tNew Type:\r\n\t\t<select (change)=\"setdefault()\" [(ngModel)]=\"life.type\"  >\r\n\t  <option value=\"vitalidade\">Vitality</option>\r\n\t  <option value=\"espiral\">Spiral</option>\r\n\t  <option value=\"grid\">Warjack</option>\r\n\t  </select>\r\n\t</label>\r\n\t<br>\r\n\t<label>\r\n\t<!--  status  -->\r\n\tSPD:<input type=\"number\" [(ngModel)]=\"life.spd\" placeholder=\"spd\" />\r\n\tARM:<input type=\"number\" [(ngModel)]=\"life.arm\" placeholder=\"arm\" />\r\n\tDEF:<input type=\"number\" [(ngModel)]=\"life.def\" placeholder=\"def\" />\r\n\tINIT:<input type=\"number\" [(ngModel)]=\"life.inc\" placeholder=\"init\" />\r\n\tWILL:<input type=\"number\" [(ngModel)]=\"life.von\" placeholder=\"will\" />\r\n\tARC:<input type=\"number\" [(ngModel)]=\"life.arc\" placeholder=\"arc\" />\r\n\tCMD:<input type=\"number\" [(ngModel)]=\"life.cmd\" placeholder=\"cmd\" />\r\n\tTHR:<input type=\"number\" [(ngModel)]=\"life.thr\" placeholder=\"Threshold\" />\r\n\t</label>\r\n\t<!--div [ngSwitch]=\"life.type\">\r\n\t\t<div *ngSwitchCase=\"'vitalidade'\">\r\n\t\t<input [(ngModel)]=\"life.value\" placeholder=\"quantidade\" />\r\n\t\t</div>\r\n\t\t<div *ngSwitchCase=\"'espiral'\">\r\n\t\t<input [(ngModel)]=\"life.value\" placeholder=\"fis,agi,int\" />\r\n\t\t</div>\r\n\t\t<div *ngSwitchCase=\"'grid'\">\r\n\t\t<input [(ngModel)]=\"life.value\" placeholder=\"caixas\" />\r\n\t\t</div>\r\n\t</div-->\r\n\t<div  *ngIf=\"life.type === 'vitalidade'\">\r\n\t\r\n\t<!--input [(ngModel)]=\"life.value\" placeholder=\"quantidade\" /-->\r\n\t<!--[checked]=\"i < life.value\" não funcionou, logo tive que trapaçear-->\r\n\t<!--  vit  -->\r\n\t<button (click)=\"addVitality()\"><label>Add new Vitality bar</label></button>\r\n\t<button (click)=\"delVitality()\"><label>Remove last Vitality bar</label></button>\r\n\t<div *ngFor=\"let vit of getVitalities(),let i = index\">\r\n\t\r\n\t<label class=\"vitcheck\">{{i+1}}:</label><input class=\"vitcheck\" id=\"cb{{i}}{{c}}\" (change)=\"vitalityup(i,c)\" type=\"checkbox\" *ngFor=\"let c of numerica(0,15)\" [checked]=\"c< vit\" /><label class=\"vitcheck\">{{vit}}</label>\r\n\t\r\n\t\r\n\t</div>\r\n\t\r\n\t<!--input  (click)=\"vitalityup(this.checked)\" type=\"checkbox\" *ngFor=\"let i of numerica(+life.value,15)\" /-->\r\n\t</div>\r\n\t\r\n\t<div *ngIf=\"life.type === 'espiral'\">\r\n\t\r\n\t\r\n\t<!--  Fis  -->\r\n\t<div class=\"fisdiv\">\r\n\t\r\n\t<div class=\"firsts\">\r\n\t<input  id=\"cbf{{i}}\" (change)=\"fisup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,2)\" [checked]=\"i< getFis()\" />\r\n\t</div>\r\n\t<div class=\"container\">\r\n\t\t<input [class.top]=\"i%2==0\" [class.bot]=\"i%2==1\"  id=\"cbf{{i}}\" (change)=\"fisup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(2,16)\" [checked]=\"i< getFis()\" />\r\n\t</div>\r\n\t<label class=\"spirallabel\">{{getFis()}}</label>\r\n\t</div>\r\n\t\r\n\t<!--  Agi  -->\r\n\t<div class=\"agidiv\">\r\n\t\r\n\t<div class=\"firsts\">\r\n\t<input  id=\"cba{{i}}\" (change)=\"agiup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,2)\" [checked]=\"i< getAgi()\" />\r\n\t</div>\r\n\t<div class=\"container\">\r\n\t\t<input [class.top]=\"i%2==0\" [class.bot]=\"i%2==1\"  id=\"cba{{i}}\" (change)=\"agiup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(2,16)\" [checked]=\"i< getAgi()\" />\r\n\t</div>\r\n\t<label class=\"spirallabel\">{{getAgi()}}</label>\r\n\t</div>\r\n\t\r\n\t<!--  Int  -->\r\n\t<div class=\"intdiv\">\r\n\t\r\n\t<div class=\"firsts\">\r\n\t<input class=\"btn-primary\" id=\"cbi{{i}}\" (change)=\"intup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,2)\" [checked]=\"i< getInt()\" />\r\n\t</div>\r\n\t<div class=\"container\">\r\n\t\t<input [class.top]=\"i%2==0\" [class.bot]=\"i%2==1\" id=\"cbi{{i}}\" (change)=\"intup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(2,16)\" [checked]=\"i< getInt()\" />\r\n\t</div>\r\n\t<label class=\"spirallabel\">{{getInt()}}</label>\r\n\t</div>\r\n\t<br>\r\n\t<!--  field  -->\r\n\t<input class=\"fieldcheck\" id=\"cbd{{i}}\" (change)=\"fieldup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,6)\" [checked]=\"i< getField()\" />\r\n\t</div>\r\n\t<!--  grid  -->\r\n\t<div *ngIf=\"life.type === 'grid'\">\r\n\t\r\n\t\t<table  align=\"center\" class=\"tablegrid\" style=\"background-image: url(assets/grid.png)\">\r\n\t\t<tr class=\"gridcomp\">\r\n\t\t\t<th *ngFor=\"let i of numerica(0,6)\"></th>\r\n\t\t</tr>\r\n\t\t<tr *ngFor=\"let l of numerica(0,6)\">\r\n\t\t\t<td *ngFor=\"let letra of getColumn(l),let x = index\">\r\n\t\t\t\t<button class=\"gridcomp gridbuton\" id=\"btn{{l}}{{x}}\" [class.damaged]=\"letra.indexOf('.')!=-1\" [class.offgrid]=\"letra.indexOf('x')!=-1\" [class.bodygrid]=\"letra.indexOf('o')!=-1\" (click)=\"callchoice($event)\">{{letra[0]}}</button>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t</table>\r\n\t\t<input class=\"fieldcheck\" id=\"cbgd{{i}}\" (change)=\"Gfieldup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,10)\" [checked]=\"i< getGField()\"/>\r\n\t</div>\r\n\t<!--  adds  -->\r\n\t<button (click)=\"addMeeleWepon()\"><label>New Meele Weapon</label></button>\r\n\t<button (click)=\"addRageWepon()\"><label>New Range Weapon</label></button>\r\n\t<button (click)=\"addAbility()\"><label>New Ability</label></button>\r\n\t<button (click)=\"addMagic()\"><label>New Magic</label></button>\r\n\t<br>\r\n\t<!--  weapons  -->\r\n\t<!--  meele weapons  -->\r\n\t<!--align=\"{{wep.local == 'd' ? 'right' : wep.local == 'e' ? 'left' : 'center' }}\"-->\r\n\t<table border=\"1px\" align=\"center\" *ngFor=\"let wep of life.melleweapons\">\r\n\t<tr>\r\n\t\t<th colspan=\"4\">\r\n\t\t<input [(ngModel)]=\"wep.name\" placeholder=\"name\" />\r\n\t\t<button (click)=\"deleteMeeleWeapon(wep)\">Remove</button>\r\n\t\t</th>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>\r\n\t\t<img src=\"assets/meele.png\" />\r\n\t\t\r\n\t\t<input class=\"local\" type=\"text\" [(ngModel)]=\"wep.local\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tMAT:<input type=\"number\" [(ngModel)]=\"wep.hit\" placeholder=\"mat\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tPOW:<input type=\"number\" [(ngModel)]=\"wep.pod\" placeholder=\"pow\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tS+P:<input type=\"number\" [(ngModel)]=\"wep.pf\" placeholder=\"s + p\" />\r\n\t\t</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td colspan=\"4\">Note:<input class=\"inputdesc\" [(ngModel)]=\"wep.note\" placeholder=\"note\" /></td>\r\n\t</tr>\r\n\t</table>\r\n\t<!--  range weapons  -->\r\n\t<!--align=\"{{wep.local == 'd' ? 'right' : wep.local == 'e' ? 'left' : 'center' }}\"-->\r\n\t<table border=\"1px\" align=\"center\" *ngFor=\"let wep of life.rangeweapons\">\r\n\t<tr>\r\n\t\t<th colspan=\"6\">\r\n\t\t<input [(ngModel)]=\"wep.name\" placeholder=\"name\" />\r\n\t\t<button (click)=\"deleteRangeWeapon(wep)\">Remove</button>\r\n\t\t</th>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>\r\n\t\t<img src=\"assets/range.png\" />\r\n\t\t<input class=\"local\" type=\"text\" [(ngModel)]=\"wep.local\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tRAT:<input type=\"number\" [(ngModel)]=\"wep.hit\" placeholder=\"rat\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tRNG:<input type=\"number\" [(ngModel)]=\"wep.alc\" placeholder=\"rng\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tROF:<input type=\"number\" [(ngModel)]=\"wep.munition\" placeholder=\"rof\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tAOE:<input type=\"number\" [(ngModel)]=\"wep.ade\" placeholder=\"aoe\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tPOW:<input type=\"number\" [(ngModel)]=\"wep.pod\" placeholder=\"pow\" />\r\n\t\t</td>\r\n\t\t\r\n\t\t\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td colspan=\"6\">Note:<input class=\"inputdesc\" [(ngModel)]=\"wep.note\" placeholder=\"note\" /></td>\r\n\t</tr>\r\n\t</table>\r\n\t<!--  abilities  -->\r\n\t<table border=\"1px\" align=\"center\" *ngFor=\"let ability of life.abilities,let i = index\">\r\n\t\t<tr *ngIf=\"i==0\">\r\n\t\t\t<th >NAME</th>\r\n\t\t\t<th >DESCRIPTION</th>\r\n\t\t\t<th >PAG</th>\r\n\t\t</tr>\r\n\t\t\r\n\t\t<tr >\r\n\t\t\t<td rowspan=\"2\">\r\n\t\t\t\t<input  type=\"text\" [(ngModel)]=\"ability.name\" placeholder=\"name\" />\r\n\t\t\t</td>\r\n\t\t\t<td rowspan=\"2\">\r\n\t\t\t\t<textarea class=\"desc\" placeholder=\"ability description\" [(ngModel)]=\"ability.desc\" ></textarea>\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input class=\"pg\" type=\"text\" [(ngModel)]=\"ability.pg\" placeholder=\"book + pag\" />\r\n\t\t\t\t\r\n\t\t\t</td>\r\n\t\t\t\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t\t<button (click)=\"deleteAbility(ability)\">x</button>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\r\n\t</table>\r\n\t<!--  Magic  -->\r\n\t<table border=\"1px\" align=\"center\" *ngFor=\"let magic of life.magics,let i = index\">\r\n\t\t<tr *ngIf=\"i==0\">\r\n\t\t\t<th >NAME</th>\r\n\t\t\t<th >COST</th>\r\n\t\t\t<th >RNG</th>\r\n\t\t\t<th >AOE</th>\r\n\t\t\t<th >POW</th>\r\n\t\t\t<th >UP</th>\r\n\t\t\t<th >OFF</th>\r\n\t\t</tr>\r\n\t\t\r\n\t\t<tr >\r\n\t\t\t<td >\r\n\t\t\t\t<input  type=\"text\" [(ngModel)]=\"magic.name\" placeholder=\"name\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input  type=\"number\" [(ngModel)]=\"magic.cost\" placeholder=\"cost\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input class=\"pg\" type=\"text\" [(ngModel)]=\"magic.alc\" placeholder=\"rng\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input  type=\"number\" [(ngModel)]=\"magic.ade\" placeholder=\"aoe\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input  type=\"number\" [(ngModel)]=\"magic.pod\" placeholder=\"pow\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input  type=\"checkbox\" [(ngModel)]=\"magic.man\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input  type=\"checkbox\" [(ngModel)]=\"magic.off\" />\r\n\t\t\t</td>\r\n\t\t\t\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td colspan=\"6\">\r\n\t\t\t\t<label>Note:</label><input class=\"inputdesc\" type=\"text\" [(ngModel)]=\"magic.note\" placeholder=\"note\" />\r\n\t\t\t\t<button (click)=\"deleteMagic(magic)\">x</button>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\r\n\t</table>\r\n\t<br>\r\n\r\n\t<button (click)=\"save()\">update</button>\r\n\t <button (click)=\"add();\">\r\n\t\tadd new\r\n\t  </button>\r\n\r\n</div> \r\n\r\n\r\n<button (click)=\"goBack()\">go back</button>"
+module.exports = "<div *ngIf=\"life\">\n\t<!--div><span>{{life.name | uppercase }} </span></div>\n\t<div><span>Tipo: </span>{{life.type }}</div>\n\t<div><span>Total: </span>{{life.value}}</div-->\n    <label>New Name:\n      <input [(ngModel)]=\"life.name\" placeholder=\"name\" />\n    </label>\n\t<br>\n\t<label>\n\t\tNew Base:\n\t\t<select  [(ngModel)]=\"life.base\"  >\n\t  <option value=\"small\">Small</option>\n\t  <option value=\"medium\">Medium</option>\n\t  <option value=\"large\">Large</option>\n\t  </select>\n\t</label>\n\t<br>\n\t<label>\n\t\tNew Type:\n\t\t<select (change)=\"setdefault()\" [(ngModel)]=\"life.type\"  >\n\t  <option value=\"vitalidade\">Vitality</option>\n\t  <option value=\"espiral\">Spiral</option>\n\t  <option value=\"grid\">Warjack</option>\n\t  </select>\n\t</label>\n\t<br>\n\t<label>\n\t<!--  status  -->\n\tSPD:<input type=\"number\" [(ngModel)]=\"life.spd\" placeholder=\"spd\" />\n\tARM:<input type=\"number\" [(ngModel)]=\"life.arm\" placeholder=\"arm\" />\n\tDEF:<input type=\"number\" [(ngModel)]=\"life.def\" placeholder=\"def\" />\n\tINIT:<input type=\"number\" [(ngModel)]=\"life.inc\" placeholder=\"init\" />\n\tWILL:<input type=\"number\" [(ngModel)]=\"life.von\" placeholder=\"will\" />\n\tARC:<input type=\"number\" [(ngModel)]=\"life.arc\" placeholder=\"arc\" />\n\tCMD:<input type=\"number\" [(ngModel)]=\"life.cmd\" placeholder=\"cmd\" />\n\tTHR:<input type=\"number\" [(ngModel)]=\"life.thr\" placeholder=\"Threshold\" />\n\t</label>\n\t<!--div [ngSwitch]=\"life.type\">\n\t\t<div *ngSwitchCase=\"'vitalidade'\">\n\t\t<input [(ngModel)]=\"life.value\" placeholder=\"quantidade\" />\n\t\t</div>\n\t\t<div *ngSwitchCase=\"'espiral'\">\n\t\t<input [(ngModel)]=\"life.value\" placeholder=\"fis,agi,int\" />\n\t\t</div>\n\t\t<div *ngSwitchCase=\"'grid'\">\n\t\t<input [(ngModel)]=\"life.value\" placeholder=\"caixas\" />\n\t\t</div>\n\t</div-->\n\t<div  *ngIf=\"life.type === 'vitalidade'\">\n\t\n\t<!--input [(ngModel)]=\"life.value\" placeholder=\"quantidade\" /-->\n\t<!--[checked]=\"i < life.value\" não funcionou, logo tive que trapaçear-->\n\t<!--  vit  -->\n\t<button (click)=\"addVitality()\"><label>Add new Vitality bar</label></button>\n\t<button (click)=\"delVitality()\"><label>Remove last Vitality bar</label></button>\n\t<div *ngFor=\"let vit of getVitalities(),let i = index\">\n\t\n\t<label class=\"vitcheck\">{{i+1}}:</label><input class=\"vitcheck\" id=\"cb{{i}}{{c}}\" (change)=\"vitalityup(i,c)\" type=\"checkbox\" *ngFor=\"let c of numerica(0,15)\" [checked]=\"c< vit\" /><label class=\"vitcheck\">{{vit}}</label>\n\t\n\t\n\t</div>\n\t\n\t<!--input  (click)=\"vitalityup(this.checked)\" type=\"checkbox\" *ngFor=\"let i of numerica(+life.value,15)\" /-->\n\t</div>\n\t\n\t<div *ngIf=\"life.type === 'espiral'\">\n\t\n\t\n\t<!--  Fis  -->\n\t<div class=\"fisdiv\">\n\t\n\t<div class=\"firsts\">\n\t<input  id=\"cbf{{i}}\" (change)=\"fisup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,2)\" [checked]=\"i< getFis()\" />\n\t</div>\n\t<div class=\"container\">\n\t\t<input [class.top]=\"i%2==0\" [class.bot]=\"i%2==1\"  id=\"cbf{{i}}\" (change)=\"fisup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(2,16)\" [checked]=\"i< getFis()\" />\n\t</div>\n\t<label class=\"spirallabel\">{{getFis()}}</label>\n\t</div>\n\t\n\t<!--  Agi  -->\n\t<div class=\"agidiv\">\n\t\n\t<div class=\"firsts\">\n\t<input  id=\"cba{{i}}\" (change)=\"agiup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,2)\" [checked]=\"i< getAgi()\" />\n\t</div>\n\t<div class=\"container\">\n\t\t<input [class.top]=\"i%2==0\" [class.bot]=\"i%2==1\"  id=\"cba{{i}}\" (change)=\"agiup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(2,16)\" [checked]=\"i< getAgi()\" />\n\t</div>\n\t<label class=\"spirallabel\">{{getAgi()}}</label>\n\t</div>\n\t\n\t<!--  Int  -->\n\t<div class=\"intdiv\">\n\t\n\t<div class=\"firsts\">\n\t<input class=\"btn-primary\" id=\"cbi{{i}}\" (change)=\"intup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,2)\" [checked]=\"i< getInt()\" />\n\t</div>\n\t<div class=\"container\">\n\t\t<input [class.top]=\"i%2==0\" [class.bot]=\"i%2==1\" id=\"cbi{{i}}\" (change)=\"intup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(2,16)\" [checked]=\"i< getInt()\" />\n\t</div>\n\t<label class=\"spirallabel\">{{getInt()}}</label>\n\t</div>\n\t<br>\n\t<!--  field  -->\n\t<input class=\"fieldcheck\" id=\"cbd{{i}}\" (change)=\"fieldup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,6)\" [checked]=\"i< getField()\" />\n\t</div>\n\t<!--  grid  -->\n\t<div *ngIf=\"life.type === 'grid'\">\n\t\n\t\t<table  align=\"center\" class=\"tablegrid\" style=\"background-image: url(assets/grid.png)\">\n\t\t<tr class=\"gridcomp\">\n\t\t\t<th *ngFor=\"let i of numerica(0,6)\"></th>\n\t\t</tr>\n\t\t<tr *ngFor=\"let l of numerica(0,6)\">\n\t\t\t<td *ngFor=\"let letra of getColumn(l),let x = index\">\n\t\t\t\t<button class=\"gridcomp gridbuton\" id=\"btn{{l}}{{x}}\" [class.damaged]=\"letra.indexOf('.')!=-1\" [class.offgrid]=\"letra.indexOf('x')!=-1\" [class.bodygrid]=\"letra.indexOf('o')!=-1\" (click)=\"callchoice($event)\">{{letra[0]}}</button>\n\t\t\t</td>\n\t\t</tr>\n\t\t</table>\n\t\t<input class=\"fieldcheck\" id=\"cbgd{{i}}\" (change)=\"Gfieldup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,10)\" [checked]=\"i< getGField()\"/>\n\t</div>\n\t<!--  adds  -->\n\t<button (click)=\"addMeeleWepon()\"><label>New Meele Weapon</label></button>\n\t<button (click)=\"addRageWepon()\"><label>New Range Weapon</label></button>\n\t<button (click)=\"addAbility()\"><label>New Ability</label></button>\n\t<button (click)=\"addMagic()\"><label>New Magic</label></button>\n\t<br>\n\t<!--  weapons  -->\n\t<!--  meele weapons  -->\n\t<!--align=\"{{wep.local == 'd' ? 'right' : wep.local == 'e' ? 'left' : 'center' }}\"-->\n\t<table border=\"1px\" align=\"center\" *ngFor=\"let wep of life.melleweapons\">\n\t<tr>\n\t\t<th colspan=\"4\">\n\t\t<input [(ngModel)]=\"wep.name\" placeholder=\"name\" />\n\t\t<button (click)=\"deleteMeeleWeapon(wep)\">Remove</button>\n\t\t</th>\n\t</tr>\n\t<tr>\n\t\t<td>\n\t\t<img src=\"assets/meele.png\" />\n\t\t\n\t\t<input class=\"local\" type=\"text\" [(ngModel)]=\"wep.local\" />\n\t\t</td>\n\t\t<td>\n\t\tMAT:<input type=\"number\" [(ngModel)]=\"wep.hit\" placeholder=\"mat\" />\n\t\t</td>\n\t\t<td>\n\t\tPOW:<input type=\"number\" [(ngModel)]=\"wep.pod\" placeholder=\"pow\" />\n\t\t</td>\n\t\t<td>\n\t\tS+P:<input type=\"number\" [(ngModel)]=\"wep.pf\" placeholder=\"s + p\" />\n\t\t</td>\n\t</tr>\n\t<tr>\n\t\t<td colspan=\"4\">Note:<input class=\"inputdesc\" [(ngModel)]=\"wep.note\" placeholder=\"note\" /></td>\n\t</tr>\n\t</table>\n\t<!--  range weapons  -->\n\t<!--align=\"{{wep.local == 'd' ? 'right' : wep.local == 'e' ? 'left' : 'center' }}\"-->\n\t<table border=\"1px\" align=\"center\" *ngFor=\"let wep of life.rangeweapons\">\n\t<tr>\n\t\t<th colspan=\"6\">\n\t\t<input [(ngModel)]=\"wep.name\" placeholder=\"name\" />\n\t\t<button (click)=\"deleteRangeWeapon(wep)\">Remove</button>\n\t\t</th>\n\t</tr>\n\t<tr>\n\t\t<td>\n\t\t<img src=\"assets/range.png\" />\n\t\t<input class=\"local\" type=\"text\" [(ngModel)]=\"wep.local\" />\n\t\t</td>\n\t\t<td>\n\t\tRAT:<input type=\"number\" [(ngModel)]=\"wep.hit\" placeholder=\"rat\" />\n\t\t</td>\n\t\t<td>\n\t\tRNG:<input type=\"number\" [(ngModel)]=\"wep.alc\" placeholder=\"rng\" />\n\t\t</td>\n\t\t<td>\n\t\tROF:<input type=\"number\" [(ngModel)]=\"wep.munition\" placeholder=\"rof\" />\n\t\t</td>\n\t\t<td>\n\t\tAOE:<input type=\"number\" [(ngModel)]=\"wep.ade\" placeholder=\"aoe\" />\n\t\t</td>\n\t\t<td>\n\t\tPOW:<input type=\"number\" [(ngModel)]=\"wep.pod\" placeholder=\"pow\" />\n\t\t</td>\n\t\t\n\t\t\n\t</tr>\n\t<tr>\n\t\t<td colspan=\"6\">Note:<input class=\"inputdesc\" [(ngModel)]=\"wep.note\" placeholder=\"note\" /></td>\n\t</tr>\n\t</table>\n\t<!--  abilities  -->\n\t<table border=\"1px\" align=\"center\" *ngFor=\"let ability of life.abilities,let i = index\">\n\t\t<tr *ngIf=\"i==0\">\n\t\t\t<th >NAME</th>\n\t\t\t<th >DESCRIPTION</th>\n\t\t\t<th >PAG</th>\n\t\t</tr>\n\t\t\n\t\t<tr >\n\t\t\t<td rowspan=\"2\">\n\t\t\t\t<input  type=\"text\" [(ngModel)]=\"ability.name\" placeholder=\"name\" />\n\t\t\t</td>\n\t\t\t<td rowspan=\"2\">\n\t\t\t\t<textarea class=\"desc\" placeholder=\"ability description\" [(ngModel)]=\"ability.desc\" ></textarea>\n\t\t\t</td>\n\t\t\t<td >\n\t\t\t\t<input class=\"pg\" type=\"text\" [(ngModel)]=\"ability.pg\" placeholder=\"book + pag\" />\n\t\t\t\t\n\t\t\t</td>\n\t\t\t\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<button (click)=\"deleteAbility(ability)\">x</button>\n\t\t\t</td>\n\t\t</tr>\n\t\n\t</table>\n\t<!--  Magic  -->\n\t<table border=\"1px\" align=\"center\" *ngFor=\"let magic of life.magics,let i = index\">\n\t\t<tr *ngIf=\"i==0\">\n\t\t\t<th >NAME</th>\n\t\t\t<th >COST</th>\n\t\t\t<th >RNG</th>\n\t\t\t<th >AOE</th>\n\t\t\t<th >POW</th>\n\t\t\t<th >UP</th>\n\t\t\t<th >OFF</th>\n\t\t</tr>\n\t\t\n\t\t<tr >\n\t\t\t<td >\n\t\t\t\t<input  type=\"text\" [(ngModel)]=\"magic.name\" placeholder=\"name\" />\n\t\t\t</td>\n\t\t\t<td >\n\t\t\t\t<input  type=\"number\" [(ngModel)]=\"magic.cost\" placeholder=\"cost\" />\n\t\t\t</td>\n\t\t\t<td >\n\t\t\t\t<input class=\"pg\" type=\"text\" [(ngModel)]=\"magic.alc\" placeholder=\"rng\" />\n\t\t\t</td>\n\t\t\t<td >\n\t\t\t\t<input  type=\"number\" [(ngModel)]=\"magic.ade\" placeholder=\"aoe\" />\n\t\t\t</td>\n\t\t\t<td >\n\t\t\t\t<input  type=\"number\" [(ngModel)]=\"magic.pod\" placeholder=\"pow\" />\n\t\t\t</td>\n\t\t\t<td >\n\t\t\t\t<input  type=\"checkbox\" [(ngModel)]=\"magic.man\" />\n\t\t\t</td>\n\t\t\t<td >\n\t\t\t\t<input  type=\"checkbox\" [(ngModel)]=\"magic.off\" />\n\t\t\t</td>\n\t\t\t\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"6\">\n\t\t\t\t<label>Note:</label><input class=\"inputdesc\" type=\"text\" [(ngModel)]=\"magic.note\" placeholder=\"note\" />\n\t\t\t\t<button (click)=\"deleteMagic(magic)\">x</button>\n\t\t\t</td>\n\t\t</tr>\n\t\n\t</table>\n\t<br>\n\n\t<button (click)=\"save()\">update</button>\n\t <button (click)=\"add();\">\n\t\tadd new\n\t  </button>\n\n</div> \n\n\n<button (click)=\"goBack()\">go back</button>"
 
 /***/ }),
 
@@ -956,7 +1091,7 @@ var LifeDetailComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* LifeSearch private styles */\r\n.search-result li {\r\n  border-bottom: 1px solid gray;\r\n  border-left: 1px solid gray;\r\n  border-right: 1px solid gray;\r\n  width:195px;\r\n  height: 16px;\r\n  padding: 5px;\r\n  background-color: white;\r\n  cursor: pointer;\r\n  list-style-type: none;\r\n}\r\n.search-result li:hover {\r\n  background-color: #607D8B;\r\n}\r\n.search-result li a {\r\n  color: #888;\r\n  display: block;\r\n  text-decoration: none;\r\n}\r\n.search-result li a:hover {\r\n  color: white;\r\n}\r\n.search-result li a:active {\r\n  color: white;\r\n}\r\n#search-box {\r\n  width: 200px;\r\n  height: 20px;\r\n}\r\nul.search-result {\r\n  margin-top: 0;\r\n  padding-left: 0;\r\n}"
+module.exports = "/* LifeSearch private styles */\n.search-result li {\n  border-bottom: 1px solid gray;\n  border-left: 1px solid gray;\n  border-right: 1px solid gray;\n  width:195px;\n  height: 16px;\n  padding: 5px;\n  background-color: white;\n  cursor: pointer;\n  list-style-type: none;\n}\n.search-result li:hover {\n  background-color: #607D8B;\n}\n.search-result li a {\n  color: #888;\n  display: block;\n  text-decoration: none;\n}\n.search-result li a:hover {\n  color: white;\n}\n.search-result li a:active {\n  color: white;\n}\n#search-box {\n  width: 200px;\n  height: 20px;\n}\nul.search-result {\n  margin-top: 0;\n  padding-left: 0;\n}"
 
 /***/ }),
 
@@ -967,7 +1102,7 @@ module.exports = "/* LifeSearch private styles */\r\n.search-result li {\r\n  bo
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"search-component\">\r\n  <h4>Life Search</h4>\r\n\r\n  <input #searchBox id=\"search-box\" (keyup)=\"search(searchBox.value)\" />\r\n\r\n  <ul class=\"search-result\">\r\n    <li *ngFor=\"let life of lifes$ | async\" >\r\n      <a routerLink=\"/detail/{{life.id}}\">\r\n        {{life.name}}\r\n      </a>\r\n    </li>\r\n  </ul>\r\n</div>"
+module.exports = "<div id=\"search-component\">\n  <h4>Life Search</h4>\n\n  <input #searchBox id=\"search-box\" (keyup)=\"search(searchBox.value)\" />\n\n  <ul class=\"search-result\">\n    <li *ngFor=\"let life of lifes$ | async\" >\n      <a routerLink=\"/detail/{{life.id}}\">\n        {{life.name}}\n      </a>\n    </li>\n  </ul>\n</div>"
 
 /***/ }),
 
@@ -1156,7 +1291,7 @@ var LifeService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* lifesComponent's private CSS styles */\r\n.lifes {\r\n  margin: 0 0 2em 0;\r\n  list-style-type: none;\r\n  padding: 0;\r\n  width: 24em;\r\n}\r\n.lifes  li{\r\n\r\n   position: relative;\r\n  cursor: pointer;\r\n  background-color: #EEE;\r\n  margin: .5em;\r\n  padding: .3em 0;\r\n  height: 1.6em;\r\n  border-radius: 4px;\r\n}\r\n.lifes li:hover {\r\n  color: #607D8B;\r\n  background-color: #DDD;\r\n  left: .1em;\r\n\r\n}\r\n.lifes a {\r\n  color: #888;\r\n  text-decoration: none;\r\n  position: relative;\r\n  display: block;\r\n  width: 22em;\r\n}\r\n.lifes a:hover {\r\n  color:#607D8B;\r\n}\r\n.lifes .badge {\r\n   display: inline-block;\r\n  font-size: small;\r\n  color: white;\r\n  padding: 0.8em 0.7em 0 0.7em;\r\n  background-color: #607D8B;\r\n  line-height: 1em;\r\n  position: relative;\r\n  //left: -1px;\r\n  top: -4px;\r\n  height: 1.8em;\r\n  min-width: 16px;\r\n  text-align: right;\r\n  margin-right: .8em;\r\n  float:left;\r\n  border-radius: 4px 0 0 4px;\r\n}\r\nbutton {\r\n  background-color: #eee;\r\n  border: none;\r\n  padding: 5px 10px;\r\n  border-radius: 4px;\r\n  cursor: pointer;\r\n  cursor: hand;\r\n  font-family: Arial;\r\n \r\n}\r\nbutton:hover {\r\n  background-color: #cfd8dc;\r\n}\r\nbutton.delete {\r\n  position: relative;\r\n  //left: 108px;\r\n  top: -18px;\r\n  background-color: gray !important;\r\n  color: white;\r\n  float:right;\r\n}"
+module.exports = "/* lifesComponent's private CSS styles */\r\n.lifes {\r\n  margin: 0 0 2em 0;\r\n  list-style-type: none;\r\n  padding: 0;\r\n  width: 24em;\r\n}\r\n.lifes  li{\r\n\r\n   position: relative;\r\n  cursor: pointer;\r\n  background-color: #EEE;\r\n  margin: .5em;\r\n  padding: .3em 0;\r\n  height: 1.6em;\r\n  border-radius: 4px;\r\n}\r\n.lifes li:hover {\r\n  color: #607D8B;\r\n  background-color: #DDD;\r\n  left: .1em;\r\n\r\n}\r\n.lifes a {\r\n  color: #888;\r\n  text-decoration: none;\r\n  position: relative;\r\n  display: block;\r\n  width: 22em;\r\n}\r\n.lifes a:hover {\r\n  color:#607D8B;\r\n}\r\n.lifes .badge {\r\n   display: inline-block;\r\n  font-size: small;\r\n  color: white;\r\n  padding: 0.8em 0.7em 1.7em 0.7em;\r\n  background-color: #607D8B;\r\n  line-height: 1em;\r\n  position: relative;\r\n  /*left: -1px;*/\r\n  top: -3px;\r\n  height: 1.8em;\r\n  min-width: 16px;\r\n  text-align: right;\r\n  margin-right: .8em;\r\n  float:left;\r\n  border-radius: 4px 0 0 4px;\r\n}\r\nbutton {\r\n  background-color: #eee;\r\n  border: none;\r\n  padding: 5px 10px;\r\n  border-radius: 4px;\r\n  cursor: pointer;\r\n  cursor: hand;\r\n  font-family: Arial;\r\n \r\n}\r\nbutton:hover {\r\n  background-color: #cfd8dc;\r\n}\r\nbutton.delete {\r\n  position: relative;\r\n  //left: 108px;\r\n  top: -18px;\r\n  background-color: gray !important;\r\n  color: white;\r\n  float:right;\r\n}\r\nlabel:hover {\r\n\tborder-color: aqua;background-color: aqua !important;\r\n}\r\n*:focus {\r\n\t-webkit-animation: blink 0.85s step-end infinite alternate; \r\n}\r\n@-webkit-keyframes blink { 50% { border-color: aqua;background-color: aqua; }  }"
 
 /***/ }),
 
@@ -1167,7 +1302,7 @@ module.exports = "/* lifesComponent's private CSS styles */\r\n.lifes {\r\n  mar
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--div>\r\n  <label>Life nome:\r\n    <input #lifeName />\r\n  </label>\r\n  <label>Life tipo:\r\n    <input #lifeType />\r\n  </label>\r\n  <label>Life valor:\r\n    <input #lifeValue />\r\n  </label>\r\n  \r\n  <button (click)=\"add(lifeName.value,lifeType.value,lifeValue.value); \r\n  lifeName.value='';lifeType.value='';lifeValue.value=''\">\r\n    add\r\n  </button>\r\n</div-->\r\n<div ><h2>My Lifes</h2>\r\n<ul class=\"lifes\">\r\n  <li *ngFor=\"let life of lifes;let i = index\" >\r\n  <!--[class.selected]=\"life === selectedLife\" (click)=\"onSelect(life)\"-->\r\n  \t\r\n\t<a routerLink=\"/detail/{{life.id}}\">\r\n\t<span class=\"badge\">{{life.id}}</span>\r\n\t\r\n\t{{life.name }}\r\n\t\r\n\t<!--Tipo: {{life.type  }}\r\n\tTotal: {{life.value}}-->\r\n\t\r\n\r\n\t</a>\r\n\t<button class=\"delete\" title=\"delete life\"\r\n\t(click)=\"delete(life)\">x</button>\r\n\t<!--<div>\r\n\t    <label>Novo valor:\r\n\t      <input [(ngModel)]=\"life.value\" placeholder=\"quantidade\">\r\n\t    </label>\r\n\t</div> -->\r\n  </li>\r\n</ul>\r\n<!--app-life-detail [life]=\"selectedLife\"></app-life-detail-->\r\n</div>\r\n"
+module.exports = "<!--div>\n  <label>Life nome:\n    <input #lifeName />\n  </label>\n  <label>Life tipo:\n    <input #lifeType />\n  </label>\n  <label>Life valor:\n    <input #lifeValue />\n  </label>\n  \n  <button (click)=\"add(lifeName.value,lifeType.value,lifeValue.value); \n  lifeName.value='';lifeType.value='';lifeValue.value=''\">\n    add\n  </button>\n</div-->\n<div ><h2>My Lifes</h2>\n<ul class=\"lifes\">\n  <li *ngFor=\"let life of lifes;let i = index\" >\n  <!--[class.selected]=\"life === selectedLife\" (click)=\"onSelect(life)\"-->\n  \t\n\t<a id=\"lifelink{{i}}\"[routerLink]=\"[{outlets:{primary:['detail',life.id]}}]\">\n\t<button  id=\"lifeid{{i}}\" class=\"badge\">{{life.id}}</button>\n\t\n\t{{life.name }}\n\t\n\t<!--Tipo: {{life.type  }}\n\tTotal: {{life.value}}-->\n\t\n\n\t</a>\n\t<button id=\"lifebutton{{i}}\" class=\"delete\" title=\"delete life\"\n\t(click)=\"delete(life)\">x</button>\n\t<!--<div>\n\t    <label>Novo valor:\n\t      <input [(ngModel)]=\"life.value\" placeholder=\"quantidade\">\n\t    </label>\n\t</div> -->\n  </li>\n</ul>\n<!--app-life-detail [life]=\"selectedLife\"></app-life-detail-->\n</div>\n"
 
 /***/ }),
 
@@ -1334,7 +1469,7 @@ var MessageService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* MessagesComponent's private CSS styles */\r\nh2 {\r\n\t\r\n  color: red;\r\n  font-family: Arial, Helvetica, sans-serif;\r\n  font-weight: lighter;\r\n}\r\nbody {\r\n\t\r\n  margin: 2em;\r\n  /*margin-top:15px;*/\r\n}\r\nbody, input[text], button {\r\n  color: crimson;\r\n  font-family: Cambria, Georgia;\r\n}\r\nbutton.clear {\r\n  font-family: Arial;\r\n  background-color: #eee;\r\n  border: none;\r\n  padding: 5px 10px;\r\n  border-radius: 4px;\r\n  cursor: pointer;\r\n  cursor: hand;\r\n}\r\nbutton:hover {\r\n  background-color: #cfd8dc;\r\n}\r\nbutton:disabled {\r\n  background-color: #eee;\r\n  color: #aaa;\r\n  cursor: auto;\r\n}\r\nbutton.clear {\r\n  color: #888;\r\n  margin-bottom: 12px;\r\n}\r\n"
+module.exports = "/* MessagesComponent's private CSS styles */\nh2 {\n\t\n  color: red;\n  font-family: Arial, Helvetica, sans-serif;\n  font-weight: lighter;\n}\nbody {\n\t\n  margin: 2em;\n  /*margin-top:15px;*/\n}\nbody, input[text], button {\n  color: crimson;\n  font-family: Cambria, Georgia;\n}\nbutton.clear {\n  font-family: Arial;\n  background-color: #eee;\n  border: none;\n  padding: 5px 10px;\n  border-radius: 4px;\n  cursor: pointer;\n  cursor: hand;\n}\nbutton:hover {\n  background-color: #cfd8dc;\n}\nbutton:disabled {\n  background-color: #eee;\n  color: #aaa;\n  cursor: auto;\n}\nbutton.clear {\n  color: #888;\n  margin-bottom: 12px;\n}\n"
 
 /***/ }),
 
@@ -1345,7 +1480,7 @@ module.exports = "/* MessagesComponent's private CSS styles */\r\nh2 {\r\n\t\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div  *ngIf=\"messageService.messages.length\">\r\n\r\n  <h2>Messages</h2>\r\n  <button class=\"clear\"\r\n          (click)=\"messageService.clear()\">clear</button>\r\n  <div *ngFor='let message of messageService.messages'> {{message}} </div>\r\n\r\n</div>"
+module.exports = "<div  *ngIf=\"messageService.messages.length\">\n\n  <h2>Messages</h2>\n  <button class=\"clear\"\n          (click)=\"messageService.clear()\">clear</button>\n  <div *ngFor='let message of messageService.messages'> {{message}} </div>\n\n</div>"
 
 /***/ }),
 
@@ -1422,6 +1557,118 @@ var RangeWeapon = /** @class */ (function (_super) {
     }
     return RangeWeapon;
 }(_weapon__WEBPACK_IMPORTED_MODULE_0__["Weapon"]));
+
+
+
+/***/ }),
+
+/***/ "./src/app/tutorial/tutorial.component.css":
+/*!*************************************************!*\
+  !*** ./src/app/tutorial/tutorial.component.css ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "label {\r\n  /*display: inline-block;*/\r\n  width: 3em;\r\n  margin: .5em 0;\r\n  color: #351cf3;\r\n  font-weight: bold;\r\n}\r\nh2 {\r\n  font-size: 1.2em;\r\n}\r\nbutton {\r\n  text-decoration: none;\r\n  margin-top: 10px;\r\n  display: inline-block;\r\n  background: #00000000;\r\n  border-color: #00000000;\r\n  border-radius: 4px;\r\n  position:relative;\r\n  \r\n}\r\nbutton:hover {\r\n  color: #039be5;\r\n  background-color: #CFD8DC;\r\n}\r\ndiv{\r\n\tmargin-top:10px;\r\n}\r\n.right{\r\n\tfloat:right;\r\n}\r\n.hidden{\r\n\tdisplay:none;\r\n}"
+
+/***/ }),
+
+/***/ "./src/app/tutorial/tutorial.component.html":
+/*!**************************************************!*\
+  !*** ./src/app/tutorial/tutorial.component.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div >\r\n\t<div>\r\n\t<select class=\"right\" (change)=\"setdefault()\" [(ngModel)]=\"idioma\"  >\r\n\t  <option value=\"0\">Português(Brasil)</option>\r\n\t  <option value=\"1\">English</option>\r\n\t  </select>\r\n\t<img class=\"right\" src=\"assets/language.png\" width=\"24px\" height=\"24px\"/>\r\n\t </div>\r\n\t<h3><label>{{this.oi.text[this.idioma]}} <button (click)=\"hide()\" ><img class=\"right\" src=\"assets/eye.png\" width=\"24px\" height=\"24px\"/></button></label></h3>\r\n\t<!--<button *ngFor=\"let info of this.infos.slice(1)\" (click)=\"focalizar(info.for)\" [ngStyle]=\"{'top':(info.pos*15)+'px','width':info.width+'%'}\"><label>  {{info.text[this.idioma]}}</label></button>-->\r\n\t<ul id=\"ulhelp\" type=\"none\">\r\n\t\t<li *ngFor=\"let infos of this.infosmatrix\">\r\n\t\t\t<button *ngFor=\"let info of infos\" (click)=\"focalizar(info.for)\" ><label>  {{info.text[this.idioma]}}</label></button>\r\n\t\t</li>\r\n\t</ul>\r\n\t<!-- ================ MENU ================ -->\r\n\t<!--\t<div *ngIf=\"this.aba === 'menu'\">\r\n\t\t<div  >\r\n\t\t<button *ngFor=\"let info of this.infos.slice(1)\" (click)=\"focalizar(info.for)\" [ngStyle]=\"{'width':info.width+'%'}\"><label>  {{info.text[this.idioma]}}</label></button>\r\n\t\t</div>\r\n\t\t-->\r\n\t\t\r\n\t<!-- ================ LIFES ================ -->\r\n\t<!--\t<div *ngIf=\"this.aba === 'life'\">\r\n\t\t<div  >\r\n\t\t<button *ngFor=\"let info of this.infos.slice(1)\" (click)=\"focalizartag(info.for)\" [ngStyle]=\"{'width':info.width+'%'}\"><label>  {{info.text[this.idioma]}}</label></button>\r\n\t\t</div>\r\n\t\t</div>\r\n\t\t-->\r\n\t\t\r\n\t<!-- ================ DETAIL ================ -->\r\n\t<!--\t<div *ngIf=\"this.aba === 'detail'\">\r\n\t\t  \r\n\t\t</div>\r\n\t\t-->\r\n\t\t\r\n</div>"
+
+/***/ }),
+
+/***/ "./src/app/tutorial/tutorial.component.ts":
+/*!************************************************!*\
+  !*** ./src/app/tutorial/tutorial.component.ts ***!
+  \************************************************/
+/*! exports provided: TutorialComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TutorialComponent", function() { return TutorialComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var _info_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../info.service */ "./src/app/info.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var TutorialComponent = /** @class */ (function () {
+    function TutorialComponent(route, infoService) {
+        this.route = route;
+        this.infoService = infoService;
+        this.aba = "dashboard";
+        this.idioma = 0;
+        this.infosmatrix = new Array();
+    }
+    TutorialComponent.prototype.ngOnInit = function () {
+        this.aba = this.route.snapshot.url[0].path;
+        this.getInfos(this.aba);
+    };
+    TutorialComponent.prototype.getInfos = function (aba) {
+        var _this = this;
+        this.infoService.getInfos(aba)
+            .subscribe(function (infos) { return _this.ordenai(infos); });
+    };
+    /*getInfo(id:string):Info{
+        id=this.aba+id;
+        let info= this.infos.filter(i => i.id === id)[0];
+        return info;
+    }*/
+    TutorialComponent.prototype.ordenai = function (infos) {
+        for (var i = 0; i < infos.length; i++) {
+            if (infos[i].pos == 0) {
+                this.oi = infos[i];
+            }
+            else {
+                if (this.infosmatrix[infos[i].pos - 1] == undefined) {
+                    this.infosmatrix[infos[i].pos - 1] = new Array();
+                }
+                this.infosmatrix[infos[i].pos - 1].push(infos[i]);
+            }
+        }
+    };
+    TutorialComponent.prototype.focalizar = function (id) {
+        if (id != '') {
+            var element = document.getElementById(id);
+            element.focus();
+        }
+    };
+    TutorialComponent.prototype.hide = function () {
+        var ul = document.getElementById("ulhelp");
+        if (ul.classList.contains('hidden')) {
+            ul.classList.remove('hidden');
+        }
+        else {
+            ul.classList.add('hidden');
+        }
+    };
+    TutorialComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-tutorial',
+            template: __webpack_require__(/*! ./tutorial.component.html */ "./src/app/tutorial/tutorial.component.html"),
+            styles: [__webpack_require__(/*! ./tutorial.component.css */ "./src/app/tutorial/tutorial.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"], _info_service__WEBPACK_IMPORTED_MODULE_2__["InfoService"]])
+    ], TutorialComponent);
+    return TutorialComponent;
+}());
 
 
 
@@ -1507,7 +1754,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! F:\00_DESCARTE\Nova pasta\IKRPG-estudo\angule-IKRPG\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! E:\Pastinha\IKRPG-estudo\angule-IKRPG\src\main.ts */"./src/main.ts");
 
 
 /***/ })
