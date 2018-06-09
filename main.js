@@ -133,7 +133,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* AppComponent's private CSS styles */\r\nh1 {\r\n  font-size: 1.2em;\r\n  color: #333;\r\n  margin-bottom: 0;\r\n}\r\nh2 {\r\n  font-size: 2em;\r\n  margin-top: 0;\r\n  padding-top: 0;\r\n}\r\nnav a {\r\n  padding: 5px 10px;\r\n  text-decoration: none;\r\n  margin-top: 10px;\r\n  display: inline-block;\r\n  background-color: #eee;\r\n  border-radius: 4px;\r\n}\r\nnav a:visited, a:link {\r\n  color: #607D8B;\r\n}\r\nnav a:hover {\r\n  color: #039be5;\r\n  background-color: #CFD8DC;\r\n}\r\nnav a.active {\r\n  color: #039be5;\r\n}\r\ndiv {\r\n background-color: #f0f8ffd6;\r\n     height: auto;\r\n    min-height: -webkit-fill-available;\r\n}"
+module.exports = "/* AppComponent's private CSS styles */\r\nh1 {\r\n    font-size: 12px/*1.2em*/;\r\n    color: #000;\r\n    margin-bottom: 0;\r\n    position: relative;\r\n\tmargin-top: 13px;\r\n    margin-left: 95px;\r\n}\r\nh2 {\r\n  font-size: 2em;\r\n  margin-top: 0;\r\n  padding-top: 0;\r\n}\r\nnav a {\r\n  padding: 5px 10px;\r\n  text-decoration: none;\r\n  margin-top: 10px;\r\n  display: inline-block;\r\n  background-color: #eee;\r\n  border-radius: 4px;\r\n}\r\nnav a:visited, a:link {\r\n  color: #607D8B;\r\n}\r\nnav a:hover {\r\n  color: #039be5;\r\n  background-color: #CFD8DC;\r\n}\r\nnav a.active {\r\n  color: #039be5;\r\n}\r\n.div {\r\n background-color: #f0f8ffea;\r\n    height: 330px/*auto*/;\r\n\toverflow:auto;\r\n    min-height: -webkit-fit-content;\r\n    min-height: -moz-fit-content;\r\n    min-height: fit-content;\r\n\ttext-align: center;\r\n    width: /*fit-content*/500px;\r\n\t/*border: 7px solid #333;\r\n    border-radius: 15px;*/\r\n\t    border: 10px solid transparent;\r\n    padding: 55px;\r\n\t/*border-image-source: url(assets/border.png)*/\r\n\tborder-image-slice: 137 0 193 0;\r\n    border-image-width: 279px 0px 349px 0px;\r\n\tborder-image-outset: 0px 0px 0px 0px;\r\n\tborder-image-repeat: stretch stretch;\r\n\tmargin: auto;\r\n}\r\n.divout{\r\n\t/*background:url(assets/border.png) não funciona aqui;\r\n\tbackground-size: cover; não funciona aqui\r\n\tbackground-color: #f0f8ffea; não funciona aqui*/\r\n    height: 660px;\r\n    margin: auto;\r\n    width: 1000px;\r\n    overflow: auto;\r\n}\r\n.divin{\r\n\theight: 605px;\r\n    overflow: auto;\r\n    position: relative;\r\n    text-align: center;\r\n    width: 913px;\r\n    margin: auto;\r\n}\r\n::-webkit-scrollbar {\r\n    width: 1em;\r\n}\r\n::-webkit-scrollbar-track {\r\n    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);\r\n}\r\n::-webkit-scrollbar-thumb {\r\n  background-color: #cccccc00;\r\n  outline: 1px solid slategrey;\r\n}"
 
 /***/ }),
 
@@ -144,7 +144,7 @@ module.exports = "/* AppComponent's private CSS styles */\r\nh1 {\r\n  font-size
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div style=\"text-align:center\">\r\n\r\n  <h1>\r\n    Welcome to {{ title }}!\r\n  </h1>\r\n  <nav>\r\n <!--<a routerLink=\"/dashboard\">Menu</a>\r\n\t  <a routerLink=\"/life\">Lifes</a>\r\n\t   <a routerLink=\"detail/0\">Novo</a>-->\r\n\t  <a [routerLink]=\"[{outlets:{tutorial:'menu',primary:'dashboard'}}]\">Menu</a>\r\n\t  <a [routerLink]=\"[{outlets:{tutorial:'life',primary:'life'}}]\">Lifes</a>\r\n\t   <a [routerLink]=\"[{outlets:{tutorial:'detail',primary:'detail/0'}}]\">Novo</a>\r\n\t</nav>\r\n\r\n  <router-outlet name=\"primary\"></router-outlet>\r\n  <app-messages></app-messages>\r\n  <router-outlet name=\"tutorial\"></router-outlet>\r\n\r\n</div>\r\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div class=\"divout\" style=\"background:url(assets/border.png);background-size: cover;background-color: #f0f8ffea;\">\r\n  <h1>\r\n    {{ title }}\r\n  </h1>\r\n<div class=\"divin\">\r\n\r\n  <nav>\r\n <!--<a routerLink=\"/dashboard\">Menu</a>\r\n\t  <a routerLink=\"/life\">Lifes</a>\r\n\t   <a routerLink=\"detail/0\">Novo</a>-->\r\n\t  <a [routerLink]=\"[{outlets:{tutorial:'menu',primary:'dashboard'}}]\">Menu</a>\r\n\t  <a [routerLink]=\"[{outlets:{tutorial:'life',primary:'life'}}]\">Lives</a>\r\n\t   <a [routerLink]=\"[{outlets:{tutorial:'detail',primary:'detail/0'}}]\">New</a>\r\n\t</nav>\r\n\r\n  <router-outlet name=\"primary\"></router-outlet>\r\n  <app-messages></app-messages>\r\n  <router-outlet name=\"tutorial\"></router-outlet>\r\n<div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -294,7 +294,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* DashboardComponent's private CSS styles */\r\n[class*='col-'] {\r\n  float: left;\r\n  padding-right: 20px;\r\n  padding-bottom: 20px;\r\n}\r\n[class*='col-']:last-of-type {\r\n  padding-right: 0;\r\n}\r\na {\r\n  text-decoration: none;\r\n}\r\n*, *:after, *:before {\r\n  box-sizing: border-box;\r\n}\r\nh3 {\r\n  text-align: center; margin-bottom: 0;\r\n}\r\nh4 {\r\n  position: relative;\r\n}\r\n.grid {\r\n  margin: 0;\r\n\r\n}\r\n.col-1-4 {\r\n  width: 50%;\r\n\r\n}\r\n.module {\r\n  padding: 10px;\r\n  text-align: center;\r\n  color: #eee;\r\n  max-height: 80px;\r\n  min-width: 120px;\r\n  background-color: #607D8B;\r\n  border-radius: 2px;\r\n}\r\n.module:hover {\r\n  background-color: #EEE;\r\n  cursor: pointer;\r\n  color: #607d8b;\r\n}\r\n.grid-pad {\r\n  padding: 10px 0;\r\n}\r\n.grid-pad > [class*='col-']:last-of-type {\r\n  padding-right: 20px;\r\n}\r\n@media (max-width: 600px) {\r\n  .module {\r\n    font-size: 10px;\r\n    max-height: 75px; }\r\n}\r\n@media (max-width: 1024px) {\r\n  .grid {\r\n    margin: 0;\r\n  }\r\n  .module {\r\n    min-width: 120px;\r\n  }\r\n}\r\n.hidden{\r\n\tdisplay:none;\r\n}\r\nlabel {\r\n  /*display: inline-block;*/\r\n  width: 3em;\r\n  margin: .5em 0;\r\n  color: #607D8B;\r\n  font-weight: bold;\r\n\r\n  \r\n}\r\ninput {\r\n  height: 2em;\r\n  font-size: 1em;\r\n  padding-left: .4em;\r\n}\r\ninput[type=\"number\"]{\r\n\twidth:50px;\r\n}\r\nbutton {\r\n  padding: 5px 10px;\r\n  text-decoration: none;\r\n  margin-top: 10px;\r\n  display: inline-block;\r\n  background-color: #eee;\r\n  border-radius: 4px;\r\n}\r\nbutton:hover {\r\n  color: #039be5;\r\n  background-color: #CFD8DC;\r\n}\r\n*:focus {\r\n\t-webkit-animation: blink 0.85s step-end infinite alternate; \r\n}\r\n@-webkit-keyframes blink { 50% { border-color: aqua;background-color: aqua; }  }"
+module.exports = "/* DashboardComponent's private CSS styles */\r\n[class*='col-'] {\r\n  float: left;\r\n  padding-right: 20px;\r\n  padding-bottom: 20px;\r\n}\r\n[class*='col-']:last-of-type {\r\n  padding-right: 0;\r\n}\r\na {\r\n  text-decoration: none;\r\n}\r\n*, *:after, *:before {\r\n  box-sizing: border-box;\r\n}\r\nh3 {\r\n  text-align: center; margin-bottom: 0;\r\n}\r\nh4 {\r\n  position: relative;\r\n}\r\n.grid {\r\n  margin: 0;\r\n\r\n}\r\n.col-1-4 {\r\n  width: 50%;\r\n\r\n}\r\n.module {\r\n  padding: 10px;\r\n  text-align: center;\r\n  color: #eee;\r\n  max-height: 80px;\r\n  min-width: 120px;\r\n  background-color: #607D8B;\r\n  border-radius: 2px;\r\n}\r\n.module:hover {\r\n  background-color: #EEE;\r\n  cursor: pointer;\r\n  color: #607d8b;\r\n}\r\n.grid-pad {\r\n  padding: 10px 0;\r\n}\r\n.grid-pad > [class*='col-']:last-of-type {\r\n  padding-right: 20px;\r\n}\r\n@media (max-width: 600px) {\r\n  .module {\r\n    font-size: 10px;\r\n    max-height: 75px; }\r\n}\r\n@media (max-width: 1024px) {\r\n  .grid {\r\n    margin: 0;\r\n  }\r\n  .module {\r\n    min-width: 120px;\r\n  }\r\n}\r\n.hidden{\r\n\tdisplay:none;\r\n}\r\nlabel {\r\n  /*display: inline-block;*/\r\n  width: 3em;\r\n  margin: .5em 0;\r\n  color: #607D8B;\r\n  font-weight: bold;\r\n\r\n  \r\n}\r\ninput {\r\n  height: 2em;\r\n  font-size: 1em;\r\n  padding-left: .4em;\r\n}\r\ninput[type=\"number\"]{\r\n\twidth:50px;\r\n}\r\nbutton {\r\n  padding: 5px 10px;\r\n  text-decoration: none;\r\n  margin-top: 10px;\r\n  display: inline-block;\r\n  background-color: #eee;\r\n  border-radius: 4px;\r\n}\r\nbutton:hover {\r\n  color: #039be5;\r\n  background-color: #CFD8DC;\r\n}\r\n.focus {\r\n\t-webkit-animation: blink 0.85s step-end infinite alternate; \r\n}\r\n@-webkit-keyframes blink { 50% { border-color: greenyellow;background-color: greenyellow; }  }"
 
 /***/ }),
 
@@ -305,7 +305,7 @@ module.exports = "/* DashboardComponent's private CSS styles */\r\n[class*='col-
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\r\n\r\n<div class=\"grid grid-pad\">\r\n  <!--a *ngFor=\"let life of lifes\" class=\"col-1-4\"\r\n   routerLink=\"/detail/{{life.id}}\">\r\n    <div class=\"module life\">\r\n      <h4>{{life.name}}</h4>\r\n    </div>\r\n  </a-->\r\n  <div>\r\n  <input type=\"text\" id=\"namefile\" value=\"lifes\" placeholder=\"Name of file\">\r\n  <button id=\"savebutton\" (click)=\"saveTextAsFile()\">Export lifes</button>\r\n  <input type=\"file\" id=\"importedfile\">\r\n  <button id=\"readbutton\" (click)=\"readtext()\">Read file</button> <!--problema de sincronia-->\r\n  <!-- não funciona <button (click)=\"deleteAll()\">Limpar</button> -->\r\n  <textarea class=\"hidden\" id=\"arearesp\"></textarea>\r\n  <div id=\"divready\" class=\"hidden\">\r\n  <label>Ready to load!</label>\r\n  <button id=\"loadbutton\" (click)=\"importLifes()\">Import lifes</button> <!--problema de sincronia-->\r\n  </div>\r\n  <div>\r\n  <br>\r\n  <div>\r\n  <input type=\"number\" id=\"inicvalue\" placeholder=\"init value\">\r\n  :\r\n  <input type=\"text\" id=\"inicname\" placeholder=\"Name\">\r\n  <button id=\"inicbutton\" (click)=\"addInic()\">add</button>\r\n  <button id=\"inicclearbutton\" (click)=\"clearInic()\">clean</button>\r\n  </div>\r\n  <br>\r\n  <table border=\"1px\" align=\"left\">\r\n  <tr>\r\n\t<th>init</th>\r\n\t<th>name</th>\r\n  </tr>\r\n  <tr *ngFor=\"let inic of this.inics\">\r\n\t<td >{{inic.id}}</td>\r\n\t<td *ngFor=\"let name of inic.names\">{{name}}</td>\r\n  </tr>\r\n  \r\n  </table>\r\n</div>\r\n<app-life-search></app-life-search>"
+module.exports = "\r\n\r\n<div class=\"grid grid-pad\">\r\n  <!--a *ngFor=\"let life of lifes\" class=\"col-1-4\"\r\n   routerLink=\"/detail/{{life.id}}\">\r\n    <div class=\"module life\">\r\n      <h4>{{life.name}}</h4>\r\n    </div>\r\n  </a-->\r\n  <div>\r\n  <input type=\"text\" id=\"namefile\" value=\"lifes\" placeholder=\"Name of file\">\r\n  <button id=\"savebutton\" (click)=\"saveTextAsFile()\">Export lifes</button>\r\n  <input type=\"file\" id=\"importedfile\">\r\n  <button id=\"readbutton\" (click)=\"readtext()\">Read file</button> <!--problema de sincronia-->\r\n  <!-- não funciona <button (click)=\"deleteAll()\">Limpar</button> -->\r\n  <textarea class=\"hidden\" id=\"arearesp\"></textarea>\r\n  <div id=\"divready\" class=\"hidden\">\r\n  <label>Ready to load!</label>\r\n  <button id=\"loadbutton\" (click)=\"importLifes()\">Import lifes</button> <!--problema de sincronia-->\r\n  </div>\r\n  <div>\r\n  <br>\r\n  <div>\r\n  <input type=\"number\" id=\"inicvalue\" placeholder=\"init value\">\r\n  :\r\n  <input type=\"text\" id=\"inicname\" placeholder=\"Name\">\r\n  <button id=\"inicbutton\" (click)=\"addInic()\">add</button>\r\n  <button id=\"inicclearbutton\" (click)=\"clearInic()\">clean</button>\r\n  </div>\r\n  <br>\r\n  <table border=\"1px\" align=\"center\">\r\n  <tr>\r\n\t<th>init</th>\r\n\t<th>name</th>\r\n  </tr>\r\n  <tr *ngFor=\"let inic of this.inics\">\r\n\t<td >{{inic.id}}</td>\r\n\t<td *ngFor=\"let name of inic.names\">{{name}}</td>\r\n  </tr>\r\n  \r\n  </table>\r\n</div>\r\n<!--app-life-search></app-life-search-->"
 
 /***/ }),
 
@@ -537,6 +537,7 @@ var InMemoryDataService = /** @class */ (function () {
                     'Nesta página você pode salvar e carregar suas fichas, e também adicionar iniciativas',
                     'In this page you can save and load your sheets, and add initiatives as well'
                 ], for: '', pos: 1 },
+            //iniciativa
             { id: 'menuinic', text: [
                     'para adicionar uma iniciativa preencha os campos (primeiro com valor',
                     'to add an initiative fulfil the blanks (the first with value'
@@ -553,6 +554,7 @@ var InMemoryDataService = /** @class */ (function () {
                     'para remover todas as iniciativas clique no botão clean',
                     'to remove all initiatives just click on the clean button'
                 ], for: 'inicclearbutton', pos: 2 },
+            //save
             { id: 'menuname', text: [
                     'para salvar suas planilhas escolha o nome do arquivo',
                     'to save your sheets tip a name for the file'
@@ -561,6 +563,7 @@ var InMemoryDataService = /** @class */ (function () {
                     'e clique no botão ao lado',
                     'and click on the button at side'
                 ], for: 'savebutton', pos: 3 },
+            //load
             { id: 'menuread', text: [
                     'para carregar suas planilhas escolha um arquivo(json)',
                     'to load your sheets choose a file(json)'
@@ -577,6 +580,7 @@ var InMemoryDataService = /** @class */ (function () {
                     'Nesta página você pode ver o nome de suas planilhas e deletar alguma',
                     'In this page you can see the name of your sheets and delete someone'
                 ], for: '', pos: 1 },
+            //seletor
             { id: 'lifeid', text: [
                     'você vê o id de sua planilha aqui',
                     'you see the id of your sheet here'
@@ -588,7 +592,219 @@ var InMemoryDataService = /** @class */ (function () {
             { id: 'lifedelete', text: [
                     'para deletar clique no botão de x',
                     'to delete click on the x button'
-                ], for: 'lifebutton0', pos: 2 }
+                ], for: 'lifebutton0', pos: 2 },
+            { id: 'detailintro', text: [
+                    'Nesta página você vê detalhadamente a planilha, e pode editá-la, seja alterando (atributos, armas e habilidades) ou controlando sua vida',
+                    'In this page you see a sheet detailed, and can edit it, could be update (attributes, weapons and abilities) or controlling the life'
+                ], for: '', pos: 1 },
+            //detalhe
+            { id: 'detailname', text: [
+                    'nome da planilha',
+                    'sheet name'
+                ], for: 'lifename', pos: 2 },
+            { id: 'detailbase', text: [
+                    'tamanho da base do personagem',
+                    'character base size'
+                ], for: 'lifebase', pos: 2 },
+            { id: 'detailtype', text: [
+                    'tipo da vida do personagem',
+                    'character life type'
+                ], for: 'lifetype', pos: 2 },
+            { id: 'detailarm', text: [
+                    'e controlar o valor de seus atributos, como arm',
+                    'and control the values of its attributes, like arm'
+                ], for: 'armdemonstrativo', pos: 2 },
+            //vitalidade
+            { id: 'detailvitadd', text: [
+                    'para adicionar uma barra de vitalidade para seus mobs',
+                    'to add a vitality bar for your mobs'
+                ], for: 'addvitbar', pos: 3 },
+            { id: 'detailvitdel', text: [
+                    'ou remover uma barra de vitalidade',
+                    'or remove a vitality bar'
+                ], for: 'removevitbar', pos: 3 },
+            { id: 'detailvit', text: [
+                    'controle a quantidade de vida clicando nos circulos',
+                    'control the life quantity by clicking on the circles'
+                ], for: 'cb00', pos: 3 },
+            //espiral
+            { id: 'detailspiralintro', text: [
+                    'controle o valor de cada espiral',
+                    'control the value of each spiral'
+                ], for: '', pos: 4 },
+            { id: 'detailfis', text: [
+                    'começando pelo físico',
+                    'starting by physical'
+                ], for: 'cbf0', pos: 4 },
+            { id: 'detailfisup', text: [
+                    'clique de cima',
+                    'clique on top'
+                ], for: 'cbf2', pos: 4 },
+            { id: 'detailfisdown', text: [
+                    'para baixo',
+                    'to bottom'
+                ], for: 'cbf3', pos: 4 },
+            { id: 'detailagi', text: [
+                    'o mesmo para agilidade',
+                    'the same for agility'
+                ], for: 'cba0', pos: 4 },
+            { id: 'detailint', text: [
+                    'e intelecto',
+                    'and intellect'
+                ], for: 'cbi0', pos: 4 },
+            { id: 'detailfield', text: [
+                    'mais o campo de força para conjuradores',
+                    'plus the force field for warcasters'
+                ], for: 'cbd0', pos: 4 },
+            //grid
+            { id: 'detailgridintro', text: [
+                    'veja a grade de seu gigante',
+                    'see the grid of your warjack'
+                ], for: '', pos: 5 },
+            { id: 'detailgridchange', text: [
+                    'mude o modulo clicando em uma espaço na grade, ou danifique pressionando ctrl ou shift',
+                    'change the module by click on a space on grid, or damage by pressing ctrl or shift '
+                ], for: 'btn00', pos: 5 },
+            { id: 'detailgridchange', text: [
+                    'não esqueça campo de força para mirmidões',
+                    'don\'t forget the force field for myrmidons'
+                ], for: 'cbgd0', pos: 5 },
+            //meele
+            { id: 'detailmadd', text: [
+                    'adicione uma arma corpo-a-corpo',
+                    'add a meele weapon'
+                ], for: 'addmeele', pos: 6 },
+            { id: 'detailmname', text: [
+                    'escolha nome',
+                    'chose the name'
+                ], for: 'mlname0', pos: 6 },
+            { id: 'detailmlocal', text: [
+                    'local da arma',
+                    'weapon location'
+                ], for: 'mllocal0', pos: 6 },
+            { id: 'detailmlhit', text: [
+                    'bonus de acerto',
+                    'hit bonus'
+                ], for: 'mlhit0', pos: 6 },
+            { id: 'detailmlpod', text: [
+                    'potência',
+                    'power'
+                ], for: 'mlpod0', pos: 6 },
+            { id: 'detailmlpf', text: [
+                    'potência mais força',
+                    'power plus strength'
+                ], for: 'mlpf0', pos: 6 },
+            { id: 'detailmlnt', text: [
+                    'notas',
+                    'notes'
+                ], for: 'mlnt0', pos: 6 },
+            { id: 'detailmldel', text: [
+                    'ou remova a arma',
+                    'or delete the weapon'
+                ], for: 'mldel0', pos: 6 },
+            //range
+            { id: 'detailradd', text: [
+                    'adicione uma arma à distância',
+                    'add a range weapon'
+                ], for: 'addrange', pos: 7 },
+            { id: 'detailrname', text: [
+                    'escolha nome',
+                    'chose the name'
+                ], for: 'rgname0', pos: 7 },
+            { id: 'detailrlocal', text: [
+                    'local da arma',
+                    'weapon location'
+                ], for: 'rglocal0', pos: 7 },
+            { id: 'detailrghit', text: [
+                    'bonus de acerto',
+                    'hit bonus'
+                ], for: 'rghit0', pos: 7 },
+            { id: 'detailrgalc', text: [
+                    'alcance',
+                    'range'
+                ], for: 'rgalc0', pos: 7 },
+            { id: 'detailrgrof', text: [
+                    'Cadência',
+                    'Rate of fire'
+                ], for: 'rgrof0', pos: 7 },
+            { id: 'detailrgade', text: [
+                    'área de efeito',
+                    'area of effect'
+                ], for: 'rgade0', pos: 7 },
+            { id: 'detailrgpod', text: [
+                    'potência',
+                    'power'
+                ], for: 'rgpod0', pos: 7 },
+            { id: 'detailrgnt', text: [
+                    'notas',
+                    'notes'
+                ], for: 'rgnt0', pos: 7 },
+            { id: 'detailrgdel', text: [
+                    'ou remova a arma',
+                    'or delete the weapon'
+                ], for: 'rgdel0', pos: 7 },
+            //habilidade
+            { id: 'detailaadd', text: [
+                    'adicione uma habilidade',
+                    'add an ability'
+                ], for: 'addability', pos: 8 },
+            { id: 'detailaname', text: [
+                    'escolha nome',
+                    'chose the name'
+                ], for: 'abname0', pos: 8 },
+            { id: 'detailadesc', text: [
+                    'coloque a descrição',
+                    'put the description'
+                ], for: 'abdesc0', pos: 8 },
+            { id: 'detailapg', text: [
+                    'livro e página',
+                    'book and page'
+                ], for: 'abpg0', pos: 8 },
+            { id: 'detailadel', text: [
+                    'o remova a habilidade',
+                    'or delete the ability'
+                ], for: 'abdel0', pos: 8 },
+            //magic
+            { id: 'detailgadd', text: [
+                    'adicione uma mágia',
+                    'add a magic'
+                ], for: 'addmagic', pos: 9 },
+            { id: 'detailgname', text: [
+                    'escolha nome',
+                    'chose the name'
+                ], for: 'mgname0', pos: 9 },
+            { id: 'detailmcost', text: [
+                    'custo',
+                    'cost'
+                ], for: 'mgcost0', pos: 9 },
+            { id: 'detailmgalc', text: [
+                    'alcance',
+                    'range'
+                ], for: 'mgalc0', pos: 9 },
+            { id: 'detailmgade', text: [
+                    'área de efeito',
+                    'area of effect'
+                ], for: 'mgade0', pos: 9 },
+            { id: 'detailmgpod', text: [
+                    'potência',
+                    'power'
+                ], for: 'mgpod0', pos: 9 },
+            { id: 'detailmgman', text: [
+                    'manutenção',
+                    'upkeep'
+                ], for: 'mgman0', pos: 9 },
+            { id: 'detailmgoff', text: [
+                    'ofensiva',
+                    'offensive'
+                ], for: 'mgoff0', pos: 9 },
+            { id: 'detailmgnt', text: [
+                    'notas',
+                    'notes'
+                ], for: 'mgnt0', pos: 9 },
+            { id: 'detailmgdel', text: [
+                    'ou remova a mágia',
+                    'or delete the magic'
+                ], for: 'mgdel0', pos: 9 }
         ];
         return { lifes: lifes, iniciativas: iniciativas, infos: infos };
     };
@@ -744,7 +960,7 @@ var IniciativaService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* HeroDetailComponent's private CSS styles */\r\nlabel {\r\n  /*display: inline-block;*/\r\n  width: 3em;\r\n  margin: .5em 0;\r\n  color: #607D8B;\r\n  font-weight: bold;\r\n\r\n  \r\n}\r\ninput {\r\n  height: 2em;\r\n  font-size: 1em;\r\n  padding-left: .4em;\r\n}\r\ninput[type=\"number\"]{\r\n\twidth:50px;\r\n}\r\nselect {\r\n  height: 2em;\r\n  font-size: 1em;\r\n  padding-left: .4em;\r\n}\r\nbutton {\r\n  margin-top: 20px;\r\n  font-family: Arial;\r\n  background-color: #ddd;\r\n  border: none;\r\n  padding: 5px 10px;\r\n  border-radius: 4px;\r\n  cursor: pointer; cursor: hand;\r\n  float:center;\r\n}\r\nbutton:hover {\r\n  background-color: #27ace8;\r\n}\r\nbutton:disabled {\r\n  background-color: #eee;\r\n  color: #ccc;\r\n  cursor: auto;\r\n}\r\n.firsts {\r\n\tfloat: left;\r\n\ttop: 19px;\r\n    position: relative;\r\n}\r\n.container{\r\n\tfloat: left;\r\n\twidth: 12%;\r\n\tmin-width: 222px;\r\n}\r\n.radio{\r\n\tbackground-color: #a77e2d !important;\r\n  color: #ffffff !important;\r\n}\r\n.top{\r\n\tposition: relative;\r\n    margin-left: -25px;\r\n}\r\n.bot{\r\n\ttop: 39px;\r\n    position: relative;\r\n\tleft: -27px;\r\n}\r\n.agidiv{\r\n\theight: 70px;\r\n\tbackground: #12ff1073;\r\n\tmargin-left: 43%;\r\n    width: 326px;\r\n    min-width: 326px;\r\n}\r\n.fisdiv{\r\n\theight: 70px;\r\n\tbackground: #e8121273;\r\n\tmargin-left: 43%;\r\n    width: 326px;\r\n    min-width: 326px;\r\n}\r\n.intdiv{\r\n\theight: 70px;\r\n\tbackground: #039be573;\r\n\tmargin-left: 43%;\r\n    width: 326px;\r\n    min-width: 326px;\r\n}\r\n.damaged {\r\n\tbackground: red !important;;\r\n    color: #03ff24;\r\n}\r\n.bodygrid {\r\n\tcolor:#ffffff00  !important;\r\n}\r\n.offgrid {\r\n\tbackground: #1f0400 !important;\r\n\tcolor:#ffffff00;\r\n}\r\ntable{\r\n\tmargin-top: 10px;\r\n}\r\ntable button{\r\n\tmargin-top: 0px !important;\r\n\tmin-width: 34px;\r\n}\r\n.local{\r\n\twidth: 20px;\r\n    height: 13px;\r\n    position: relative;\r\n    top: 2px;\r\n    left: -8px;\r\n    padding: 0px;\r\n\tborder-color: #ffffff00;\r\n    background: #ffffff00;\r\n    color: brown;\r\n}\r\n.pg{\r\n\twidth: 64px;\r\n}\r\n.desc{\r\n\theight: 59px;\r\n}\r\n.gridcomp{\r\n\theight: 25px;\r\n}\r\n.tablegrid{\r\n\t/*background-image: url(assets/grid.png);*/\r\n    /*background-size: cover;*/\r\n\twidth: 254px;\r\n    height: 269px;\r\n\tbackground-size: cover;\r\n}\r\n.gridbuton{\r\n\tborder-radius: 0px;\r\n    height: 34px;\r\n    top: -2px;\r\n    position: relative;\r\n\tbackground:#ffffff00;\r\n\t    font-size: 15px;\r\n    font-family: cursive;\r\n    font-weight: bold;\r\n}\r\n.inputdesc{\r\n    width: 76%;\r\n}\r\n.vitcheck{\r\n\ttop: 12px;\r\n    position: relative;\r\n\r\n}\r\n.vitcheck:checked {\r\n    background-color: #a3b1b39c;\r\n}\r\n.spirallabel {\r\n\ttop: 19px;\r\n    float: left;\r\n    position: relative;\r\n    color: black;\r\n    left: -45px;\r\n}\r\ninput[type=\"checkbox\"]{\r\n\twidth: 1.3em;\r\n    height: 1.3em;\r\n    background-color: white;\r\n    border-radius: 50%;\r\n    vertical-align: middle;\r\n    border: 1px solid #060606;\r\n    -webkit-appearance: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n}\r\n.fisdiv input[type=\"checkbox\"]:checked{\r\n\tbackground-color: #aa0000bb;\r\n}\r\n.agidiv input[type=\"checkbox\"]:checked{\r\n\tbackground-color: #1b791eb0;\r\n}\r\n.intdiv input[type=\"checkbox\"]:checked{\r\n\tbackground-color: #1b30c19e;\r\n}\r\n.fieldcheck:checked{\r\n\tbackground-color: #14cfe2bb;\r\n}\r\ntable input[type=\"checkbox\"]:checked{\r\n\tbackground-color: #03ff24;\r\n}"
+module.exports = "/* HeroDetailComponent's private CSS styles */\r\nlabel {\r\n  /*display: inline-block;*/\r\n  width: 3em;\r\n  margin: .5em 0;\r\n  color: #607D8B;\r\n  font-weight: bold;\r\n\r\n  \r\n}\r\ninput {\r\n  height: 2em;\r\n  font-size: 1em;\r\n  padding-left: .4em;\r\n}\r\ninput[type=\"number\"]{\r\n\twidth:50px;\r\n}\r\nselect {\r\n  height: 2em;\r\n  font-size: 1em;\r\n  padding-left: .4em;\r\n}\r\nbutton {\r\n  margin-top: 20px;\r\n  font-family: Arial;\r\n  background-color: #ddd;\r\n  border: none;\r\n  padding: 5px 10px;\r\n  border-radius: 4px;\r\n  cursor: pointer; cursor: hand;\r\n  float:center;\r\n}\r\nbutton:hover {\r\n  background-color: #27ace8;\r\n}\r\nbutton:disabled {\r\n  background-color: #eee;\r\n  color: #ccc;\r\n  cursor: auto;\r\n}\r\n.firsts {\r\n\tfloat: left;\r\n\ttop: 19px;\r\n    position: relative;\r\n}\r\n.container{\r\n\tfloat: left;\r\n\twidth: 12%;\r\n\tmin-width: 222px;\r\n}\r\n.radio{\r\n\tbackground-color: #a77e2d !important;\r\n  color: #ffffff !important;\r\n}\r\n.top{\r\n\tposition: relative;\r\n    margin-left: -25px;\r\n}\r\n.bot{\r\n\ttop: 39px;\r\n    position: relative;\r\n\tleft: -27px;\r\n}\r\n.fisdiv{\r\n\theight: 70px;\r\n\tbackground: #039be573;\r\n\tmargin: auto;\r\n    width: 326px;\r\n    min-width: 326px;\r\n}\r\n.agidiv{\r\n\theight: 70px;\r\n\tbackground: #e8121273;\r\n\tmargin: auto;\r\n    width: 326px;\r\n    min-width: 326px;\r\n}\r\n.intdiv{\r\n\theight: 70px;\r\n\tbackground: #12ff1073;\r\n\tmargin: auto;\r\n    width: 326px;\r\n    min-width: 326px;\r\n}\r\n.damaged {\r\n\tbackground: red !important;;\r\n    color: #03ff24;\r\n}\r\n.bodygrid {\r\n\tcolor:#ffffff00  !important;\r\n}\r\n.offgrid {\r\n\tbackground: #1f0400 !important;\r\n\tcolor:#ffffff00;\r\n}\r\ntable{\r\n\tmargin-top: 10px;\r\n}\r\ntable button{\r\n\tmargin-top: 0px !important;\r\n\tmin-width: 34px;\r\n}\r\n.local{\r\n\twidth: 20px;\r\n    height: 13px;\r\n    position: relative;\r\n    top: 2px;\r\n    left: -8px;\r\n    padding: 0px;\r\n\tborder-color: #ffffff00;\r\n    background: #ffffff00;\r\n    color: brown;\r\n}\r\n.pg{\r\n\twidth: 64px;\r\n}\r\n.desc{\r\n\theight: 59px;\r\n}\r\n.gridcomp{\r\n\theight: 25px;\r\n}\r\n.tablegrid{\r\n\t/*background-image: url(assets/grid.png);*/\r\n    /*background-size: cover;*/\r\n\twidth: 254px;\r\n    height: 269px;\r\n\tbackground-size: cover;\r\n}\r\n.gridbuton{\r\n\tborder-radius: 0px;\r\n    height: 34px;\r\n    top: -2px;\r\n    position: relative;\r\n\tbackground:#ffffff00;\r\n\t    font-size: 15px;\r\n    font-family: cursive;\r\n    font-weight: bold;\r\n}\r\n.inputdesc{\r\n    width: 76%;\r\n}\r\n.vitcheck{\r\n\ttop: 12px;\r\n    position: relative;\r\n\r\n}\r\n.vitcheck:checked {\r\n    background-color: #a3b1b39c;\r\n}\r\n.spirallabel {\r\n\ttop: 19px;\r\n    float: left;\r\n    position: relative;\r\n    color: black;\r\n    left: -45px;\r\n}\r\ninput[type=\"checkbox\"]{\r\n\twidth: 1.3em;\r\n    height: 1.3em;\r\n    background-color: white;\r\n    border-radius: 50%;\r\n    vertical-align: middle;\r\n    border: 1px solid #060606;\r\n    -webkit-appearance: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n}\r\n.fisdiv input[type=\"checkbox\"]:checked{\r\n\tbackground-color: #1b30c19e;\r\n}\r\n.agidiv input[type=\"checkbox\"]:checked{\r\n\tbackground-color: #aa0000bb;\r\n}\r\n.intdiv input[type=\"checkbox\"]:checked{\r\n\tbackground-color: #1b791eb0;\r\n}\r\n.fieldcheck:checked{\r\n\tbackground-color: #14cfe2bb;\r\n}\r\ntable input[type=\"checkbox\"]:checked{\r\n\tbackground-color: #03ff24;\r\n}\r\n.focus {\r\n\t-webkit-animation: blink 0.85s step-end infinite alternate; \r\n}\r\n@-webkit-keyframes blink { 50% { border-color: green;background-color: greenyellow; }  }"
 
 /***/ }),
 
@@ -755,7 +971,7 @@ module.exports = "/* HeroDetailComponent's private CSS styles */\r\nlabel {\r\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"life\">\n\t<!--div><span>{{life.name | uppercase }} </span></div>\n\t<div><span>Tipo: </span>{{life.type }}</div>\n\t<div><span>Total: </span>{{life.value}}</div-->\n    <label>New Name:\n      <input [(ngModel)]=\"life.name\" placeholder=\"name\" />\n    </label>\n\t<br>\n\t<label>\n\t\tNew Base:\n\t\t<select  [(ngModel)]=\"life.base\"  >\n\t  <option value=\"small\">Small</option>\n\t  <option value=\"medium\">Medium</option>\n\t  <option value=\"large\">Large</option>\n\t  </select>\n\t</label>\n\t<br>\n\t<label>\n\t\tNew Type:\n\t\t<select (change)=\"setdefault()\" [(ngModel)]=\"life.type\"  >\n\t  <option value=\"vitalidade\">Vitality</option>\n\t  <option value=\"espiral\">Spiral</option>\n\t  <option value=\"grid\">Warjack</option>\n\t  </select>\n\t</label>\n\t<br>\n\t<label>\n\t<!--  status  -->\n\tSPD:<input type=\"number\" [(ngModel)]=\"life.spd\" placeholder=\"spd\" />\n\tARM:<input type=\"number\" [(ngModel)]=\"life.arm\" placeholder=\"arm\" />\n\tDEF:<input type=\"number\" [(ngModel)]=\"life.def\" placeholder=\"def\" />\n\tINIT:<input type=\"number\" [(ngModel)]=\"life.inc\" placeholder=\"init\" />\n\tWILL:<input type=\"number\" [(ngModel)]=\"life.von\" placeholder=\"will\" />\n\tARC:<input type=\"number\" [(ngModel)]=\"life.arc\" placeholder=\"arc\" />\n\tCMD:<input type=\"number\" [(ngModel)]=\"life.cmd\" placeholder=\"cmd\" />\n\tTHR:<input type=\"number\" [(ngModel)]=\"life.thr\" placeholder=\"Threshold\" />\n\t</label>\n\t<!--div [ngSwitch]=\"life.type\">\n\t\t<div *ngSwitchCase=\"'vitalidade'\">\n\t\t<input [(ngModel)]=\"life.value\" placeholder=\"quantidade\" />\n\t\t</div>\n\t\t<div *ngSwitchCase=\"'espiral'\">\n\t\t<input [(ngModel)]=\"life.value\" placeholder=\"fis,agi,int\" />\n\t\t</div>\n\t\t<div *ngSwitchCase=\"'grid'\">\n\t\t<input [(ngModel)]=\"life.value\" placeholder=\"caixas\" />\n\t\t</div>\n\t</div-->\n\t<div  *ngIf=\"life.type === 'vitalidade'\">\n\t\n\t<!--input [(ngModel)]=\"life.value\" placeholder=\"quantidade\" /-->\n\t<!--[checked]=\"i < life.value\" não funcionou, logo tive que trapaçear-->\n\t<!--  vit  -->\n\t<button (click)=\"addVitality()\"><label>Add new Vitality bar</label></button>\n\t<button (click)=\"delVitality()\"><label>Remove last Vitality bar</label></button>\n\t<div *ngFor=\"let vit of getVitalities(),let i = index\">\n\t\n\t<label class=\"vitcheck\">{{i+1}}:</label><input class=\"vitcheck\" id=\"cb{{i}}{{c}}\" (change)=\"vitalityup(i,c)\" type=\"checkbox\" *ngFor=\"let c of numerica(0,15)\" [checked]=\"c< vit\" /><label class=\"vitcheck\">{{vit}}</label>\n\t\n\t\n\t</div>\n\t\n\t<!--input  (click)=\"vitalityup(this.checked)\" type=\"checkbox\" *ngFor=\"let i of numerica(+life.value,15)\" /-->\n\t</div>\n\t\n\t<div *ngIf=\"life.type === 'espiral'\">\n\t\n\t\n\t<!--  Fis  -->\n\t<div class=\"fisdiv\">\n\t\n\t<div class=\"firsts\">\n\t<input  id=\"cbf{{i}}\" (change)=\"fisup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,2)\" [checked]=\"i< getFis()\" />\n\t</div>\n\t<div class=\"container\">\n\t\t<input [class.top]=\"i%2==0\" [class.bot]=\"i%2==1\"  id=\"cbf{{i}}\" (change)=\"fisup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(2,16)\" [checked]=\"i< getFis()\" />\n\t</div>\n\t<label class=\"spirallabel\">{{getFis()}}</label>\n\t</div>\n\t\n\t<!--  Agi  -->\n\t<div class=\"agidiv\">\n\t\n\t<div class=\"firsts\">\n\t<input  id=\"cba{{i}}\" (change)=\"agiup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,2)\" [checked]=\"i< getAgi()\" />\n\t</div>\n\t<div class=\"container\">\n\t\t<input [class.top]=\"i%2==0\" [class.bot]=\"i%2==1\"  id=\"cba{{i}}\" (change)=\"agiup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(2,16)\" [checked]=\"i< getAgi()\" />\n\t</div>\n\t<label class=\"spirallabel\">{{getAgi()}}</label>\n\t</div>\n\t\n\t<!--  Int  -->\n\t<div class=\"intdiv\">\n\t\n\t<div class=\"firsts\">\n\t<input class=\"btn-primary\" id=\"cbi{{i}}\" (change)=\"intup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,2)\" [checked]=\"i< getInt()\" />\n\t</div>\n\t<div class=\"container\">\n\t\t<input [class.top]=\"i%2==0\" [class.bot]=\"i%2==1\" id=\"cbi{{i}}\" (change)=\"intup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(2,16)\" [checked]=\"i< getInt()\" />\n\t</div>\n\t<label class=\"spirallabel\">{{getInt()}}</label>\n\t</div>\n\t<br>\n\t<!--  field  -->\n\t<input class=\"fieldcheck\" id=\"cbd{{i}}\" (change)=\"fieldup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,6)\" [checked]=\"i< getField()\" />\n\t</div>\n\t<!--  grid  -->\n\t<div *ngIf=\"life.type === 'grid'\">\n\t\n\t\t<table  align=\"center\" class=\"tablegrid\" style=\"background-image: url(assets/grid.png)\">\n\t\t<tr class=\"gridcomp\">\n\t\t\t<th *ngFor=\"let i of numerica(0,6)\"></th>\n\t\t</tr>\n\t\t<tr *ngFor=\"let l of numerica(0,6)\">\n\t\t\t<td *ngFor=\"let letra of getColumn(l),let x = index\">\n\t\t\t\t<button class=\"gridcomp gridbuton\" id=\"btn{{l}}{{x}}\" [class.damaged]=\"letra.indexOf('.')!=-1\" [class.offgrid]=\"letra.indexOf('x')!=-1\" [class.bodygrid]=\"letra.indexOf('o')!=-1\" (click)=\"callchoice($event)\">{{letra[0]}}</button>\n\t\t\t</td>\n\t\t</tr>\n\t\t</table>\n\t\t<input class=\"fieldcheck\" id=\"cbgd{{i}}\" (change)=\"Gfieldup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,10)\" [checked]=\"i< getGField()\"/>\n\t</div>\n\t<!--  adds  -->\n\t<button (click)=\"addMeeleWepon()\"><label>New Meele Weapon</label></button>\n\t<button (click)=\"addRageWepon()\"><label>New Range Weapon</label></button>\n\t<button (click)=\"addAbility()\"><label>New Ability</label></button>\n\t<button (click)=\"addMagic()\"><label>New Magic</label></button>\n\t<br>\n\t<!--  weapons  -->\n\t<!--  meele weapons  -->\n\t<!--align=\"{{wep.local == 'd' ? 'right' : wep.local == 'e' ? 'left' : 'center' }}\"-->\n\t<table border=\"1px\" align=\"center\" *ngFor=\"let wep of life.melleweapons\">\n\t<tr>\n\t\t<th colspan=\"4\">\n\t\t<input [(ngModel)]=\"wep.name\" placeholder=\"name\" />\n\t\t<button (click)=\"deleteMeeleWeapon(wep)\">Remove</button>\n\t\t</th>\n\t</tr>\n\t<tr>\n\t\t<td>\n\t\t<img src=\"assets/meele.png\" />\n\t\t\n\t\t<input class=\"local\" type=\"text\" [(ngModel)]=\"wep.local\" />\n\t\t</td>\n\t\t<td>\n\t\tMAT:<input type=\"number\" [(ngModel)]=\"wep.hit\" placeholder=\"mat\" />\n\t\t</td>\n\t\t<td>\n\t\tPOW:<input type=\"number\" [(ngModel)]=\"wep.pod\" placeholder=\"pow\" />\n\t\t</td>\n\t\t<td>\n\t\tS+P:<input type=\"number\" [(ngModel)]=\"wep.pf\" placeholder=\"s + p\" />\n\t\t</td>\n\t</tr>\n\t<tr>\n\t\t<td colspan=\"4\">Note:<input class=\"inputdesc\" [(ngModel)]=\"wep.note\" placeholder=\"note\" /></td>\n\t</tr>\n\t</table>\n\t<!--  range weapons  -->\n\t<!--align=\"{{wep.local == 'd' ? 'right' : wep.local == 'e' ? 'left' : 'center' }}\"-->\n\t<table border=\"1px\" align=\"center\" *ngFor=\"let wep of life.rangeweapons\">\n\t<tr>\n\t\t<th colspan=\"6\">\n\t\t<input [(ngModel)]=\"wep.name\" placeholder=\"name\" />\n\t\t<button (click)=\"deleteRangeWeapon(wep)\">Remove</button>\n\t\t</th>\n\t</tr>\n\t<tr>\n\t\t<td>\n\t\t<img src=\"assets/range.png\" />\n\t\t<input class=\"local\" type=\"text\" [(ngModel)]=\"wep.local\" />\n\t\t</td>\n\t\t<td>\n\t\tRAT:<input type=\"number\" [(ngModel)]=\"wep.hit\" placeholder=\"rat\" />\n\t\t</td>\n\t\t<td>\n\t\tRNG:<input type=\"number\" [(ngModel)]=\"wep.alc\" placeholder=\"rng\" />\n\t\t</td>\n\t\t<td>\n\t\tROF:<input type=\"number\" [(ngModel)]=\"wep.munition\" placeholder=\"rof\" />\n\t\t</td>\n\t\t<td>\n\t\tAOE:<input type=\"number\" [(ngModel)]=\"wep.ade\" placeholder=\"aoe\" />\n\t\t</td>\n\t\t<td>\n\t\tPOW:<input type=\"number\" [(ngModel)]=\"wep.pod\" placeholder=\"pow\" />\n\t\t</td>\n\t\t\n\t\t\n\t</tr>\n\t<tr>\n\t\t<td colspan=\"6\">Note:<input class=\"inputdesc\" [(ngModel)]=\"wep.note\" placeholder=\"note\" /></td>\n\t</tr>\n\t</table>\n\t<!--  abilities  -->\n\t<table border=\"1px\" align=\"center\" *ngFor=\"let ability of life.abilities,let i = index\">\n\t\t<tr *ngIf=\"i==0\">\n\t\t\t<th >NAME</th>\n\t\t\t<th >DESCRIPTION</th>\n\t\t\t<th >PAG</th>\n\t\t</tr>\n\t\t\n\t\t<tr >\n\t\t\t<td rowspan=\"2\">\n\t\t\t\t<input  type=\"text\" [(ngModel)]=\"ability.name\" placeholder=\"name\" />\n\t\t\t</td>\n\t\t\t<td rowspan=\"2\">\n\t\t\t\t<textarea class=\"desc\" placeholder=\"ability description\" [(ngModel)]=\"ability.desc\" ></textarea>\n\t\t\t</td>\n\t\t\t<td >\n\t\t\t\t<input class=\"pg\" type=\"text\" [(ngModel)]=\"ability.pg\" placeholder=\"book + pag\" />\n\t\t\t\t\n\t\t\t</td>\n\t\t\t\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td>\n\t\t\t\t<button (click)=\"deleteAbility(ability)\">x</button>\n\t\t\t</td>\n\t\t</tr>\n\t\n\t</table>\n\t<!--  Magic  -->\n\t<table border=\"1px\" align=\"center\" *ngFor=\"let magic of life.magics,let i = index\">\n\t\t<tr *ngIf=\"i==0\">\n\t\t\t<th >NAME</th>\n\t\t\t<th >COST</th>\n\t\t\t<th >RNG</th>\n\t\t\t<th >AOE</th>\n\t\t\t<th >POW</th>\n\t\t\t<th >UP</th>\n\t\t\t<th >OFF</th>\n\t\t</tr>\n\t\t\n\t\t<tr >\n\t\t\t<td >\n\t\t\t\t<input  type=\"text\" [(ngModel)]=\"magic.name\" placeholder=\"name\" />\n\t\t\t</td>\n\t\t\t<td >\n\t\t\t\t<input  type=\"number\" [(ngModel)]=\"magic.cost\" placeholder=\"cost\" />\n\t\t\t</td>\n\t\t\t<td >\n\t\t\t\t<input class=\"pg\" type=\"text\" [(ngModel)]=\"magic.alc\" placeholder=\"rng\" />\n\t\t\t</td>\n\t\t\t<td >\n\t\t\t\t<input  type=\"number\" [(ngModel)]=\"magic.ade\" placeholder=\"aoe\" />\n\t\t\t</td>\n\t\t\t<td >\n\t\t\t\t<input  type=\"number\" [(ngModel)]=\"magic.pod\" placeholder=\"pow\" />\n\t\t\t</td>\n\t\t\t<td >\n\t\t\t\t<input  type=\"checkbox\" [(ngModel)]=\"magic.man\" />\n\t\t\t</td>\n\t\t\t<td >\n\t\t\t\t<input  type=\"checkbox\" [(ngModel)]=\"magic.off\" />\n\t\t\t</td>\n\t\t\t\n\t\t</tr>\n\t\t<tr>\n\t\t\t<td colspan=\"6\">\n\t\t\t\t<label>Note:</label><input class=\"inputdesc\" type=\"text\" [(ngModel)]=\"magic.note\" placeholder=\"note\" />\n\t\t\t\t<button (click)=\"deleteMagic(magic)\">x</button>\n\t\t\t</td>\n\t\t</tr>\n\t\n\t</table>\n\t<br>\n\n\t<button (click)=\"save()\">update</button>\n\t <button (click)=\"add();\">\n\t\tadd new\n\t  </button>\n\n</div> \n\n\n<button (click)=\"goBack()\">go back</button>"
+module.exports = "<div *ngIf=\"life\">\r\n\t<!--div><span>{{life.name | uppercase }} </span></div>\r\n\t<div><span>Tipo: </span>{{life.type }}</div>\r\n\t<div><span>Total: </span>{{life.value}}</div-->\r\n    <label>New Name:\r\n      <input id=\"lifename\" [(ngModel)]=\"life.name\" placeholder=\"name\" />\r\n    </label>\r\n\t<br>\r\n\t<label>\r\n\t\tNew Base:\r\n\t\t<select id=\"lifebase\" [(ngModel)]=\"life.base\"  >\r\n\t  <option value=\"small\">Small</option>\r\n\t  <option value=\"medium\">Medium</option>\r\n\t  <option value=\"large\">Large</option>\r\n\t  </select>\r\n\t</label>\r\n\t<br>\r\n\t<label>\r\n\t\tNew Type:\r\n\t\t<select id=\"lifetype\" (change)=\"setdefault()\" [(ngModel)]=\"life.type\"  >\r\n\t  <option value=\"vitalidade\">Vitality</option>\r\n\t  <option value=\"espiral\">Spiral</option>\r\n\t  <option value=\"grid\">Warjack</option>\r\n\t  </select>\r\n\t</label>\r\n\t<br>\r\n\t<label>\r\n\t<!--  status  -->\r\n\tSPD:<input type=\"number\" [(ngModel)]=\"life.spd\" placeholder=\"spd\" />\r\n\tARM:<input id=\"armdemonstrativo\" type=\"number\" [(ngModel)]=\"life.arm\" placeholder=\"arm\" />\r\n\tDEF:<input type=\"number\" [(ngModel)]=\"life.def\" placeholder=\"def\" />\r\n\tINIT:<input type=\"number\" [(ngModel)]=\"life.inc\" placeholder=\"init\" />\r\n\t<br>\r\n\tWILL:<input type=\"number\" [(ngModel)]=\"life.von\" placeholder=\"will\" />\r\n\tARC:<input type=\"number\" [(ngModel)]=\"life.arc\" placeholder=\"arc\" />\r\n\tCMD:<input type=\"number\" [(ngModel)]=\"life.cmd\" placeholder=\"cmd\" />\r\n\tTHR:<input type=\"number\" [(ngModel)]=\"life.thr\" placeholder=\"Threshold\" />\r\n\t</label>\r\n\t<!--div [ngSwitch]=\"life.type\">\r\n\t\t<div *ngSwitchCase=\"'vitalidade'\">\r\n\t\t<input [(ngModel)]=\"life.value\" placeholder=\"quantidade\" />\r\n\t\t</div>\r\n\t\t<div *ngSwitchCase=\"'espiral'\">\r\n\t\t<input [(ngModel)]=\"life.value\" placeholder=\"fis,agi,int\" />\r\n\t\t</div>\r\n\t\t<div *ngSwitchCase=\"'grid'\">\r\n\t\t<input [(ngModel)]=\"life.value\" placeholder=\"caixas\" />\r\n\t\t</div>\r\n\t</div-->\r\n\t<div  *ngIf=\"life.type === 'vitalidade'\">\r\n\t\r\n\t<!--input [(ngModel)]=\"life.value\" placeholder=\"quantidade\" /-->\r\n\t<!--[checked]=\"i < life.value\" não funcionou, logo tive que trapaçear-->\r\n\t<!--  vit  -->\r\n\t<button id=\"addvitbar\" (click)=\"addVitality()\"><label>Add new Vitality bar</label></button>\r\n\t<button id=\"removevitbar\" (click)=\"delVitality()\"><label>Remove last Vitality bar</label></button>\r\n\t<div *ngFor=\"let vit of getVitalities(),let i = index\">\r\n\t\r\n\t<label class=\"vitcheck\">{{i+1}}:</label><input class=\"vitcheck\" id=\"cb{{i}}{{c}}\" (change)=\"vitalityup(i,c)\" type=\"checkbox\" *ngFor=\"let c of numerica(0,15)\" [checked]=\"c< vit\" /><label class=\"vitcheck\">{{vit}}</label>\r\n\t\r\n\t\r\n\t</div>\r\n\t\r\n\t<!--input  (click)=\"vitalityup(this.checked)\" type=\"checkbox\" *ngFor=\"let i of numerica(+life.value,15)\" /-->\r\n\t</div>\r\n\t\r\n\t<div *ngIf=\"life.type === 'espiral'\">\r\n\t\r\n\t\r\n\t<!--  Fis  -->\r\n\t<div class=\"fisdiv\">\r\n\t\r\n\t<div class=\"firsts\">\r\n\t<input  id=\"cbf{{i}}\" (change)=\"fisup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,2)\" [checked]=\"i< getFis()\" />\r\n\t</div>\r\n\t<div class=\"container\">\r\n\t\t<input [class.top]=\"i%2==0\" [class.bot]=\"i%2==1\"  id=\"cbf{{i}}\" (change)=\"fisup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(2,16)\" [checked]=\"i< getFis()\" />\r\n\t</div>\r\n\t<label class=\"spirallabel\">{{getFis()}}</label>\r\n\t</div>\r\n\t\r\n\t<!--  Agi  -->\r\n\t<div class=\"agidiv\">\r\n\t\r\n\t<div class=\"firsts\">\r\n\t<input  id=\"cba{{i}}\" (change)=\"agiup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,2)\" [checked]=\"i< getAgi()\" />\r\n\t</div>\r\n\t<div class=\"container\">\r\n\t\t<input [class.top]=\"i%2==0\" [class.bot]=\"i%2==1\"  id=\"cba{{i}}\" (change)=\"agiup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(2,16)\" [checked]=\"i< getAgi()\" />\r\n\t</div>\r\n\t<label class=\"spirallabel\">{{getAgi()}}</label>\r\n\t</div>\r\n\t\r\n\t<!--  Int  -->\r\n\t<div class=\"intdiv\">\r\n\t\r\n\t<div class=\"firsts\">\r\n\t<input class=\"btn-primary\" id=\"cbi{{i}}\" (change)=\"intup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,2)\" [checked]=\"i< getInt()\" />\r\n\t</div>\r\n\t<div class=\"container\">\r\n\t\t<input [class.top]=\"i%2==0\" [class.bot]=\"i%2==1\" id=\"cbi{{i}}\" (change)=\"intup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(2,16)\" [checked]=\"i< getInt()\" />\r\n\t</div>\r\n\t<label class=\"spirallabel\">{{getInt()}}</label>\r\n\t</div>\r\n\t<br>\r\n\t<!--  field  -->\r\n\t<input class=\"fieldcheck\" id=\"cbd{{i}}\" (change)=\"fieldup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,6)\" [checked]=\"i< getField()\" />\r\n\t</div>\r\n\t<!--  grid  -->\r\n\t<div *ngIf=\"life.type === 'grid'\">\r\n\t\r\n\t\t<table   align=\"center\" class=\"tablegrid\" style=\"background-image: url(assets/grid.png)\">\r\n\t\t<tr class=\"gridcomp\">\r\n\t\t\t<th *ngFor=\"let i of numerica(0,6)\"></th>\r\n\t\t</tr>\r\n\t\t<tr *ngFor=\"let l of numerica(0,6)\">\r\n\t\t\t<td *ngFor=\"let letra of getColumn(l),let x = index\">\r\n\t\t\t\t<button class=\"gridcomp gridbuton\" id=\"btn{{l}}{{x}}\" [class.damaged]=\"letra.indexOf('.')!=-1\" [class.offgrid]=\"letra.indexOf('x')!=-1\" [class.bodygrid]=\"letra.indexOf('o')!=-1\" (click)=\"callchoice($event)\">{{letra[0]}}</button>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t</table>\r\n\t\t<input class=\"fieldcheck\" id=\"cbgd{{i}}\" (change)=\"Gfieldup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,10)\" [checked]=\"i< getGField()\"/>\r\n\t</div>\r\n\t<!--  adds  -->\r\n\t<br>\r\n\t<button id=\"addmeele\" (click)=\"addMeeleWepon()\"><label>New Meele Weapon</label></button>\r\n\t<button id=\"addrange\" (click)=\"addRageWepon()\"><label>New Range Weapon</label></button>\r\n\t<button id=\"addability\" (click)=\"addAbility()\"><label>New Ability</label></button>\r\n\t<button id=\"addmagic\" (click)=\"addMagic()\"><label>New Magic</label></button>\r\n\t<br>\r\n\t<!--  weapons  -->\r\n\t<!--  meele weapons  -->\r\n\t<!--align=\"{{wep.local == 'd' ? 'right' : wep.local == 'e' ? 'left' : 'center' }}\"-->\r\n\t<table border=\"1px\" align=\"center\" *ngFor=\"let wep of life.melleweapons,let i = index\">\r\n\t<tr>\r\n\t\t<th colspan=\"4\">\r\n\t\t<input id=\"mlname{{i}}\" [(ngModel)]=\"wep.name\" placeholder=\"name\" />\r\n\t\t<button id=\"mldel{{i}}\" (click)=\"deleteMeeleWeapon(wep)\">Remove</button>\r\n\t\t</th>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>\r\n\t\t<img src=\"assets/meele.png\" />\r\n\t\t\r\n\t\t<input id=\"mllocal{{i}}\" class=\"local\" type=\"text\" [(ngModel)]=\"wep.local\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tMAT:<input id=\"mlhit{{i}}\" type=\"number\" [(ngModel)]=\"wep.hit\" placeholder=\"mat\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tPOW:<input id=\"mlpod{{i}}\" type=\"number\" [(ngModel)]=\"wep.pod\" placeholder=\"pow\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tS+P:<input id=\"mlpf{{i}}\" type=\"number\" [(ngModel)]=\"wep.pf\" placeholder=\"s + p\" />\r\n\t\t</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td colspan=\"4\">Note:<input id=\"mlnt{{i}}\" class=\"inputdesc\" [(ngModel)]=\"wep.note\" placeholder=\"note\" /></td>\r\n\t</tr>\r\n\t</table>\r\n\t<!--  range weapons  -->\r\n\t<!--align=\"{{wep.local == 'd' ? 'right' : wep.local == 'e' ? 'left' : 'center' }}\"-->\r\n\t<table border=\"1px\" align=\"center\" *ngFor=\"let wep of life.rangeweapons,let i = index\">\r\n\t<tr>\r\n\t\t<th colspan=\"6\">\r\n\t\t<input id=\"rgname{{i}}\" [(ngModel)]=\"wep.name\" placeholder=\"name\" />\r\n\t\t<button id=\"rgdel{{i}}\" (click)=\"deleteRangeWeapon(wep)\">Remove</button>\r\n\t\t</th>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>\r\n\t\t<img src=\"assets/range.png\" />\r\n\t\t<input id=\"rglocal{{i}}\" class=\"local\" type=\"text\" [(ngModel)]=\"wep.local\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tRAT:<input id=\"rghit{{i}}\"  type=\"number\" [(ngModel)]=\"wep.hit\" placeholder=\"rat\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tRNG:<input id=\"rgalc{{i}}\" type=\"number\" [(ngModel)]=\"wep.alc\" placeholder=\"rng\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tROF:<input id=\"rgrof{{i}}\" type=\"number\" [(ngModel)]=\"wep.munition\" placeholder=\"rof\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tAOE:<input id=\"rgade{{i}}\" type=\"number\" [(ngModel)]=\"wep.ade\" placeholder=\"aoe\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tPOW:<input id=\"rgpod{{i}}\" type=\"number\" [(ngModel)]=\"wep.pod\" placeholder=\"pow\" />\r\n\t\t</td>\r\n\t\t\r\n\t\t\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td colspan=\"6\">Note:<input id=\"rgnt{{i}}\" class=\"inputdesc\" [(ngModel)]=\"wep.note\" placeholder=\"note\" /></td>\r\n\t</tr>\r\n\t</table>\r\n\t<!--  abilities  -->\r\n\t<table border=\"1px\" align=\"center\" *ngFor=\"let ability of life.abilities,let i = index\">\r\n\t\t<tr *ngIf=\"i==0\">\r\n\t\t\t<th >NAME</th>\r\n\t\t\t<th >DESCRIPTION</th>\r\n\t\t\t<th >PAG</th>\r\n\t\t</tr>\r\n\t\t\r\n\t\t<tr >\r\n\t\t\t<td rowspan=\"2\">\r\n\t\t\t\t<input id=\"abname{{i}}\" type=\"text\" [(ngModel)]=\"ability.name\" placeholder=\"name\" />\r\n\t\t\t</td>\r\n\t\t\t<td rowspan=\"2\">\r\n\t\t\t\t<textarea id=\"abdesc{{i}}\" class=\"desc\" placeholder=\"ability description\" [(ngModel)]=\"ability.desc\" ></textarea>\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"abpg{{i}}\" class=\"pg\" type=\"text\" [(ngModel)]=\"ability.pg\" placeholder=\"book + pag\" />\r\n\t\t\t\t\r\n\t\t\t</td>\r\n\t\t\t\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t\t<button id=\"abdel{{i}}\" (click)=\"deleteAbility(ability)\">x</button>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\r\n\t</table>\r\n\t<!--  Magic  -->\r\n\t<table border=\"1px\" align=\"center\" *ngFor=\"let magic of life.magics,let i = index\">\r\n\t\t<tr *ngIf=\"i==0\">\r\n\t\t\t<th >NAME</th>\r\n\t\t\t<th >COST</th>\r\n\t\t\t<th >RNG</th>\r\n\t\t\t<th >AOE</th>\r\n\t\t\t<th >POW</th>\r\n\t\t\t<th >UP</th>\r\n\t\t\t<th >OFF</th>\r\n\t\t</tr>\r\n\t\t\r\n\t\t<tr >\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"mgname{{i}}\"  type=\"text\" [(ngModel)]=\"magic.name\" placeholder=\"name\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"mgcost{{i}}\"  type=\"number\" [(ngModel)]=\"magic.cost\" placeholder=\"cost\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"mgalc{{i}}\" class=\"pg\" type=\"text\" [(ngModel)]=\"magic.alc\" placeholder=\"rng\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"mgade{{i}}\"  type=\"number\" [(ngModel)]=\"magic.ade\" placeholder=\"aoe\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"mgpod{{i}}\"  type=\"number\" [(ngModel)]=\"magic.pod\" placeholder=\"pow\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"mgman{{i}}\"  type=\"checkbox\" [(ngModel)]=\"magic.man\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"mgoff{{i}}\"  type=\"checkbox\" [(ngModel)]=\"magic.off\" />\r\n\t\t\t</td>\r\n\t\t\t\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td colspan=\"6\">\r\n\t\t\t\t<label>Note:</label><input id=\"mgnt{{i}}\" class=\"inputdesc\" type=\"text\" [(ngModel)]=\"magic.note\" placeholder=\"note\" />\r\n\t\t\t\t<button id=\"mgdel{{i}}\" (click)=\"deleteMagic(magic)\">x</button>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\r\n\t</table>\r\n\t<br>\r\n\r\n\t<button (click)=\"save()\">update</button>\r\n\t <button (click)=\"add();\">\r\n\t\tadd new\r\n\t  </button>\r\n\r\n</div> \r\n\r\n\r\n<button (click)=\"goBack()\">go back</button>"
 
 /***/ }),
 
@@ -1291,7 +1507,7 @@ var LifeService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* lifesComponent's private CSS styles */\r\n.lifes {\r\n  margin: 0 0 2em 0;\r\n  list-style-type: none;\r\n  padding: 0;\r\n  width: 24em;\r\n}\r\n.lifes  li{\r\n\r\n   position: relative;\r\n  cursor: pointer;\r\n  background-color: #EEE;\r\n  margin: .5em;\r\n  padding: .3em 0;\r\n  height: 1.6em;\r\n  border-radius: 4px;\r\n}\r\n.lifes li:hover {\r\n  color: #607D8B;\r\n  background-color: #DDD;\r\n  left: .1em;\r\n\r\n}\r\n.lifes a {\r\n  color: #888;\r\n  text-decoration: none;\r\n  position: relative;\r\n  display: block;\r\n  width: 22em;\r\n}\r\n.lifes a:hover {\r\n  color:#607D8B;\r\n}\r\n.lifes .badge {\r\n   display: inline-block;\r\n  font-size: small;\r\n  color: white;\r\n  padding: 0.8em 0.7em 1.7em 0.7em;\r\n  background-color: #607D8B;\r\n  line-height: 1em;\r\n  position: relative;\r\n  /*left: -1px;*/\r\n  top: -3px;\r\n  height: 1.8em;\r\n  min-width: 16px;\r\n  text-align: right;\r\n  margin-right: .8em;\r\n  float:left;\r\n  border-radius: 4px 0 0 4px;\r\n}\r\nbutton {\r\n  background-color: #eee;\r\n  border: none;\r\n  padding: 5px 10px;\r\n  border-radius: 4px;\r\n  cursor: pointer;\r\n  cursor: hand;\r\n  font-family: Arial;\r\n \r\n}\r\nbutton:hover {\r\n  background-color: #cfd8dc;\r\n}\r\nbutton.delete {\r\n  position: relative;\r\n  //left: 108px;\r\n  top: -18px;\r\n  background-color: gray !important;\r\n  color: white;\r\n  float:right;\r\n}\r\nlabel:hover {\r\n\tborder-color: aqua;background-color: aqua !important;\r\n}\r\n*:focus {\r\n\t-webkit-animation: blink 0.85s step-end infinite alternate; \r\n}\r\n@-webkit-keyframes blink { 50% { border-color: aqua;background-color: aqua; }  }"
+module.exports = "/* lifesComponent's private CSS styles */\r\ndiv{\r\n\ttext-align: -webkit-center;\r\n}\r\n.lifes {\r\n  margin: 0 0 2em 0;\r\n  list-style-type: none;\r\n  padding: 0;\r\n  width: 24em;\r\n}\r\n.lifes  li{\r\n\r\n   position: relative;\r\n  cursor: pointer;\r\n  background-color: #EEE;\r\n  margin: .5em;\r\n  padding: .3em 0;\r\n  height: 1.6em;\r\n  border-radius: 4px;\r\n}\r\n.lifes li:hover {\r\n  color: #607D8B;\r\n  background-color: #DDD;\r\n  left: .1em;\r\n\r\n}\r\n.lifes a {\r\n  color: #888;\r\n  text-decoration: none;\r\n  position: relative;\r\n  display: block;\r\n  width: 22em;\r\n}\r\n.lifes a:hover {\r\n  color:#607D8B;\r\n}\r\n.lifes .badge {\r\n   display: inline-block;\r\n  font-size: small;\r\n  color: white;\r\n  padding: 0.8em 0.7em 1.7em 0.7em;\r\n  background-color: #607D8B;\r\n  line-height: 1em;\r\n  position: relative;\r\n  left: -7px;\r\n  top: -3px;\r\n  height: 1.8em;\r\n  min-width: 16px;\r\n  text-align: right;\r\n  margin-right: .8em;\r\n  float:left;\r\n  border-radius: 4px 0 0 4px;\r\n}\r\nbutton {\r\n  background-color: #eee;\r\n  border: none;\r\n  padding: 5px 10px;\r\n  border-radius: 4px;\r\n  cursor: pointer;\r\n  cursor: hand;\r\n  font-family: Arial;\r\n \r\n}\r\nbutton:hover {\r\n  background-color: #cfd8dc;\r\n}\r\nbutton.delete {\r\n  position: relative;\r\n  //left: 108px;\r\n  top: -18px;\r\n  background-color: gray !important;\r\n  color: white;\r\n  float:right;\r\n}\r\nlabel:hover {\r\n\tborder-color: aqua;background-color: aqua !important;\r\n}\r\n.focus {\r\n\t-webkit-animation: blink 0.85s step-end infinite alternate; \r\n}\r\n@-webkit-keyframes blink { 50% { border-color: greenyellow;background-color: greenyellow; }  }"
 
 /***/ }),
 
@@ -1302,7 +1518,7 @@ module.exports = "/* lifesComponent's private CSS styles */\r\n.lifes {\r\n  mar
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--div>\n  <label>Life nome:\n    <input #lifeName />\n  </label>\n  <label>Life tipo:\n    <input #lifeType />\n  </label>\n  <label>Life valor:\n    <input #lifeValue />\n  </label>\n  \n  <button (click)=\"add(lifeName.value,lifeType.value,lifeValue.value); \n  lifeName.value='';lifeType.value='';lifeValue.value=''\">\n    add\n  </button>\n</div-->\n<div ><h2>My Lifes</h2>\n<ul class=\"lifes\">\n  <li *ngFor=\"let life of lifes;let i = index\" >\n  <!--[class.selected]=\"life === selectedLife\" (click)=\"onSelect(life)\"-->\n  \t\n\t<a id=\"lifelink{{i}}\"[routerLink]=\"[{outlets:{primary:['detail',life.id]}}]\">\n\t<button  id=\"lifeid{{i}}\" class=\"badge\">{{life.id}}</button>\n\t\n\t{{life.name }}\n\t\n\t<!--Tipo: {{life.type  }}\n\tTotal: {{life.value}}-->\n\t\n\n\t</a>\n\t<button id=\"lifebutton{{i}}\" class=\"delete\" title=\"delete life\"\n\t(click)=\"delete(life)\">x</button>\n\t<!--<div>\n\t    <label>Novo valor:\n\t      <input [(ngModel)]=\"life.value\" placeholder=\"quantidade\">\n\t    </label>\n\t</div> -->\n  </li>\n</ul>\n<!--app-life-detail [life]=\"selectedLife\"></app-life-detail-->\n</div>\n"
+module.exports = "<!--div>\r\n  <label>Life nome:\r\n    <input #lifeName />\r\n  </label>\r\n  <label>Life tipo:\r\n    <input #lifeType />\r\n  </label>\r\n  <label>Life valor:\r\n    <input #lifeValue />\r\n  </label>\r\n  \r\n  <button (click)=\"add(lifeName.value,lifeType.value,lifeValue.value); \r\n  lifeName.value='';lifeType.value='';lifeValue.value=''\">\r\n    add\r\n  </button>\r\n</div-->\r\n<div ><h2>My Lives</h2>\r\n<ul class=\"lifes\">\r\n  <li *ngFor=\"let life of lifes;let i = index\" >\r\n  <!--[class.selected]=\"life === selectedLife\" (click)=\"onSelect(life)\"-->\r\n  \t\r\n\t<a id=\"lifelink{{i}}\"[routerLink]=\"[{outlets:{primary:['detail',life.id]}}]\">\r\n\t<button  id=\"lifeid{{i}}\" class=\"badge\">{{life.id}}</button>\r\n\t\r\n\t{{life.name }}\r\n\t\r\n\t<!--Tipo: {{life.type  }}\r\n\tTotal: {{life.value}}-->\r\n\t\r\n\r\n\t</a>\r\n\t<button id=\"lifebutton{{i}}\" class=\"delete\" title=\"delete life\"\r\n\t(click)=\"delete(life)\">x</button>\r\n\t<!--<div>\r\n\t    <label>Novo valor:\r\n\t      <input [(ngModel)]=\"life.value\" placeholder=\"quantidade\">\r\n\t    </label>\r\n\t</div> -->\r\n  </li>\r\n</ul>\r\n<!--app-life-detail [life]=\"selectedLife\"></app-life-detail-->\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1569,7 +1785,7 @@ var RangeWeapon = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "label {\r\n  /*display: inline-block;*/\r\n  width: 3em;\r\n  margin: .5em 0;\r\n  color: #351cf3;\r\n  font-weight: bold;\r\n}\r\nh2 {\r\n  font-size: 1.2em;\r\n}\r\nbutton {\r\n  text-decoration: none;\r\n  margin-top: 10px;\r\n  display: inline-block;\r\n  background: #00000000;\r\n  border-color: #00000000;\r\n  border-radius: 4px;\r\n  position:relative;\r\n  \r\n}\r\nbutton:hover {\r\n  color: #039be5;\r\n  background-color: #CFD8DC;\r\n}\r\ndiv{\r\n\tmargin-top:10px;\r\n}\r\n.right{\r\n\tfloat:right;\r\n}\r\n.hidden{\r\n\tdisplay:none;\r\n}"
+module.exports = "label {\r\n  /*display: inline-block;*/\r\n  width: 3em;\r\n  margin: .5em 0;\r\n  color: #351cf3;\r\n  font-weight: bold;\r\n}\r\nh3 {\r\n  margin-left: 14px;\r\n}\r\nimg{\r\n\tmargin-left: 10px;\r\n}\r\nbutton {\r\n  text-decoration: none;\r\n  margin-top: 10px;\r\n  display: inline-block;\r\n  background: #00000000;\r\n  border-color: #00000000;\r\n  border-radius: 4px;\r\n  position:relative;\r\n  \r\n}\r\nbutton:hover {\r\n  color: #039be5;\r\n  background-color: #CFD8DC;\r\n}\r\ndiv{\r\n\tmargin-top:10px;\r\n\twidth: -webkit-fit-content;\r\n\twidth: -moz-fit-content;\r\n\twidth: fit-content;\r\n\tmargin-left: 14px;\r\n}\r\n.right{\r\n\tfloat:right;\r\n}\r\n.hidden{\r\n\tdisplay:none;\r\n}"
 
 /***/ }),
 
@@ -1580,7 +1796,7 @@ module.exports = "label {\r\n  /*display: inline-block;*/\r\n  width: 3em;\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div >\r\n\t<div>\r\n\t<select class=\"right\" (change)=\"setdefault()\" [(ngModel)]=\"idioma\"  >\r\n\t  <option value=\"0\">Português(Brasil)</option>\r\n\t  <option value=\"1\">English</option>\r\n\t  </select>\r\n\t<img class=\"right\" src=\"assets/language.png\" width=\"24px\" height=\"24px\"/>\r\n\t </div>\r\n\t<h3><label>{{this.oi.text[this.idioma]}} <button (click)=\"hide()\" ><img class=\"right\" src=\"assets/eye.png\" width=\"24px\" height=\"24px\"/></button></label></h3>\r\n\t<!--<button *ngFor=\"let info of this.infos.slice(1)\" (click)=\"focalizar(info.for)\" [ngStyle]=\"{'top':(info.pos*15)+'px','width':info.width+'%'}\"><label>  {{info.text[this.idioma]}}</label></button>-->\r\n\t<ul id=\"ulhelp\" type=\"none\">\r\n\t\t<li *ngFor=\"let infos of this.infosmatrix\">\r\n\t\t\t<button *ngFor=\"let info of infos\" (click)=\"focalizar(info.for)\" ><label>  {{info.text[this.idioma]}}</label></button>\r\n\t\t</li>\r\n\t</ul>\r\n\t<!-- ================ MENU ================ -->\r\n\t<!--\t<div *ngIf=\"this.aba === 'menu'\">\r\n\t\t<div  >\r\n\t\t<button *ngFor=\"let info of this.infos.slice(1)\" (click)=\"focalizar(info.for)\" [ngStyle]=\"{'width':info.width+'%'}\"><label>  {{info.text[this.idioma]}}</label></button>\r\n\t\t</div>\r\n\t\t-->\r\n\t\t\r\n\t<!-- ================ LIFES ================ -->\r\n\t<!--\t<div *ngIf=\"this.aba === 'life'\">\r\n\t\t<div  >\r\n\t\t<button *ngFor=\"let info of this.infos.slice(1)\" (click)=\"focalizartag(info.for)\" [ngStyle]=\"{'width':info.width+'%'}\"><label>  {{info.text[this.idioma]}}</label></button>\r\n\t\t</div>\r\n\t\t</div>\r\n\t\t-->\r\n\t\t\r\n\t<!-- ================ DETAIL ================ -->\r\n\t<!--\t<div *ngIf=\"this.aba === 'detail'\">\r\n\t\t  \r\n\t\t</div>\r\n\t\t-->\r\n\t\t\r\n</div>"
+module.exports = "<div >\r\n\t<div>\r\n\t<select class=\"right\" (change)=\"setdefault()\" [(ngModel)]=\"idioma\"  >\r\n\t  <option value=\"0\">Português(Brasil)</option>\r\n\t  <option value=\"1\">English</option>\r\n\t  </select>\r\n\t<img class=\"right\" src=\"assets/language.png\" width=\"24px\" height=\"24px\"/>\r\n\t </div>\r\n\t<h3><label>{{this.oi.text[this.idioma]}} <button (click)=\"hide()\" ><img id=\"hideimg\" class=\"right\" src=\"assets/arrow.png\" width=\"24px\" height=\"24px\"/></button></label></h3>\r\n\t<!--<button *ngFor=\"let info of this.infos.slice(1)\" (click)=\"focalizar(info.for)\" [ngStyle]=\"{'top':(info.pos*15)+'px','width':info.width+'%'}\"><label>  {{info.text[this.idioma]}}</label></button>-->\r\n\t<ul class=\"hidden\" id=\"ulhelp\" type=\"none\">\r\n\t\t<li *ngFor=\"let infos of this.infosmatrix\">\r\n\t\t\t<button *ngFor=\"let info of infos\" (click)=\"focalizar(info.for)\" ><label>  {{info.text[this.idioma]}}</label></button>\r\n\t\t</li>\r\n\t</ul>\r\n\t<!-- ================ MENU ================ -->\r\n\t<!--\t<div *ngIf=\"this.aba === 'menu'\">\r\n\t\t<div  >\r\n\t\t<button *ngFor=\"let info of this.infos.slice(1)\" (click)=\"focalizar(info.for)\" [ngStyle]=\"{'width':info.width+'%'}\"><label>  {{info.text[this.idioma]}}</label></button>\r\n\t\t</div>\r\n\t\t-->\r\n\t\t\r\n\t<!-- ================ LIFES ================ -->\r\n\t<!--\t<div *ngIf=\"this.aba === 'life'\">\r\n\t\t<div  >\r\n\t\t<button *ngFor=\"let info of this.infos.slice(1)\" (click)=\"focalizartag(info.for)\" [ngStyle]=\"{'width':info.width+'%'}\"><label>  {{info.text[this.idioma]}}</label></button>\r\n\t\t</div>\r\n\t\t</div>\r\n\t\t-->\r\n\t\t\r\n\t<!-- ================ DETAIL ================ -->\r\n\t<!--\t<div *ngIf=\"this.aba === 'detail'\">\r\n\t\t  \r\n\t\t</div>\r\n\t\t-->\r\n\t\t\r\n</div>"
 
 /***/ }),
 
@@ -1647,16 +1863,25 @@ var TutorialComponent = /** @class */ (function () {
     TutorialComponent.prototype.focalizar = function (id) {
         if (id != '') {
             var element = document.getElementById(id);
-            element.focus();
+            if (element != undefined) {
+                element.focus();
+                element.classList.add('focus');
+                element.onblur = function () {
+                    this.classList.remove('focus');
+                };
+            }
         }
     };
     TutorialComponent.prototype.hide = function () {
         var ul = document.getElementById("ulhelp");
+        var img = document.getElementById("hideimg");
         if (ul.classList.contains('hidden')) {
             ul.classList.remove('hidden');
+            img.src = "assets/open.png";
         }
         else {
             ul.classList.add('hidden');
+            img.src = "assets/arrow.png";
         }
     };
     TutorialComponent = __decorate([
