@@ -509,7 +509,7 @@ var InMemoryDataService = /** @class */ (function () {
     }
     InMemoryDataService.prototype.createDb = function () {
         var lifes = [
-            { id: 1, name: 'BoneSwarm', type: 'espiral', value: '10,6,4,0', base: "medium", spd: 5, arm: 15, def: 13, inc: 13, von: 11, arc: 3, cmd: 0, thr: 9,
+            { id: 1, name: 'BoneSwarm', type: 'espiral', value: '2,4,4,2,2,2,2,1,1,0', base: "medium", spd: 5, arm: 15, def: 13, inc: 13, von: 11, arc: 3, cmd: 0, thr: 9,
                 melleweapons: [
                     { name: 'bone strike', hit: 6, pod: 4, pf: 12, note: 'inimigos no alcance não avançam, só viram' }
                 ],
@@ -615,13 +615,17 @@ var InMemoryDataService = /** @class */ (function () {
                     'and control the values of its attributes, like arm'
                 ], for: 'armdemonstrativo', pos: 2 },
             //vitalidade
+            { id: 'detailvithuge', text: [
+                    'se for uma maquina de guerra você não pode adicionar barras de vitalidade',
+                    'if is a battle engine you can\'t add vitality bars'
+                ], for: 'lifebase', pos: 3 },
             { id: 'detailvitadd', text: [
-                    'para adicionar uma barra de vitalidade para seus mobs',
-                    'to add a vitality bar for your mobs'
+                    'se for mob você pode ',
+                    'if is a mob you can '
                 ], for: 'addvitbar', pos: 3 },
             { id: 'detailvitdel', text: [
-                    'ou remover uma barra de vitalidade',
-                    'or remove a vitality bar'
+                    'ou remove=la',
+                    'or remove it'
                 ], for: 'removevitbar', pos: 3 },
             { id: 'detailvit', text: [
                     'controle a quantidade de vida clicando nos circulos',
@@ -636,14 +640,6 @@ var InMemoryDataService = /** @class */ (function () {
                     'começando pelo físico',
                     'starting by physical'
                 ], for: 'cbf0', pos: 4 },
-            { id: 'detailfisup', text: [
-                    'clique de cima',
-                    'clique on top'
-                ], for: 'cbf2', pos: 4 },
-            { id: 'detailfisdown', text: [
-                    'para baixo',
-                    'to bottom'
-                ], for: 'cbf3', pos: 4 },
             { id: 'detailagi', text: [
                     'o mesmo para agilidade',
                     'the same for agility'
@@ -960,7 +956,7 @@ var IniciativaService = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/* HeroDetailComponent's private CSS styles */\r\nlabel {\r\n  /*display: inline-block;*/\r\n  width: 3em;\r\n  margin: .5em 0;\r\n  color: #607D8B;\r\n  font-weight: bold;\r\n\r\n  \r\n}\r\ninput {\r\n  height: 2em;\r\n  font-size: 1em;\r\n  padding-left: .4em;\r\n}\r\ninput[type=\"number\"]{\r\n\twidth:50px;\r\n}\r\nselect {\r\n  height: 2em;\r\n  font-size: 1em;\r\n  padding-left: .4em;\r\n}\r\nbutton {\r\n  margin-top: 20px;\r\n  font-family: Arial;\r\n  background-color: #ddd;\r\n  border: none;\r\n  padding: 5px 10px;\r\n  border-radius: 4px;\r\n  cursor: pointer; cursor: hand;\r\n  float:center;\r\n}\r\nbutton:hover {\r\n  background-color: #27ace8;\r\n}\r\nbutton:disabled {\r\n  background-color: #eee;\r\n  color: #ccc;\r\n  cursor: auto;\r\n}\r\n.firsts {\r\n\tfloat: left;\r\n\ttop: 19px;\r\n    position: relative;\r\n}\r\n.container{\r\n\tfloat: left;\r\n\twidth: 12%;\r\n\tmin-width: 222px;\r\n}\r\n.radio{\r\n\tbackground-color: #a77e2d !important;\r\n  color: #ffffff !important;\r\n}\r\n.top{\r\n\tposition: relative;\r\n    margin-left: -25px;\r\n}\r\n.bot{\r\n\ttop: 39px;\r\n    position: relative;\r\n\tleft: -27px;\r\n}\r\n.fisdiv{\r\n\theight: 70px;\r\n\tbackground: #039be573;\r\n\tmargin: auto;\r\n    width: 326px;\r\n    min-width: 326px;\r\n}\r\n.agidiv{\r\n\theight: 70px;\r\n\tbackground: #e8121273;\r\n\tmargin: auto;\r\n    width: 326px;\r\n    min-width: 326px;\r\n}\r\n.intdiv{\r\n\theight: 70px;\r\n\tbackground: #12ff1073;\r\n\tmargin: auto;\r\n    width: 326px;\r\n    min-width: 326px;\r\n}\r\n.damaged {\r\n\tbackground: red !important;;\r\n    color: #03ff24;\r\n}\r\n.bodygrid {\r\n\tcolor:#ffffff00  !important;\r\n}\r\n.offgrid {\r\n\tbackground: #1f0400 !important;\r\n\tcolor:#ffffff00;\r\n}\r\ntable{\r\n\tmargin-top: 10px;\r\n}\r\ntable button{\r\n\tmargin-top: 0px !important;\r\n\tmin-width: 34px;\r\n}\r\n.local{\r\n\twidth: 20px;\r\n    height: 13px;\r\n    position: relative;\r\n    top: 2px;\r\n    left: -8px;\r\n    padding: 0px;\r\n\tborder-color: #ffffff00;\r\n    background: #ffffff00;\r\n    color: brown;\r\n}\r\n.pg{\r\n\twidth: 64px;\r\n}\r\n.desc{\r\n\theight: 59px;\r\n}\r\n.gridcomp{\r\n\theight: 25px;\r\n}\r\n.tablegrid{\r\n\t/*background-image: url(assets/grid.png);*/\r\n    /*background-size: cover;*/\r\n\twidth: 254px;\r\n    height: 269px;\r\n\tbackground-size: cover;\r\n}\r\n.gridbuton{\r\n\tborder-radius: 0px;\r\n    height: 34px;\r\n    top: -2px;\r\n    position: relative;\r\n\tbackground:#ffffff00;\r\n\t    font-size: 15px;\r\n    font-family: cursive;\r\n    font-weight: bold;\r\n}\r\n.inputdesc{\r\n    width: 76%;\r\n}\r\n.vitcheck{\r\n\ttop: 12px;\r\n    position: relative;\r\n\r\n}\r\n.vitcheck:checked {\r\n    background-color: #a3b1b39c;\r\n}\r\n.spirallabel {\r\n\ttop: 19px;\r\n    float: left;\r\n    position: relative;\r\n    color: black;\r\n    left: -45px;\r\n}\r\ninput[type=\"checkbox\"]{\r\n\twidth: 1.3em;\r\n    height: 1.3em;\r\n    background-color: white;\r\n    border-radius: 50%;\r\n    vertical-align: middle;\r\n    border: 1px solid #060606;\r\n    -webkit-appearance: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n}\r\n.fisdiv input[type=\"checkbox\"]:checked{\r\n\tbackground-color: #1b30c19e;\r\n}\r\n.agidiv input[type=\"checkbox\"]:checked{\r\n\tbackground-color: #aa0000bb;\r\n}\r\n.intdiv input[type=\"checkbox\"]:checked{\r\n\tbackground-color: #1b791eb0;\r\n}\r\n.fieldcheck:checked{\r\n\tbackground-color: #14cfe2bb;\r\n}\r\ntable input[type=\"checkbox\"]:checked{\r\n\tbackground-color: #03ff24;\r\n}\r\n.focus {\r\n\t-webkit-animation: blink 0.85s step-end infinite alternate; \r\n}\r\n@-webkit-keyframes blink { 50% { border-color: green;background-color: greenyellow; }  }"
+module.exports = "/* HeroDetailComponent's private CSS styles */\r\nlabel {\r\n  /*display: inline-block;*/\r\n  width: 3em;\r\n  margin: .5em 0;\r\n  color: #607D8B;\r\n  font-weight: bold;\r\n\r\n  \r\n}\r\ninput {\r\n  height: 2em;\r\n  font-size: 1em;\r\n  padding-left: .4em;\r\n}\r\ninput[type=\"number\"]{\r\n\twidth:50px;\r\n}\r\nselect {\r\n  height: 2em;\r\n  font-size: 1em;\r\n  padding-left: .4em;\r\n}\r\nbutton {\r\n  margin-top: 20px;\r\n  font-family: Arial;\r\n  background-color: #ddd;\r\n  border: none;\r\n  padding: 5px 10px;\r\n  border-radius: 4px;\r\n  cursor: pointer; cursor: hand;\r\n  float:center;\r\n}\r\nbutton:hover {\r\n  background-color: #27ace8;\r\n}\r\nbutton:disabled {\r\n  background-color: #eee;\r\n  color: #ccc;\r\n  cursor: auto;\r\n}\r\n.firsts {\r\n\tfloat: left;\r\n\ttop: 19px;\r\n    position: relative;\r\n}\r\n.container{\r\n\tfloat: left;\r\n\twidth: 12%;\r\n\tmin-width: 222px;\r\n}\r\n.containerhuge{\r\n\twidth: 75% !important;\r\n}\r\n.hugespiral{\r\n\t    width: 428px !important;\r\n}\r\n.containervitality{\r\n\theight: 75px;\r\n    width: 580px;\r\n    margin: auto;\r\n\t}\r\n.radio{\r\n\tbackground-color: #a77e2d !important;\r\n  color: #ffffff !important;\r\n}\r\n.top{\r\n\tposition: relative;\r\n    left: -19px;\r\n}\r\n.bot{\r\n\ttop: 11px;\r\n    position: relative;\r\n\tleft: -19px;\r\n}\r\n.fisdiv{\r\n\theight: 70px;\r\n\tbackground: #039be573;\r\n\tmargin: auto;\r\n    width: 326px;\r\n    min-width: 326px;\r\n}\r\n.agidiv{\r\n\theight: 70px;\r\n\tbackground: #e8121273;\r\n\tmargin: auto;\r\n    width: 326px;\r\n    min-width: 326px;\r\n}\r\n.intdiv{\r\n\theight: 70px;\r\n\tbackground: #12ff1073;\r\n\tmargin: auto;\r\n    width: 326px;\r\n    min-width: 326px;\r\n}\r\n.damaged {\r\n\tbackground: red !important;;\r\n    color: #03ff24;\r\n}\r\n.bodygrid {\r\n\tcolor:#ffffff00  !important;\r\n}\r\n.offgrid {\r\n\tbackground: #1f0400 !important;\r\n\tcolor:#ffffff00;\r\n}\r\ntable{\r\n\tmargin-top: 10px;\r\n}\r\ntable button{\r\n\tmargin-top: 0px !important;\r\n\tmin-width: 34px;\r\n}\r\n.local{\r\n\twidth: 20px;\r\n    height: 13px;\r\n    position: relative;\r\n    top: 2px;\r\n    left: -8px;\r\n    padding: 0px;\r\n\tborder-color: #ffffff00;\r\n    background: #ffffff00;\r\n    color: brown;\r\n}\r\n.pg{\r\n\twidth: 50px;\r\n}\r\n.name{\r\n\twidth: 160px;\r\n}\r\n.desc{\r\n\theight: 63px;\r\n    width: 180px;\r\n    position: relative;\r\n    margin-bottom: -4px;\r\n}\r\n.gridcomp{\r\n\theight: 25px;\r\n}\r\n.divgrid{\r\n\tdisplay: inline-flex\r\n}\r\n.tablegrid{\r\n\t/*background-image: url(assets/grid.png);*/\r\n    /*background-size: cover;*/\r\n\twidth: 254px;\r\n    height: 269px;\r\n\tbackground-size: cover;\r\n}\r\n.tr{\r\n\theight: 38px;\r\n}\r\n.th{\r\n\theight: 25px;\r\n}\r\n.gridbuton{\r\n\tborder-radius: 0px;\r\n    height: 34px;\r\n    top: -2px;\r\n    position: relative;\r\n\tbackground:#ffffff00;\r\n\t    font-size: 15px;\r\n    font-family: cursive;\r\n    font-weight: bold;\r\n}\r\n.inputdesc{\r\n    width: 76%;\r\n}\r\n.vitcheck{\r\n\ttop: 12px;\r\n    position: relative;\r\n\r\n}\r\n.vitcheck:checked {\r\n    background-color: #a3b1b39c;\r\n}\r\n.spirallabel {\r\n\ttop: 19px;\r\n    float: left;\r\n    position: relative;\r\n    color: black;\r\n    left: -45px;\r\n}\r\ninput[type=\"checkbox\"]{\r\n\twidth: 1.3em;\r\n    height: 1.3em;\r\n    background-color: white;\r\n    border-radius: 50%;\r\n    vertical-align: middle;\r\n    border: 1px solid #060606;\r\n    -webkit-appearance: none;\r\n    outline: none;\r\n    cursor: pointer;\r\n}\r\n.fisdiv input[type=\"checkbox\"]:checked{\r\n\tbackground-color: #1b30c19e;\r\n}\r\n.agidiv input[type=\"checkbox\"]:checked{\r\n\tbackground-color: #aa0000bb;\r\n}\r\n.intdiv input[type=\"checkbox\"]:checked{\r\n\tbackground-color: #1b791eb0;\r\n}\r\n.fieldcheck:checked{\r\n\tbackground-color: #14cfe2bb;\r\n}\r\ntable input[type=\"checkbox\"]:checked{\r\n\tbackground-color: #03ff24;\r\n}\r\n.divflex{\r\n\tdisplay:flex;\r\n    flex-wrap: wrap;\r\n\tjustify-content: center;\r\n}\r\n.fieldflex{\r\n\tdisplay:flex;\r\n    flex-wrap: wrap;\r\n\tjustify-content: flex-start;\r\n\tflex-flow:column-reverse;\r\n}\r\n.rightwep{\r\n\t\r\n\tmargin-left: auto;\r\n}\r\n.leftwep{\r\n\t\r\n\tmargin-right: auto;\r\n}\r\n.focus {\r\n\t-webkit-animation: blink 0.85s step-end infinite alternate; \r\n}\r\n@-webkit-keyframes blink { 50% { border-color: green;background-color: greenyellow; }  }\r\n\t\r\n"
 
 /***/ }),
 
@@ -971,7 +967,7 @@ module.exports = "/* HeroDetailComponent's private CSS styles */\r\nlabel {\r\n 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"life\">\r\n\t<!--div><span>{{life.name | uppercase }} </span></div>\r\n\t<div><span>Tipo: </span>{{life.type }}</div>\r\n\t<div><span>Total: </span>{{life.value}}</div-->\r\n    <label>New Name:\r\n      <input id=\"lifename\" [(ngModel)]=\"life.name\" placeholder=\"name\" />\r\n    </label>\r\n\t<br>\r\n\t<label>\r\n\t\tNew Base:\r\n\t\t<select id=\"lifebase\" [(ngModel)]=\"life.base\"  >\r\n\t  <option value=\"small\">Small</option>\r\n\t  <option value=\"medium\">Medium</option>\r\n\t  <option value=\"large\">Large</option>\r\n\t  </select>\r\n\t</label>\r\n\t<br>\r\n\t<label>\r\n\t\tNew Type:\r\n\t\t<select id=\"lifetype\" (change)=\"setdefault()\" [(ngModel)]=\"life.type\"  >\r\n\t  <option value=\"vitalidade\">Vitality</option>\r\n\t  <option value=\"espiral\">Spiral</option>\r\n\t  <option value=\"grid\">Warjack</option>\r\n\t  </select>\r\n\t</label>\r\n\t<br>\r\n\t<label>\r\n\t<!--  status  -->\r\n\tSPD:<input type=\"number\" [(ngModel)]=\"life.spd\" placeholder=\"spd\" />\r\n\tARM:<input id=\"armdemonstrativo\" type=\"number\" [(ngModel)]=\"life.arm\" placeholder=\"arm\" />\r\n\tDEF:<input type=\"number\" [(ngModel)]=\"life.def\" placeholder=\"def\" />\r\n\tINIT:<input type=\"number\" [(ngModel)]=\"life.inc\" placeholder=\"init\" />\r\n\t<br>\r\n\tWILL:<input type=\"number\" [(ngModel)]=\"life.von\" placeholder=\"will\" />\r\n\tARC:<input type=\"number\" [(ngModel)]=\"life.arc\" placeholder=\"arc\" />\r\n\tCMD:<input type=\"number\" [(ngModel)]=\"life.cmd\" placeholder=\"cmd\" />\r\n\tTHR:<input type=\"number\" [(ngModel)]=\"life.thr\" placeholder=\"Threshold\" />\r\n\t</label>\r\n\t<!--div [ngSwitch]=\"life.type\">\r\n\t\t<div *ngSwitchCase=\"'vitalidade'\">\r\n\t\t<input [(ngModel)]=\"life.value\" placeholder=\"quantidade\" />\r\n\t\t</div>\r\n\t\t<div *ngSwitchCase=\"'espiral'\">\r\n\t\t<input [(ngModel)]=\"life.value\" placeholder=\"fis,agi,int\" />\r\n\t\t</div>\r\n\t\t<div *ngSwitchCase=\"'grid'\">\r\n\t\t<input [(ngModel)]=\"life.value\" placeholder=\"caixas\" />\r\n\t\t</div>\r\n\t</div-->\r\n\t<div  *ngIf=\"life.type === 'vitalidade'\">\r\n\t\r\n\t<!--input [(ngModel)]=\"life.value\" placeholder=\"quantidade\" /-->\r\n\t<!--[checked]=\"i < life.value\" não funcionou, logo tive que trapaçear-->\r\n\t<!--  vit  -->\r\n\t<button id=\"addvitbar\" (click)=\"addVitality()\"><label>Add new Vitality bar</label></button>\r\n\t<button id=\"removevitbar\" (click)=\"delVitality()\"><label>Remove last Vitality bar</label></button>\r\n\t<div *ngFor=\"let vit of getVitalities(),let i = index\">\r\n\t\r\n\t<label class=\"vitcheck\">{{i+1}}:</label><input class=\"vitcheck\" id=\"cb{{i}}{{c}}\" (change)=\"vitalityup(i,c)\" type=\"checkbox\" *ngFor=\"let c of numerica(0,15)\" [checked]=\"c< vit\" /><label class=\"vitcheck\">{{vit}}</label>\r\n\t\r\n\t\r\n\t</div>\r\n\t\r\n\t<!--input  (click)=\"vitalityup(this.checked)\" type=\"checkbox\" *ngFor=\"let i of numerica(+life.value,15)\" /-->\r\n\t</div>\r\n\t\r\n\t<div *ngIf=\"life.type === 'espiral'\">\r\n\t\r\n\t\r\n\t<!--  Fis  -->\r\n\t<div class=\"fisdiv\">\r\n\t\r\n\t<div class=\"firsts\">\r\n\t<input  id=\"cbf{{i}}\" (change)=\"fisup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,2)\" [checked]=\"i< getFis()\" />\r\n\t</div>\r\n\t<div class=\"container\">\r\n\t\t<input [class.top]=\"i%2==0\" [class.bot]=\"i%2==1\"  id=\"cbf{{i}}\" (change)=\"fisup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(2,16)\" [checked]=\"i< getFis()\" />\r\n\t</div>\r\n\t<label class=\"spirallabel\">{{getFis()}}</label>\r\n\t</div>\r\n\t\r\n\t<!--  Agi  -->\r\n\t<div class=\"agidiv\">\r\n\t\r\n\t<div class=\"firsts\">\r\n\t<input  id=\"cba{{i}}\" (change)=\"agiup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,2)\" [checked]=\"i< getAgi()\" />\r\n\t</div>\r\n\t<div class=\"container\">\r\n\t\t<input [class.top]=\"i%2==0\" [class.bot]=\"i%2==1\"  id=\"cba{{i}}\" (change)=\"agiup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(2,16)\" [checked]=\"i< getAgi()\" />\r\n\t</div>\r\n\t<label class=\"spirallabel\">{{getAgi()}}</label>\r\n\t</div>\r\n\t\r\n\t<!--  Int  -->\r\n\t<div class=\"intdiv\">\r\n\t\r\n\t<div class=\"firsts\">\r\n\t<input class=\"btn-primary\" id=\"cbi{{i}}\" (change)=\"intup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,2)\" [checked]=\"i< getInt()\" />\r\n\t</div>\r\n\t<div class=\"container\">\r\n\t\t<input [class.top]=\"i%2==0\" [class.bot]=\"i%2==1\" id=\"cbi{{i}}\" (change)=\"intup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(2,16)\" [checked]=\"i< getInt()\" />\r\n\t</div>\r\n\t<label class=\"spirallabel\">{{getInt()}}</label>\r\n\t</div>\r\n\t<br>\r\n\t<!--  field  -->\r\n\t<input class=\"fieldcheck\" id=\"cbd{{i}}\" (change)=\"fieldup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,6)\" [checked]=\"i< getField()\" />\r\n\t</div>\r\n\t<!--  grid  -->\r\n\t<div *ngIf=\"life.type === 'grid'\">\r\n\t\r\n\t\t<table   align=\"center\" class=\"tablegrid\" style=\"background-image: url(assets/grid.png)\">\r\n\t\t<tr class=\"gridcomp\">\r\n\t\t\t<th *ngFor=\"let i of numerica(0,6)\"></th>\r\n\t\t</tr>\r\n\t\t<tr *ngFor=\"let l of numerica(0,6)\">\r\n\t\t\t<td *ngFor=\"let letra of getColumn(l),let x = index\">\r\n\t\t\t\t<button class=\"gridcomp gridbuton\" id=\"btn{{l}}{{x}}\" [class.damaged]=\"letra.indexOf('.')!=-1\" [class.offgrid]=\"letra.indexOf('x')!=-1\" [class.bodygrid]=\"letra.indexOf('o')!=-1\" (click)=\"callchoice($event)\">{{letra[0]}}</button>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t</table>\r\n\t\t<input class=\"fieldcheck\" id=\"cbgd{{i}}\" (change)=\"Gfieldup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,10)\" [checked]=\"i< getGField()\"/>\r\n\t</div>\r\n\t<!--  adds  -->\r\n\t<br>\r\n\t<button id=\"addmeele\" (click)=\"addMeeleWepon()\"><label>New Meele Weapon</label></button>\r\n\t<button id=\"addrange\" (click)=\"addRageWepon()\"><label>New Range Weapon</label></button>\r\n\t<button id=\"addability\" (click)=\"addAbility()\"><label>New Ability</label></button>\r\n\t<button id=\"addmagic\" (click)=\"addMagic()\"><label>New Magic</label></button>\r\n\t<br>\r\n\t<!--  weapons  -->\r\n\t<!--  meele weapons  -->\r\n\t<!--align=\"{{wep.local == 'd' ? 'right' : wep.local == 'e' ? 'left' : 'center' }}\"-->\r\n\t<table border=\"1px\" align=\"center\" *ngFor=\"let wep of life.melleweapons,let i = index\">\r\n\t<tr>\r\n\t\t<th colspan=\"4\">\r\n\t\t<input id=\"mlname{{i}}\" [(ngModel)]=\"wep.name\" placeholder=\"name\" />\r\n\t\t<button id=\"mldel{{i}}\" (click)=\"deleteMeeleWeapon(wep)\">Remove</button>\r\n\t\t</th>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>\r\n\t\t<img src=\"assets/meele.png\" />\r\n\t\t\r\n\t\t<input id=\"mllocal{{i}}\" class=\"local\" type=\"text\" [(ngModel)]=\"wep.local\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tMAT:<input id=\"mlhit{{i}}\" type=\"number\" [(ngModel)]=\"wep.hit\" placeholder=\"mat\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tPOW:<input id=\"mlpod{{i}}\" type=\"number\" [(ngModel)]=\"wep.pod\" placeholder=\"pow\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tS+P:<input id=\"mlpf{{i}}\" type=\"number\" [(ngModel)]=\"wep.pf\" placeholder=\"s + p\" />\r\n\t\t</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td colspan=\"4\">Note:<input id=\"mlnt{{i}}\" class=\"inputdesc\" [(ngModel)]=\"wep.note\" placeholder=\"note\" /></td>\r\n\t</tr>\r\n\t</table>\r\n\t<!--  range weapons  -->\r\n\t<!--align=\"{{wep.local == 'd' ? 'right' : wep.local == 'e' ? 'left' : 'center' }}\"-->\r\n\t<table border=\"1px\" align=\"center\" *ngFor=\"let wep of life.rangeweapons,let i = index\">\r\n\t<tr>\r\n\t\t<th colspan=\"6\">\r\n\t\t<input id=\"rgname{{i}}\" [(ngModel)]=\"wep.name\" placeholder=\"name\" />\r\n\t\t<button id=\"rgdel{{i}}\" (click)=\"deleteRangeWeapon(wep)\">Remove</button>\r\n\t\t</th>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>\r\n\t\t<img src=\"assets/range.png\" />\r\n\t\t<input id=\"rglocal{{i}}\" class=\"local\" type=\"text\" [(ngModel)]=\"wep.local\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tRAT:<input id=\"rghit{{i}}\"  type=\"number\" [(ngModel)]=\"wep.hit\" placeholder=\"rat\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tRNG:<input id=\"rgalc{{i}}\" type=\"number\" [(ngModel)]=\"wep.alc\" placeholder=\"rng\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tROF:<input id=\"rgrof{{i}}\" type=\"number\" [(ngModel)]=\"wep.munition\" placeholder=\"rof\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tAOE:<input id=\"rgade{{i}}\" type=\"number\" [(ngModel)]=\"wep.ade\" placeholder=\"aoe\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tPOW:<input id=\"rgpod{{i}}\" type=\"number\" [(ngModel)]=\"wep.pod\" placeholder=\"pow\" />\r\n\t\t</td>\r\n\t\t\r\n\t\t\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td colspan=\"6\">Note:<input id=\"rgnt{{i}}\" class=\"inputdesc\" [(ngModel)]=\"wep.note\" placeholder=\"note\" /></td>\r\n\t</tr>\r\n\t</table>\r\n\t<!--  abilities  -->\r\n\t<table border=\"1px\" align=\"center\" *ngFor=\"let ability of life.abilities,let i = index\">\r\n\t\t<tr *ngIf=\"i==0\">\r\n\t\t\t<th >NAME</th>\r\n\t\t\t<th >DESCRIPTION</th>\r\n\t\t\t<th >PAG</th>\r\n\t\t</tr>\r\n\t\t\r\n\t\t<tr >\r\n\t\t\t<td rowspan=\"2\">\r\n\t\t\t\t<input id=\"abname{{i}}\" type=\"text\" [(ngModel)]=\"ability.name\" placeholder=\"name\" />\r\n\t\t\t</td>\r\n\t\t\t<td rowspan=\"2\">\r\n\t\t\t\t<textarea id=\"abdesc{{i}}\" class=\"desc\" placeholder=\"ability description\" [(ngModel)]=\"ability.desc\" ></textarea>\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"abpg{{i}}\" class=\"pg\" type=\"text\" [(ngModel)]=\"ability.pg\" placeholder=\"book + pag\" />\r\n\t\t\t\t\r\n\t\t\t</td>\r\n\t\t\t\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t\t<button id=\"abdel{{i}}\" (click)=\"deleteAbility(ability)\">x</button>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\r\n\t</table>\r\n\t<!--  Magic  -->\r\n\t<table border=\"1px\" align=\"center\" *ngFor=\"let magic of life.magics,let i = index\">\r\n\t\t<tr *ngIf=\"i==0\">\r\n\t\t\t<th >NAME</th>\r\n\t\t\t<th >COST</th>\r\n\t\t\t<th >RNG</th>\r\n\t\t\t<th >AOE</th>\r\n\t\t\t<th >POW</th>\r\n\t\t\t<th >UP</th>\r\n\t\t\t<th >OFF</th>\r\n\t\t</tr>\r\n\t\t\r\n\t\t<tr >\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"mgname{{i}}\"  type=\"text\" [(ngModel)]=\"magic.name\" placeholder=\"name\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"mgcost{{i}}\"  type=\"number\" [(ngModel)]=\"magic.cost\" placeholder=\"cost\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"mgalc{{i}}\" class=\"pg\" type=\"text\" [(ngModel)]=\"magic.alc\" placeholder=\"rng\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"mgade{{i}}\"  type=\"number\" [(ngModel)]=\"magic.ade\" placeholder=\"aoe\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"mgpod{{i}}\"  type=\"number\" [(ngModel)]=\"magic.pod\" placeholder=\"pow\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"mgman{{i}}\"  type=\"checkbox\" [(ngModel)]=\"magic.man\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"mgoff{{i}}\"  type=\"checkbox\" [(ngModel)]=\"magic.off\" />\r\n\t\t\t</td>\r\n\t\t\t\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td colspan=\"6\">\r\n\t\t\t\t<label>Note:</label><input id=\"mgnt{{i}}\" class=\"inputdesc\" type=\"text\" [(ngModel)]=\"magic.note\" placeholder=\"note\" />\r\n\t\t\t\t<button id=\"mgdel{{i}}\" (click)=\"deleteMagic(magic)\">x</button>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\r\n\t</table>\r\n\t<br>\r\n\r\n\t<button (click)=\"save()\">update</button>\r\n\t <button (click)=\"add();\">\r\n\t\tadd new\r\n\t  </button>\r\n\r\n</div> \r\n\r\n\r\n<button (click)=\"goBack()\">go back</button>"
+module.exports = "<div *ngIf=\"life\">\r\n\t<!--div><span>{{life.name | uppercase }} </span></div>\r\n\t<div><span>Tipo: </span>{{life.type }}</div>\r\n\t<div><span>Total: </span>{{life.value}}</div-->\r\n    <label>New Name:\r\n      <input id=\"lifename\" [(ngModel)]=\"life.name\" placeholder=\"name\" />\r\n    </label>\r\n\t<br>\r\n\t<label>\r\n\t\tNew Base:\r\n\t\t<select id=\"lifebase\" (change)=\"noMultipleBattleEngine()\" [(ngModel)]=\"life.base\"  >\r\n\t  <option value=\"small\">Small</option>\r\n\t  <option value=\"medium\">Medium</option>\r\n\t  <option value=\"large\">Large</option>\r\n\t  <option value=\"huge\">Huge</option>\r\n\t  </select>\r\n\t</label>\r\n\t<br>\r\n\t<label>\r\n\t\tNew Type:\r\n\t\t<select id=\"lifetype\" (change)=\"setdefault()\" [(ngModel)]=\"life.type\"  >\r\n\t  <option value=\"vitalidade\">Vitality</option>\r\n\t  <option value=\"espiral\">Spiral</option>\r\n\t  <option value=\"grid\">Warjack</option>\r\n\t  </select>\r\n\t</label>\r\n\t<br>\r\n\t<label>\r\n\t<!--  status  -->\r\n\tSPD:<input type=\"number\" [(ngModel)]=\"life.spd\" placeholder=\"spd\" />\r\n\tARM:<input id=\"armdemonstrativo\" type=\"number\" [(ngModel)]=\"life.arm\" placeholder=\"arm\" />\r\n\tDEF:<input type=\"number\" [(ngModel)]=\"life.def\" placeholder=\"def\" />\r\n\tINIT:<input type=\"number\" [(ngModel)]=\"life.inc\" placeholder=\"init\" />\r\n\t<br>\r\n\tWILL:<input type=\"number\" [(ngModel)]=\"life.von\" placeholder=\"will\" />\r\n\tARC:<input type=\"number\" [(ngModel)]=\"life.arc\" placeholder=\"arc\" />\r\n\tCMD:<input type=\"number\" [(ngModel)]=\"life.cmd\" placeholder=\"cmd\" />\r\n\tTHR:<input type=\"number\" [(ngModel)]=\"life.thr\" placeholder=\"Threshold\" />\r\n\t</label>\r\n\t<!--div [ngSwitch]=\"life.type\">\r\n\t\t<div *ngSwitchCase=\"'vitalidade'\">\r\n\t\t<input [(ngModel)]=\"life.value\" placeholder=\"quantidade\" />\r\n\t\t</div>\r\n\t\t<div *ngSwitchCase=\"'espiral'\">\r\n\t\t<input [(ngModel)]=\"life.value\" placeholder=\"fis,agi,int\" />\r\n\t\t</div>\r\n\t\t<div *ngSwitchCase=\"'grid'\">\r\n\t\t<input [(ngModel)]=\"life.value\" placeholder=\"caixas\" />\r\n\t\t</div>\r\n\t</div-->\r\n\t<div  *ngIf=\"life.type === 'vitalidade'\">\r\n\t\r\n\t<!--input [(ngModel)]=\"life.value\" placeholder=\"quantidade\" /-->\r\n\t<!--[checked]=\"i < life.value\" não funcionou, logo tive que trapaçear-->\r\n\t<!--  vit  -->\r\n\t<button *ngIf=\"life.base !== 'huge'\" id=\"addvitbar\" (click)=\"addVitality()\"><label>Add new Vitality bar</label></button>\r\n\t<button *ngIf=\"life.base !== 'huge'\" id=\"removevitbar\" (click)=\"delVitality()\"><label>Remove last Vitality bar</label></button>\r\n\t<div *ngFor=\"let vit of getVitalities(),let i = index\">\r\n\t\r\n\t\r\n\t<div  [class.containervitality]=\"life.base === 'huge'\">\r\n\t<label *ngIf=\"life.base !== 'huge'\" class=\"vitcheck\">{{i+1}}:</label>\r\n\t<input  class=\"vitcheck\" id=\"cb{{i}}{{c}}\" (change)=\"vitalityup(i,c)\" type=\"checkbox\" *ngFor=\"let c of numerica(0,(life.base === 'huge' ? 40 : 15))\" [checked]=\"c< vit\" /><label class=\"vitcheck\">{{vit}}</label>\r\n\t</div>\r\n\t\r\n\t</div>\r\n\t\r\n\t<!--input  (click)=\"vitalityup(this.checked)\" type=\"checkbox\" *ngFor=\"let i of numerica(+life.value,15)\" /-->\r\n\t</div>\r\n\t\r\n\t<div *ngIf=\"life.type === 'espiral'\">\r\n\t\r\n\t\r\n\t<!--  Fis  -->\r\n\t<div [class.hugespiral]=\"life.base == 'huge'\" class=\"fisdiv\">\r\n\t\r\n\t<div class=\"firsts\">\r\n\t<input  id=\"cbf{{i}}\" (change)=\"fisup(0,i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,2)\" [checked]=\"i< getFis(0)\" />\r\n\t</div>\r\n\t<div [class.containerhuge]=\"life.base == 'huge'\" class=\"container\">\r\n\t\t<input class=\"top\"  id=\"cbf{{i}}\" (change)=\"fisup(1,i)\" type=\"checkbox\" *ngFor=\"let i of numerica(2,(life.base === 'huge' ? 13 : 9))\" [checked]=\"(i-2)< getFis(1)\" />\r\n\t\t<input class=\"bot\"  id=\"cbf{{i}}\" (change)=\"fisup(2,i)\" type=\"checkbox\" *ngFor=\"let i of numerica((life.base === 'huge' ? 13 : 9),(life.base === 'huge' ? 24 : 16))\" [checked]=\"(i-(life.base === 'huge' ? 13 : 9))< getFis(2)\" />\r\n\t</div>\r\n\t<label class=\"spirallabel\">{{getFis()}}</label>\r\n\t</div>\r\n\t\r\n\t<!--  Agi  -->\r\n\t<div [class.hugespiral]=\"life.base == 'huge'\" class=\"agidiv\">\r\n\t\r\n\t<div class=\"firsts\">\r\n\t<input  id=\"cba{{i}}\" (change)=\"agiup(0,i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,2)\" [checked]=\"i< getAgi(0)\" />\r\n\t</div>\r\n\t<div [class.containerhuge]=\"life.base == 'huge'\" class=\"container\">\r\n\t\t<input class=\"top\"  id=\"cba{{i}}\" (change)=\"agiup(1,i)\" type=\"checkbox\" *ngFor=\"let i of numerica(2,(life.base === 'huge' ? 13 : 9))\" [checked]=\"(i-2)< getAgi(1)\" />\r\n\t\t<input class=\"bot\"  id=\"cba{{i}}\" (change)=\"agiup(2,i)\" type=\"checkbox\" *ngFor=\"let i of numerica((life.base === 'huge' ? 13 : 9),(life.base === 'huge' ? 24 : 16))\" [checked]=\"(i-(life.base === 'huge' ? 13 : 9))< getAgi(2)\" />\r\n\t</div>\r\n\t<label class=\"spirallabel\">{{getAgi()}}</label>\r\n\t</div>\r\n\t\r\n\t<!--  Int  -->\r\n\t<div [class.hugespiral]=\"life.base == 'huge'\" class=\"intdiv\">\r\n\t\r\n\t<div class=\"firsts\">\r\n\t<input class=\"btn-primary\" id=\"cbi{{i}}\" (change)=\"intup(0,i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,2)\" [checked]=\"i< getInt(0)\" />\r\n\t</div>\r\n\t<div [class.containerhuge]=\"life.base == 'huge'\" class=\"container\">\r\n\t\t<input class=\"top\" id=\"cbi{{i}}\" (change)=\"intup(1,i)\" type=\"checkbox\" *ngFor=\"let i of numerica(2,(life.base === 'huge' ? 13 : 9))\" [checked]=\"(i-2)< getInt(1)\" />\r\n\t\t<input class=\"bot\" id=\"cbi{{i}}\" (change)=\"intup(2,i)\" type=\"checkbox\" *ngFor=\"let i of numerica((life.base === 'huge' ? 13 : 9),(life.base === 'huge' ? 24 : 16))\" [checked]=\"(i-(life.base === 'huge' ? 13 : 9))< getInt(2)\" />\r\n\t</div>\r\n\t<label class=\"spirallabel\">{{getInt()}}</label>\r\n\t</div>\r\n\t<br>\r\n\t<!--  field  -->\r\n\t\t<div *ngIf=\"life.base !== 'huge'\">\r\n\t\t<input class=\"fieldcheck\" id=\"cbd{{i}}\" (change)=\"fieldup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,6)\" [checked]=\"i< getField()\" />\r\n\t\t</div>\r\n\t</div>\r\n\t<!--  grid  -->\r\n\t<br>\r\n\t<div class=\"divgrid\" *ngIf=\"life.type === 'grid'\">\r\n\t\t\r\n\t\t<table   align=\"center\" class=\"tablegrid\" style=\"background-image: url(assets/grid.png)\">\r\n\t\t<tr class=\"gridcomp\">\r\n\t\t\t<th *ngFor=\"let i of numerica(0,6)\"></th>\r\n\t\t</tr>\r\n\t\t<tr *ngFor=\"let l of numerica(0,6)\">\r\n\t\t\t<td *ngFor=\"let letra of getColumn(l),let x = index\">\r\n\t\t\t\t<button class=\"gridcomp gridbuton\" id=\"btn{{l}}{{x}}\" [class.damaged]=\"letra.indexOf('.')!=-1\" [class.offgrid]=\"letra.indexOf('x')!=-1\" [class.bodygrid]=\"letra.indexOf('o')!=-1\" (click)=\"callchoice($event)\">{{letra[0]}}</button>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t</table>\r\n\t\t<div class=\"fieldflex;\" style=\"display:flex;flex-wrap: wrap;justify-content: flex-start;flex-flow:column-reverse;\">\r\n\t\t<input class=\"fieldcheck\" id=\"cbgd{{i}}\" (change)=\"Gfieldup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(((life.base === 'huge' || life.base === 'large') ? 6 :  3),((life.base === 'huge' || life.base === 'large') ? 12 :  6))\" [checked]=\"i< getGField()\"/>\r\n\t\t</div>\r\n\t\t<div class=\"fieldflex;\" style=\"display:flex;flex-wrap: wrap;justify-content: flex-start;flex-flow:column-reverse;\">\r\n\t\t<input class=\"fieldcheck\" id=\"cbgd{{i}}\" (change)=\"Gfieldup(i)\" type=\"checkbox\" *ngFor=\"let i of numerica(0,((life.base === 'huge' || life.base === 'large') ? 6 :  3))\" [checked]=\"i< getGField()\"/>\r\n\t\t</div>\r\n\t\t\r\n\t\t<!--colossal-->\r\n\t\t<br>\r\n\t\t<table *ngIf=\"life.base === 'huge'\" align=\"center\" class=\"tablegrid\" style=\"background-image: url(assets/grid.png)\">\r\n\t\t<tr class=\"gridcomp\" >\r\n\t\t\t<th *ngFor=\"let i of numerica(0,6)\"></th>\r\n\t\t</tr>\r\n\t\t<tr  *ngFor=\"let l of numerica(7,13)\">\r\n\t\t\t<td *ngFor=\"let letra of getColumn(l),let x = index\">\r\n\t\t\t\t<button class=\"gridcomp gridbuton\" id=\"btn{{l}}{{x}}\" [class.damaged]=\"letra.indexOf('.')!=-1\" [class.offgrid]=\"letra.indexOf('x')!=-1\" [class.bodygrid]=\"letra.indexOf('o')!=-1\" (click)=\"callchoice($event)\">{{letra[0]}}</button>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\t</table>\r\n\t\t\r\n\t\t\r\n\t</div>\r\n\t\r\n\t<!--  adds  -->\r\n\t<br>\r\n\t<button id=\"addmeele\" (click)=\"addMeeleWepon()\"><label>New Meele Weapon</label></button>\r\n\t<button id=\"addrange\" (click)=\"addRageWepon()\"><label>New Range Weapon</label></button>\r\n\t<button id=\"addability\" (click)=\"addAbility()\"><label>New Ability</label></button>\r\n\t<button id=\"addmagic\" (click)=\"addMagic()\"><label>New Magic</label></button>\r\n\t<br>\r\n\t<!--  weapons  -->\r\n\t<!--  meele weapons  -->\r\n\t<!--align=\"{{wep.local == 'd' ? 'right' : wep.local == 'e' ? 'left' : 'center' }}\"-->\r\n\t<div class=\"divflex;\" style=\"display:flex;flex-wrap: wrap;justify-content: space-around;\">\r\n\t<!--\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tMath.round não funciona-->\r\n\t<table [class.rightwep]=\"(wep.local | uppercase)=='R'\" [class.leftwep]=\"(wep.local | uppercase)=='L'\" *ngFor=\"let wep of life.melleweapons,let i = index\" [ngStyle]=\"{'order':getBorder(i)}\" border=\"1px\">\r\n\t<tr>\r\n\t\t<th colspan=\"4\">\r\n\t\t<input id=\"mlname{{i}}\" [(ngModel)]=\"wep.name\" placeholder=\"name\" />\r\n\t\t<button id=\"mldel{{i}}\" (click)=\"deleteMeeleWeapon(wep)\">Remove</button>\r\n\t\t</th>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>\r\n\t\t<img src=\"assets/meele.png\" />\r\n\t\t\r\n\t\t<input id=\"mllocal{{i}}\" class=\"local\" type=\"text\" [(ngModel)]=\"wep.local\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tMAT:<input id=\"mlhit{{i}}\" type=\"number\" [(ngModel)]=\"wep.hit\" placeholder=\"mat\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tPOW:<input id=\"mlpod{{i}}\" type=\"number\" [(ngModel)]=\"wep.pod\" placeholder=\"pow\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tS+P:<input id=\"mlpf{{i}}\" type=\"number\" [(ngModel)]=\"wep.pf\" placeholder=\"s + p\" />\r\n\t\t</td>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td colspan=\"4\">Note:<input id=\"mlnt{{i}}\" class=\"inputdesc\" [(ngModel)]=\"wep.note\" placeholder=\"note\" /></td>\r\n\t</tr>\r\n\t</table>\r\n\t\r\n\t</div>\r\n\t<!--  range weapons  -->\r\n\t<!--align=\"{{wep.local == 'd' ? 'right' : wep.local == 'e' ? 'left' : 'center' }}\"-->\r\n\t<div class=\"divflex;\" style=\"display:flex;flex-wrap: wrap;justify-content: space-around;\">\r\n\t<table [class.rightwep]=\"(wep.local | uppercase)=='R'\" [class.leftwep]=\"(wep.local | uppercase)=='L'\" border=\"1px\" *ngFor=\"let wep of life.rangeweapons,let i = index\">\r\n\t<tr>\r\n\t\t<th colspan=\"6\">\r\n\t\t<input id=\"rgname{{i}}\" [(ngModel)]=\"wep.name\" placeholder=\"name\" />\r\n\t\t<button id=\"rgdel{{i}}\" (click)=\"deleteRangeWeapon(wep)\">Remove</button>\r\n\t\t</th>\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td>\r\n\t\t<img src=\"assets/range.png\" />\r\n\t\t<input id=\"rglocal{{i}}\" class=\"local\" type=\"text\" [(ngModel)]=\"wep.local\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tRAT:<input id=\"rghit{{i}}\"  type=\"number\" [(ngModel)]=\"wep.hit\" placeholder=\"rat\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tRNG:<input id=\"rgalc{{i}}\" type=\"number\" [(ngModel)]=\"wep.alc\" placeholder=\"rng\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tROF:<input id=\"rgrof{{i}}\" type=\"number\" [(ngModel)]=\"wep.munition\" placeholder=\"rof\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tAOE:<input id=\"rgade{{i}}\" type=\"number\" [(ngModel)]=\"wep.ade\" placeholder=\"aoe\" />\r\n\t\t</td>\r\n\t\t<td>\r\n\t\tPOW:<input id=\"rgpod{{i}}\" type=\"number\" [(ngModel)]=\"wep.pod\" placeholder=\"pow\" />\r\n\t\t</td>\r\n\t\t\r\n\t\t\r\n\t</tr>\r\n\t<tr>\r\n\t\t<td colspan=\"6\">Note:<input id=\"rgnt{{i}}\" class=\"inputdesc\" [(ngModel)]=\"wep.note\" placeholder=\"note\" /></td>\r\n\t</tr>\r\n\t</table>\r\n\t</div>\r\n\t<!--  abilities  -->\r\n\t<div class=\"divflex;\" style=\"display:flex;flex-wrap: wrap;justify-content: space-around;\">\r\n\t<table border=\"1px\" *ngFor=\"let ability of life.abilities,let i = index\">\r\n\t\t<tr >\r\n\t\t\t<th >NAME</th>\r\n\t\t\t<th >DESCRIPTION</th>\r\n\t\t\t<th >PAG</th>\r\n\t\t</tr>\r\n\t\t\r\n\t\t<tr >\r\n\t\t\t<td rowspan=\"2\">\r\n\t\t\t\t<input id=\"abname{{i}}\" class=\"name\" type=\"text\" [(ngModel)]=\"ability.name\" placeholder=\"name\" />\r\n\t\t\t</td>\r\n\t\t\t<td rowspan=\"2\">\r\n\t\t\t\t<textarea id=\"abdesc{{i}}\" class=\"desc\" placeholder=\"ability description\" [(ngModel)]=\"ability.desc\" ></textarea>\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"abpg{{i}}\" class=\"pg\" type=\"text\" [(ngModel)]=\"ability.pg\" placeholder=\"pag\" />\r\n\t\t\t\t\r\n\t\t\t</td>\r\n\t\t\t\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>\r\n\t\t\t\t<button id=\"abdel{{i}}\" (click)=\"deleteAbility(ability)\">x</button>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\r\n\t</table>\r\n\t</div>\r\n\t<!--  Magic  -->\r\n\t<div class=\"divflex;\" style=\"display:flex;flex-wrap: wrap;justify-content: space-around;\">\r\n\t<table border=\"1px\" *ngFor=\"let magic of life.magics,let i = index\">\r\n\t\t<tr *ngIf=\"i==0\">\r\n\t\t\t<th >NAME</th>\r\n\t\t\t<th >COST</th>\r\n\t\t\t<th >RNG</th>\r\n\t\t\t<th >AOE</th>\r\n\t\t\t<th >POW</th>\r\n\t\t\t<th >UP</th>\r\n\t\t\t<th >OFF</th>\r\n\t\t</tr>\r\n\t\t\r\n\t\t<tr >\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"mgname{{i}}\"  type=\"text\" [(ngModel)]=\"magic.name\" placeholder=\"name\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"mgcost{{i}}\"  type=\"number\" [(ngModel)]=\"magic.cost\" placeholder=\"cost\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"mgalc{{i}}\" class=\"pg\" type=\"text\" [(ngModel)]=\"magic.alc\" placeholder=\"rng\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"mgade{{i}}\"  type=\"number\" [(ngModel)]=\"magic.ade\" placeholder=\"aoe\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"mgpod{{i}}\"  type=\"number\" [(ngModel)]=\"magic.pod\" placeholder=\"pow\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"mgman{{i}}\"  type=\"checkbox\" [(ngModel)]=\"magic.man\" />\r\n\t\t\t</td>\r\n\t\t\t<td >\r\n\t\t\t\t<input id=\"mgoff{{i}}\"  type=\"checkbox\" [(ngModel)]=\"magic.off\" />\r\n\t\t\t</td>\r\n\t\t\t\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td colspan=\"6\">\r\n\t\t\t\t<label>Note:</label><input id=\"mgnt{{i}}\" class=\"inputdesc\" type=\"text\" [(ngModel)]=\"magic.note\" placeholder=\"note\" />\r\n\t\t\t\t<button id=\"mgdel{{i}}\" (click)=\"deleteMagic(magic)\">x</button>\r\n\t\t\t</td>\r\n\t\t</tr>\r\n\t\r\n\t</table>\r\n\t</div>\r\n\t<br>\r\n\r\n\t<button (click)=\"save()\">update</button>\r\n\t <button (click)=\"add();\">\r\n\t\tadd new\r\n\t  </button>\r\n\r\n</div> \r\n\r\n\r\n<button (click)=\"goBack()\">go back</button>"
 
 /***/ }),
 
@@ -1019,7 +1015,7 @@ var LifeDetailComponent = /** @class */ (function () {
         this.location = location;
         this.spirals = new Array();
         this.grid = new Array();
-        this.letras = ['x', 'o', 'R', 'L', 'M', 'C', 'A', 'G'];
+        this.letras = ['x', 'o', 'R', 'L', 'M', 'C', 'A', 'G', 'S'];
         this.vitalities = [];
     }
     LifeDetailComponent.prototype.ngOnInit = function () {
@@ -1060,10 +1056,17 @@ var LifeDetailComponent = /** @class */ (function () {
             this.life.value = '0';
         }
         else if (this.life.type == 'espiral') {
-            this.life.value = '0,0,0';
+            this.life.value = '0,0,0,0,0,0,0,0,0,0';
         }
         else {
-            this.life.value = 'o,o,o,o,o,o;o,o,o,o,o,o;o,o,o,o,o,o;o,o,o,o,o,o;o,o,o,o,o,o;o,o,o,o,o,o;0';
+            this.life.value = 'o,o,o,o,o,o;o,o,o,o,o,o;o,o,o,o,o,o;o,o,o,o,o,o;o,o,o,o,o,o;o,o,o,o,o,o;0;o,o,o,o,o,o;o,o,o,o,o,o;o,o,o,o,o,o;o,o,o,o,o,o;o,o,o,o,o,o;o,o,o,o,o,o';
+        }
+    };
+    LifeDetailComponent.prototype.noMultipleBattleEngine = function () {
+        if (this.life.type == 'vitalidade' && this.life.base == 'huge') {
+            while (this.vitalities.length > 1) {
+                this.vitalities.pop();
+            }
         }
     };
     LifeDetailComponent.prototype.numerica = function (start, max) {
@@ -1108,67 +1111,103 @@ var LifeDetailComponent = /** @class */ (function () {
     LifeDetailComponent.prototype.checkSpiral = function () {
         if (this.spirals.length < 1) {
             var temp = this.life.value.split(',');
+            //fis
             this.spirals[0] = +temp[0];
             this.spirals[1] = +temp[1];
             this.spirals[2] = +temp[2];
+            //agi
             this.spirals[3] = +temp[3];
+            this.spirals[4] = +temp[4];
+            this.spirals[5] = +temp[5];
+            //int
+            this.spirals[6] = +temp[6];
+            this.spirals[7] = +temp[7];
+            this.spirals[8] = +temp[8];
+            //field
+            this.spirals[9] = +temp[9];
         }
     };
-    LifeDetailComponent.prototype.getFis = function () {
+    LifeDetailComponent.prototype.getFis = function (n) {
         this.checkSpiral();
-        return this.spirals[0];
+        if (n == undefined) {
+            return (this.spirals[0] + this.spirals[1] + this.spirals[2]);
+        }
+        else {
+            return this.spirals[n];
+        }
     };
-    LifeDetailComponent.prototype.fisup = function (i) {
+    LifeDetailComponent.prototype.fisup = function (n, i) {
         var cb = document.getElementById("cbf" + i);
         if (cb.checked) {
-            this.spirals[0]++;
+            this.spirals[n]++;
         }
         else {
-            this.spirals[0]--;
+            this.spirals[n]--;
         }
-        this.life.value = this.spirals[0] + "," + this.spirals[1] + "," + this.spirals[2] + "," + this.spirals[3];
+        this.saveSpiral();
     };
-    LifeDetailComponent.prototype.getAgi = function () {
+    LifeDetailComponent.prototype.getAgi = function (n) {
         this.checkSpiral();
-        return this.spirals[1];
+        if (n == undefined) {
+            return (this.spirals[3] + this.spirals[4] + this.spirals[5]);
+        }
+        else {
+            return this.spirals[(n + 3)];
+        }
     };
-    LifeDetailComponent.prototype.agiup = function (i) {
+    LifeDetailComponent.prototype.agiup = function (n, i) {
         var cb = document.getElementById("cba" + i);
         if (cb.checked) {
-            this.spirals[1]++;
+            this.spirals[(n + 3)]++;
         }
         else {
-            this.spirals[1]--;
+            this.spirals[(n + 3)]--;
         }
-        this.life.value = this.spirals[0] + "," + this.spirals[1] + "," + this.spirals[2] + "," + this.spirals[3];
+        this.saveSpiral();
     };
-    LifeDetailComponent.prototype.getInt = function () {
+    LifeDetailComponent.prototype.getInt = function (n) {
         this.checkSpiral();
-        return this.spirals[2];
+        if (n == undefined) {
+            return (this.spirals[6] + this.spirals[7] + this.spirals[8]);
+        }
+        else {
+            return this.spirals[(n + 6)];
+        }
     };
-    LifeDetailComponent.prototype.intup = function (i) {
+    LifeDetailComponent.prototype.intup = function (n, i) {
         var cb = document.getElementById("cbi" + i);
         if (cb.checked) {
-            this.spirals[2]++;
+            this.spirals[(n + 6)]++;
         }
         else {
-            this.spirals[2]--;
+            this.spirals[(n + 6)]--;
         }
-        this.life.value = this.spirals[0] + "," + this.spirals[1] + "," + this.spirals[2] + "," + this.spirals[3];
+        this.saveSpiral();
     };
     LifeDetailComponent.prototype.getField = function () {
         this.checkSpiral();
-        return this.spirals[3];
+        return this.spirals[9];
     };
     LifeDetailComponent.prototype.fieldup = function (i) {
         var cb = document.getElementById("cbd" + i);
         if (cb.checked) {
-            this.spirals[3]++;
+            this.spirals[9]++;
         }
         else {
-            this.spirals[3]--;
+            this.spirals[9]--;
         }
+        this.saveSpiral();
+    };
+    LifeDetailComponent.prototype.saveSpiral = function () {
         this.life.value = this.spirals[0] + "," + this.spirals[1] + "," + this.spirals[2] + "," + this.spirals[3];
+        var novo = "";
+        for (var i = 0; i < this.spirals.length; i++) {
+            novo += this.spirals[i];
+            if (i < this.spirals.length - 1) {
+                novo += ",";
+            }
+        }
+        this.life.value = novo;
     };
     LifeDetailComponent.prototype.checkGrid = function () {
         if (this.grid.length < 1) {
@@ -1206,6 +1245,14 @@ var LifeDetailComponent = /** @class */ (function () {
         }
         else {
             position++;
+            if (this.life.base == 'huge') {
+                if (l < 6 && temp[0] == 'o') {
+                    position++;
+                }
+                if (l > 6 && temp[0] == 'R') {
+                    position++;
+                }
+            }
         }
         this.grid[l][c] = this.letras[position];
         this.savegrid();
@@ -1223,7 +1270,24 @@ var LifeDetailComponent = /** @class */ (function () {
                 novo += ";";
             }
         }
-        this.life.value = novo + ";" + this.grid[6][0];
+        var secondnovo = '';
+        if (this.life.base == 'huge') {
+            for (var l = 7; l < 12; l++) {
+                for (var c = 7; c < 12; c++) {
+                    secondnovo += this.grid[l][c];
+                    if (c < 11) {
+                        secondnovo += ",";
+                    }
+                }
+                if (l < 11) {
+                    secondnovo += ";";
+                }
+            }
+        }
+        else {
+            secondnovo = ";o,o,o,o,o,o;o,o,o,o,o,o;o,o,o,o,o,o;o,o,o,o,o,o;o,o,o,o,o,o;o,o,o,o,o,o";
+        }
+        this.life.value = novo + ";" + this.grid[6][0] + secondnovo;
     };
     LifeDetailComponent.prototype.damageButton = function (l, c) {
         if (this.grid[l][c].indexOf('.') != -1) {
@@ -1240,10 +1304,25 @@ var LifeDetailComponent = /** @class */ (function () {
             btn.classList.add('damaged');
         }*/
     };
+    LifeDetailComponent.prototype.getBorder = function (i) {
+        i++;
+        if (i % 2 == 1) {
+            i++;
+        }
+        return (i / 2);
+    };
     LifeDetailComponent.prototype.callchoice = function (e) {
         var temp = e.srcElement.id.substring(3).split('');
-        var l = +temp[0];
-        var c = +temp[1];
+        var l = 0;
+        var c = 0;
+        if (temp.length == 3) {
+            l = +(temp[0] + temp[1]);
+            c = +temp[2];
+        }
+        else {
+            l = +temp[0];
+            c = +temp[1];
+        }
         if (e.shiftKey || e.ctrlKey) {
             this.damageButton(l, c);
         }
@@ -1785,7 +1864,7 @@ var RangeWeapon = /** @class */ (function (_super) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "label {\r\n  /*display: inline-block;*/\r\n  width: 3em;\r\n  margin: .5em 0;\r\n  color: #351cf3;\r\n  font-weight: bold;\r\n}\r\nh3 {\r\n  margin-left: 14px;\r\n}\r\nimg{\r\n\tmargin-left: 10px;\r\n}\r\nbutton {\r\n  text-decoration: none;\r\n  margin-top: 10px;\r\n  display: inline-block;\r\n  background: #00000000;\r\n  border-color: #00000000;\r\n  border-radius: 4px;\r\n  position:relative;\r\n  \r\n}\r\nbutton:hover {\r\n  color: #039be5;\r\n  background-color: #CFD8DC;\r\n}\r\ndiv{\r\n\tmargin-top:10px;\r\n\twidth: -webkit-fit-content;\r\n\twidth: -moz-fit-content;\r\n\twidth: fit-content;\r\n\tmargin-left: 14px;\r\n}\r\n.right{\r\n\tfloat:right;\r\n}\r\n.hidden{\r\n\tdisplay:none;\r\n}"
+module.exports = "label {\r\n  /*display: inline-block;*/\r\n  width: 3em;\r\n  margin: .5em 0;\r\n  color: #351cf3;\r\n  font-weight: bold;\r\n}\r\nh3 {\r\n  margin-left: 14px;\r\n}\r\nimg{\r\n\tmargin-left: 10px;\r\n}\r\nbutton {\r\n  text-decoration: none;\r\n  margin-top: 10px;\r\n  display: inline-block;\r\n  background: #00000000;\r\n  border-color: #00000000;\r\n  border-radius: 4px;\r\n  position:relative;\r\n  \r\n}\r\nbutton:hover {\r\n  \r\n  background-color: aliceblue;\r\n  border-width: 2px;\r\n  border-color: yellow;\r\n  border-style: dashed;\r\n}\r\ndiv{\r\n\tmargin-top:10px;\r\n\twidth: -webkit-fit-content;\r\n\twidth: -moz-fit-content;\r\n\twidth: fit-content;\r\n\tmargin-left: 14px;\r\n}\r\n.right{\r\n\tfloat:right;\r\n}\r\n.hidden{\r\n\tdisplay:none;\r\n}"
 
 /***/ }),
 
@@ -1796,7 +1875,7 @@ module.exports = "label {\r\n  /*display: inline-block;*/\r\n  width: 3em;\r\n  
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div >\r\n\t<div>\r\n\t<select class=\"right\" (change)=\"setdefault()\" [(ngModel)]=\"idioma\"  >\r\n\t  <option value=\"0\">Português(Brasil)</option>\r\n\t  <option value=\"1\">English</option>\r\n\t  </select>\r\n\t<img class=\"right\" src=\"assets/language.png\" width=\"24px\" height=\"24px\"/>\r\n\t </div>\r\n\t<h3><label>{{this.oi.text[this.idioma]}} <button (click)=\"hide()\" ><img id=\"hideimg\" class=\"right\" src=\"assets/arrow.png\" width=\"24px\" height=\"24px\"/></button></label></h3>\r\n\t<!--<button *ngFor=\"let info of this.infos.slice(1)\" (click)=\"focalizar(info.for)\" [ngStyle]=\"{'top':(info.pos*15)+'px','width':info.width+'%'}\"><label>  {{info.text[this.idioma]}}</label></button>-->\r\n\t<ul class=\"hidden\" id=\"ulhelp\" type=\"none\">\r\n\t\t<li *ngFor=\"let infos of this.infosmatrix\">\r\n\t\t\t<button *ngFor=\"let info of infos\" (click)=\"focalizar(info.for)\" ><label>  {{info.text[this.idioma]}}</label></button>\r\n\t\t</li>\r\n\t</ul>\r\n\t<!-- ================ MENU ================ -->\r\n\t<!--\t<div *ngIf=\"this.aba === 'menu'\">\r\n\t\t<div  >\r\n\t\t<button *ngFor=\"let info of this.infos.slice(1)\" (click)=\"focalizar(info.for)\" [ngStyle]=\"{'width':info.width+'%'}\"><label>  {{info.text[this.idioma]}}</label></button>\r\n\t\t</div>\r\n\t\t-->\r\n\t\t\r\n\t<!-- ================ LIFES ================ -->\r\n\t<!--\t<div *ngIf=\"this.aba === 'life'\">\r\n\t\t<div  >\r\n\t\t<button *ngFor=\"let info of this.infos.slice(1)\" (click)=\"focalizartag(info.for)\" [ngStyle]=\"{'width':info.width+'%'}\"><label>  {{info.text[this.idioma]}}</label></button>\r\n\t\t</div>\r\n\t\t</div>\r\n\t\t-->\r\n\t\t\r\n\t<!-- ================ DETAIL ================ -->\r\n\t<!--\t<div *ngIf=\"this.aba === 'detail'\">\r\n\t\t  \r\n\t\t</div>\r\n\t\t-->\r\n\t\t\r\n</div>"
+module.exports = "<div >\r\n\t<div>\r\n\t<select class=\"right\"  [(ngModel)]=\"idioma\"  >\r\n\t  <option value=\"0\">Português(Brasil)</option>\r\n\t  <option value=\"1\">English</option>\r\n\t  </select>\r\n\t<img class=\"right\" src=\"assets/language.png\" width=\"24px\" height=\"24px\"/>\r\n\t </div>\r\n\t<h3><label>{{this.oi.text[this.idioma]}} <button (click)=\"hide()\" ><img id=\"hideimg\" class=\"right\" src=\"assets/arrow.png\" width=\"24px\" height=\"24px\"/></button></label></h3>\r\n\t<!--<button *ngFor=\"let info of this.infos.slice(1)\" (click)=\"focalizar(info.for)\" [ngStyle]=\"{'top':(info.pos*15)+'px','width':info.width+'%'}\"><label>  {{info.text[this.idioma]}}</label></button>-->\r\n\t<ul class=\"hidden\" id=\"ulhelp\" type=\"none\">\r\n\t\t<li *ngFor=\"let infos of this.infosmatrix\">\r\n\t\t\t<button *ngFor=\"let info of infos\" (click)=\"focalizar(info.for)\" ><label>  {{info.text[this.idioma]}}</label></button>\r\n\t\t</li>\r\n\t</ul>\r\n\t<!-- ================ MENU ================ -->\r\n\t<!--\t<div *ngIf=\"this.aba === 'menu'\">\r\n\t\t<div  >\r\n\t\t<button *ngFor=\"let info of this.infos.slice(1)\" (click)=\"focalizar(info.for)\" [ngStyle]=\"{'width':info.width+'%'}\"><label>  {{info.text[this.idioma]}}</label></button>\r\n\t\t</div>\r\n\t\t-->\r\n\t\t\r\n\t<!-- ================ LIFES ================ -->\r\n\t<!--\t<div *ngIf=\"this.aba === 'life'\">\r\n\t\t<div  >\r\n\t\t<button *ngFor=\"let info of this.infos.slice(1)\" (click)=\"focalizartag(info.for)\" [ngStyle]=\"{'width':info.width+'%'}\"><label>  {{info.text[this.idioma]}}</label></button>\r\n\t\t</div>\r\n\t\t</div>\r\n\t\t-->\r\n\t\t\r\n\t<!-- ================ DETAIL ================ -->\r\n\t<!--\t<div *ngIf=\"this.aba === 'detail'\">\r\n\t\t  \r\n\t\t</div>\r\n\t\t-->\r\n\t\t\r\n</div>"
 
 /***/ }),
 
