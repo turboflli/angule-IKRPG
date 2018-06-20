@@ -10,6 +10,8 @@ para ler em portugues vá para [meio do arqivo](#portugues)
 
 ## ENGLISH
 
+[See running](https://turboflli.github.io/angule-IKRPG)
+
 This site serves to aid Game masters of Iron Kingdom RPG with the control of mobs, allows
  - Control of sheets (Life, Main Attributes, Weapons, Skills, Spells)
  - Order of initiative
@@ -74,6 +76,8 @@ Because of lacking mobs datas in Iron Kingdoms books, and if you don't want to c
 As you can see here is a list of [cards](https://cards.privateerpress.com/)
 
 ## PORTUGUES
+
+[Veja Rodando](https://turboflli.github.io/angule-IKRPG)
 
 Este site serve para auxiliar narradores em Reinos de Ferro RPG com o controle dos mobs, permite
  - Controle das planilhas (Vida, Atributos principais, Armas, Habilidades, Magias)
