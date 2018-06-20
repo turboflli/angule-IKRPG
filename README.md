@@ -6,7 +6,7 @@ still under development ...
 ainda em desenvolvimento ...
 ``
 
-para ler em portugues vá para [meio do arqivo](#PORTUGUES)
+para ler em portugues vá para [meio do arqivo](#potugues)
 
 ## ENGLISH
 
