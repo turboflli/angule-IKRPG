@@ -23,9 +23,8 @@ This site has three tabs in the superior side, that are: menu, lives and new, fo
 In menu is possible to add initiative and save and load files in json format.
 
 ``
-To add a new file is recommended delete the existing sheet, but probably it will update the sheet,
-If you will add a new, don't delete the existing, if you want you could update it,
-The site will NOT add a new sheet if no one exist!
+If you will add a new sheet by the tab new, don't delete the existing, if you want you could update it,
+The site will NOT add a new sheet if no one exist by tab new, only by importing
 ``
 
 ### lives
@@ -90,9 +89,8 @@ Este site possue três abas no canto superior, que são: menu, vidas e novo, par
 No menu é possível adicionar iniciativas, e salvar e importar arquivos no formato json.
 
 ``
-Para adicionar de um arquivo recomenda-se que delete a planilha já existente, mas provávelmente irá atualizar,
-Se for adicionar uma nova, não delete a existente, se quiser pode alterá-la,
-O site NÃo irá cadastrar uma nova planilha se não existir nenhuma!
+Se for adicionar uma nova planilha pela aba novo, não delete a existente, se quiser pode alterá-la,
+O site NÃo irá cadastrar uma nova planilha se não existir nenhuma atravez da aba novo, apenas pela importação
 ``
 
 ### vidas
